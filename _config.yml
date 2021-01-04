@@ -32,7 +32,6 @@ plainwhite:
     linkedIn: in/cbuchart
     stackoverflow: 1485885/cbuchart
 
-
 plugins:
   - jekyll-seo-tag
-#  - jekyll-feed
+  - jekyll-feed
