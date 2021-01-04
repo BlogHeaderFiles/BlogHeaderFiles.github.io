@@ -213,4 +213,4 @@ Enumeraré otros casos en los cuales se usa el RAII ampliamente, para que los te
 
 # Próximamente
 
-En el [siguiente artículo](https://headerfiles.com/2020/01/17/automatizando-acciones-gracias-al-raii-parte-ii/) utilizaremos el RAII para automatizar otro tipo de acciones en nuestro código. Mientras tanto, os dejo con una reflexión al respecto de parte de Jonathan Boccara, autor de Fluent C++, [To RAII or not to RAII](https://www.fluentcpp.com/2018/02/13/to-raii-or-not-to-raii/).
+En el [siguiente artículo]({{url}}/2020/01/17/automatizando-acciones-gracias-al-raii-parte-ii/) utilizaremos el RAII para automatizar otro tipo de acciones en nuestro código. Mientras tanto, os dejo con una reflexión al respecto de parte de Jonathan Boccara, autor de Fluent C++, [To RAII or not to RAII](https://www.fluentcpp.com/2018/02/13/to-raii-or-not-to-raii/).

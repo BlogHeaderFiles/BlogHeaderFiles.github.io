@@ -15,7 +15,7 @@ En esta segunda entrega de _Signals y Slots_, estudiaremos la nueva sintaxis int
 Actualización: el código de ejemplo para esta entrada está ya disponible en [GitHub (Part_2)](https://github.com/cbuchart/HeaderFiles.com/tree/master/SignalsAndSlots).
 
 # Qt 4
-El método clásico descrito en el [artículo anterior](signals-y-slots-en-qt-parte-i) (el único en Qt 4 y anteriores), tiene básicamente dos desventajas:
+El método clásico descrito en el [artículo anterior]({{url}}/2019/04/26/signals-y-slots-en-qt-parte-i) (el único en Qt 4 y anteriores), tiene básicamente dos desventajas:
 
 - No es posible hacer comprobaciones en tiempo de compilación (abriendo la puerta a muchos errores sutiles e indetectables, tales como escribir mal el nombre del _slot_). Los errores son sólo mostrados en tiempo de ejecución, por consola, y sin ningún tipo de _assert_ ni nada parecido, por lo que es muy sencillo pasarlos por alto.
 - Sólo permite unirse a métodos marcados como _slots_ en la definición de la clase.
