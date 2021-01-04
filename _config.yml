@@ -27,8 +27,7 @@ plainwhite:
     - title: Carlos Buchart
       url: "https://cbuchart.com"
     - title: Créditos
-      url: "/creditos"
-  # generate social links in footer
+      url: "/pages/creditos"
   social_links:
     twitter: carlosbuchart
     github:  cbuchart
