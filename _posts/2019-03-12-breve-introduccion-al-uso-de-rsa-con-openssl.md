@@ -13,7 +13,7 @@ Dejo acá un poco mi experiencia y resumen de uso, tanto en la línea de comando
 
 Nota: lo he usado sólo en entorno Windows, por lo que no estoy seguro si la sintaxis sea exactamente igual.
 
-## Generar el par de claves pública y privada
+#### Generar el par de claves pública y privada
 Primero generamos la clave privada en formato [PEM](http://www.cryptosys.net/pki/rsakeyformats.html) (el número al final es el tamaño de la clave, si se omite será de 512 bits):
 
 ```bash
@@ -26,7 +26,7 @@ Ahora, extraemos la clave pública:
 openssl rsa -pubout -in private.pem -out public.pem
 ```
 
-## Firmar ficheros
+#### Firmar ficheros
 Para el proyecto que mencioné necesitaba verificar la autenticidad de ciertos ficheros. Para ello decidí utilizar un protocolo de verificación bastante tradicional consistente en firmar los ficheros en cuestión con la clave privada y al recibir los ficheros desencriptarlos con la clave pública y comprobar que el contenido coincide con el del fichero sin firmar. Ambos pasos son necesarios (desencriptar y comprobar) para evitar que versiones correctamente firmadas, pero no las deseadas, puedan enviarse en lugar del fichero correcto.
 
 Para firmar un fichero:
@@ -43,17 +43,17 @@ openssl rsautl -verify -in signed.txt -inkey public.pem -pubin
 
 Se debería mostrar el contenido del fichero. En caso de que el fichero no estuviese firmado con la clave privada OpenSSL dará un error.
 
-## Verificar el fichero firmado utilizando C/C++
+#### Verificar el fichero firmado utilizando C/C++
 Acá fue donde más problemas tuve y lo que me llevó a escribir este post, de forma que otros puedan aprovecharse de mis golpes al aire. Haré la menor cantidad de suposiciones posibles a fin de que esté todo claro. Sólo asumiré que las rutas de los ficheros de cabeceras y todo eso está configurado.
 
 Ficheros de cabecera de OpenSSL necesarios:
 
 ```cpp
-#include <openssl/err.h>
-#include <openssl/bio.h>
-#include <openssl/pem.h>
-#include <openssl/evp.h>
-#include <openssl/rsa.h>
+###include <openssl/err.h>
+###include <openssl/bio.h>
+###include <openssl/pem.h>
+###include <openssl/evp.h>
+###include <openssl/rsa.h>
 ```
 
 Al cargar la clave pública, contemplo dos opciones (aunque soy partidario de la segunda):

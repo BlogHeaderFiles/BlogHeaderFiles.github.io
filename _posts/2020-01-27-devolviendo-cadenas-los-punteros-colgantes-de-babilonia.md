@@ -20,9 +20,7 @@ Sin entrar en detalle, podemos enumerar algunas soluciones o ayudas a estos prob
  -  inicializar todas las variables (particularmente me gusta la [nueva sintaxis de C++11](https://en.cppreference.com/w/cpp/language/data_members#Member_initialization) para variables miembro, ya que se ve cuáles no han sido inicializados, además de simplificar los constructores),
  -  no usar referencias por defecto en las captura de los lambdas, entre otros.
 
-
-# Devolviendo cadenas como punteros a `char`
-
+### Devolviendo cadenas como punteros a `char`
 En este artículo me gustaría comentar un caso un poco oculto de _dangling pointer_. Consideremos que tenemos una biblioteca que debe proveer una API usando únicamente PODs ([_plain old data_](https://stackoverflow.com/q/146452/1485885)) (ver al final del artículo un posible escenario para necesitar esta solución):
 
 ```cpp
@@ -69,9 +67,7 @@ public:
 
 En este caso, `Dict::toJSON` está devolviendo un puntero inválido, ya que el objeto local `json` es destruido al finalizar la ejecución de la función, y por lo tanto su memoria es liberada.
 
-
-# Primera aproximación
-
+### Primera aproximación
 Una posible solución sería usar una variable estática o miembro, que no es destruida al terminar la función:
 
 ```cpp
@@ -96,9 +92,7 @@ public:
 
 En este caso ya no tendríamos el puntero inválido, pero sí una posible condición de carrera en caso de que el método fuese invocado de forma concurrente (lo mismo podría pasar si la cadena fuese miembro del objeto). Y no cambia mucho el escenario si protegiésemos el objeto para solucionar la condición de carrera, ya que sólo sería válido el último puntero devuelto.
 
-
-# Solución usando un buffer por hilo
-
+### Solución usando un buffer por hilo
 La siguiente función resuelve el problema por completo, creando una pequeña lista circular _por hilo_ en la que se almacena una copia de la cadena y devolviendo un puntero a dicha copia.
 
 ```cpp
@@ -129,21 +123,19 @@ Lo interesante de esta función es el uso de [`thread_local`](https://en.cpprefe
 
 Como nota final, el número de elementos normalmente no debería ser muy elevado, ya que la misión de esta función es la de servir de puente, no de almacenamiento a largo plazo.
 
-
-# Ejemplo completo
-
+### Ejemplo completo
 Se puede ejecutar online en [Coliru](https://coliru.stacked-crooked.com/a/8621b4e3a77e14ac).
 
 ```cpp
-#include <iostream>
-#include <cassert>
-#include <vector>
-#include <string>
-#include <map>
-#include <numeric>
-#include <thread>
-#include <mutex>
-#include <sstream>
+###include <iostream>
+###include <cassert>
+###include <vector>
+###include <string>
+###include <map>
+###include <numeric>
+###include <thread>
+###include <mutex>
+###include <sstream>
 
 const char *saveString(std::string str)
 {
@@ -219,9 +211,7 @@ int main()
 }
 ```
 
-
-# Actualización
-
+### Actualización
 Un comentario que ha surgido a raíz del artículo es sobre por qué complicarse la vida devolviendo el puntero en lugar del `std::string` directamente y usar luego el método `std::string::c_str` en local. Aunque pueden haber distintos escenarios, el que motiva este artículo es la integración de módulos que usan [_runtimes_](https://en.wikibooks.org/wiki/C_Programming/Standard_libraries#Common_support_libraries) distintos (normalmente uno estático y otro dinámico).
 
 Explicado brevemente, el problema es que cada _runtime_ tiene sus propias estructuras de gestión de memoria, por lo que si un módulo reserva memoria en un _runtime_, ésta no puede ser liberada en otro _runtime_, ya que el segundo no conoce la reserva del primero (más información [acá](https://stackoverflow.com/q/12215681/1485885)). Es por ello que las interfaces entre estos módulos no comunican objetos, para evitar que la construcción la realice un _runtime_ y la destrucción otro.

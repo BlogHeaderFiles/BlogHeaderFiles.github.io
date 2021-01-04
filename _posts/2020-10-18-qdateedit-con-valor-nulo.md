@@ -27,8 +27,8 @@ Por último, un detalle de usabilidad: dado que una fecha _nula_ es realmente la
 El código completo viene siendo el siguiente:
 
 ```cpp
-#include <qdatetimeedit.h>
-#include <qcalendarwidget.h>
+###include <qdatetimeedit.h>
+###include <qcalendarwidget.h>
 
 class QDateEditWithNull : public QDateEdit
 {

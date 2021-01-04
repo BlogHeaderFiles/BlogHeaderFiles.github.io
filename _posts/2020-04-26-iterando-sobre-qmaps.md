@@ -22,10 +22,8 @@ Una comparación exhaustiva puede encontrarse en [Clean Qt](https://www.cleanqt.
 
 En este artículo voy a describir un escenario con el que me topo cotidianamente: iterar sobre un contenedor tipo mapa, y compararé cómo hacerlo con un `std::map` y con un `QMap`, aunque en general son análogas con otros tipos de mapas como los `std::unordered_map` y `QHash` (con la salvedad de los tiempos de búsqueda de elementos).
 
-# `std::map`
-
-## Usando iteradores
-
+### `std::map`
+#### Usando iteradores
 Complejidad O(n). Cambiar `begin`/`end` por `cbegin`/ `cend` para inmutables.
 
 ```cpp
@@ -34,8 +32,7 @@ for (auto it = std_map.begin(); it != std_map.end(); ++it) {
 }
 ```
 
-## Usando _range-for_
-
+#### Usando _range-for_
 Complejidad O(n). Añadir `const` a `elem` para inmutables.
 
 ```cpp
@@ -44,10 +41,8 @@ for (auto&amp; elem : std_map) {
 }
 ```
 
-# `QMap`
-
-## Usando iteradores
-
+### `QMap`
+#### Usando iteradores
 Complejidad O(n). Cambiar `begin`/`end` por `cbegin`/ `cend` para inmutables.
 
 ```cpp
@@ -56,8 +51,7 @@ for (auto it = qmap.begin(); it != qmap.end(); ++it) {
 }
 ```
 
-## Usando la forma _Java_
-
+#### Usando la forma _Java_
 Complejidad O(n). Usar `QMutableMapIterator` para mutables.
 
 ```cpp
@@ -74,8 +68,7 @@ Es posible hacer más genérica la declaración del iterador mediante el uso de 
 QMapIterator<decltype(qmap)::key_type, decltype(qmap)::mapped_type> it(qmap);
 ```
 
-## Usando _range-for_
-
+#### Usando _range-for_
 Complejidad O(n). Añadir `const` a `elem` para inmutables.
 
 ```cpp
@@ -86,8 +79,7 @@ for (auto&amp; elem : qmap) {
 
 Lo malo es que con esta sintaxis sólo se itera sobre los valores, no hay forma de obtener la clave asociada. Existen opciones para lograrlo pero que aumentan la complejidad:
 
-### Iterar sobre las claves
-
+##### Iterar sobre las claves
 ```cpp
 for (const auto&amp; key : qmap.keys()) {
   qDebug() << key << qmap[key];
@@ -96,8 +88,7 @@ for (const auto&amp; key : qmap.keys()) {
 
 El problema es que en ninguna parte se garantiza que la lista de claves se extraiga en tiempo constante, además de tener que buscar cada elemento por separado. Complejidad O(nlogn) en el mejor caso.
 
-### Convertir a `std::map`
-
+##### Convertir a `std::map`
 ```cpp
 for (auto&amp; elem : qmap.toStdMap()) {
   qDebug() << elem.first << elem.second;
@@ -106,8 +97,7 @@ for (auto&amp; elem : qmap.toStdMap()) {
 
 Obviamente el gran problema es que hay que construir un `std::map` temporal (iterando sobre cada elemento e insertándolo en el nuevo mapa). Complejidad O(nlogn) en el mejor caso.
 
-### Iteradores compatibles con STL
-
+##### Iteradores compatibles con STL
 A partir Qt 5.10 `QMap` provee los métodos [`keyValueBegin`](https://doc.qt.io/qt-5/qmap.html#keyValueBegin) y [`keyValueEnd`](https://doc.qt.io/qt-5/qmap.html#keyValueEnd) que retornan un iterador similar a los usados por la STL. Desafortunadamente, al menos hasta la última versión estable al día de escribir este artículo (Qt 5.14.2), estos iteradores no sobrecargan el operador `->`. Complejidad O(n).
 
 ```cpp
@@ -116,8 +106,7 @@ for (auto it = qmap.keyValueBegin(); it != qmap.keyValueEnd(); ++it) {
 }
 ```
 
-# Iterando sobre `QMap` usando el _range-for_.
-
+### Iterando sobre `QMap` usando el _range-for_.
 Particularmente la sintaxis del _range-for_ es la que más me gusta para casi cualquier contenedor (especialmente con la introducción de los [rangos](https://itnext.io/a-little-bit-of-code-c-20-ranges-c6a6f7eae401) en C++20 y los [_init-statements_](https://en.cppreference.com/w/cpp/language/range-for)), así que me encantaría poder usarla con los `QMap` de forma natural y eficiente.
 
 Hace un par de meses publiqué un artículo como invitado en [Fluent C++](https://www.fluentcpp.com/2020/02/11/reverse-for-loops-in-cpp/) acerca del uso de bucles `for` en reversa usando la sintaxis de los _range-for_. Usando una técnica similar se puede obtener el resultado esperado:
@@ -128,8 +117,7 @@ for (auto elem : qmap_wrapper(qmap)) {
 }
 ```
 
-## A partir de Qt 5.10
-
+#### A partir de Qt 5.10
 Haciendo uso de los iteradores compatibles con STL, el _wrapper_ sería:
 
 ```cpp
@@ -142,8 +130,7 @@ struct qmap_wrapper {
 };
 ```
 
-## Antes de Qt 5.10
-
+#### Antes de Qt 5.10
 Pues la forma más sencilla es copiando la definición de la clase `QKeyValueIterator` introducida en Qt 5.10 y adaptar el _wrapper_ que hicimos antes:
 
 [cpp collapse="true" title="+ QKeyValueIterator"]

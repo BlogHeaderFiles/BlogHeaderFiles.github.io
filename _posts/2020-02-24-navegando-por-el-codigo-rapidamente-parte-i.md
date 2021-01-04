@@ -15,38 +15,32 @@ En esta serie de dos entregas comentaré cómo navego por el código con el que 
 
 En la primera parte abordaré el uso del [IDE (_Integrated Development Environment_, Entorno de desarrollo integrado)](https://es.wikipedia.org/wiki/Entorno_de_desarrollo_integrado) como _chivato_. En mi caso, mi IDE más habitual es Visual Studio (actualmente VS 2017), con mucho uso auxiliar de [Notepad++](https://notepad-plus-plus.org/) (lo recomiendo ampliamente para quien no lo conozca). Por otra parte, alguna vez recurro a Qt Creator, Visual Studio Code, nano, Eclipse, Spider, Xcode. Cada IDE tiene sus puntos fuertes, su _metodología_, digamos que su personalidad e idiosincrasia. Me centraré en Visual Studio, aunque seguramente varias de estas técnicas puedan replicarse en otros entornos.
 
-# Resaltado de sintaxis
-
+### Resaltado de sintaxis
 Puede parecer obvia, trivial, tácita, pero qué diferencia hay entre ver un código donde palabras reservadas, comentarios, variables, funciones, clases, se distinguen a simple vista. Permite al cerebro centrarse en lo que necesita sin necesidad de leerlo todo; si estamos buscando una variable automáticamente desechamos documentación, cadenas de texto.
 
 Si bien es gusto de cada uno, más las posibilidades de cada editor (algunos distinguen entre clases, funciones y variables, mientras otros sólo identificadores), un buen comienzo es un tema agradable a la vista, que no canse y que permita distinguir los elementos que necesitamos:
 
 ![todo](/assets/images/syntax-highlighting.jpg)
 
-# Scroll bars
-
+### Scroll bars
 Seguramente mi técnica preferida, o técnicas, porque realmente son cuatro apartados, todos centrados en tomar las barras de desplazamiento (esas siempre presentes amigas que nos ayudan en nuestro trabajo de subir y bajar por el código) y vitaminarlas. Las encontramos en _Tools_ > _Options_ > _Text editor_ > _C/C++_ > _Scroll Bars_
 
 ![todo](/assets/images/vs-options-scrollbars.jpg)
 
-## Posición del cursor
-
+#### Posición del cursor
 Esta primera permite conocer rápidamente en qué parte del código estamos, de forma que podemos bajar y subir la barra de desplazamiento teniendo presente dónde estábamos. No sólo para volver (que se podría hacer simplemente con las flechas del teclado) sino en relación con lo que estamos viendo, ya que es normal que código relacionado se encuentre cerca. Así podemos acotar la búsqueda, volviendo sobre nuestros pasos si nos estamos alejando demasiado.
 
-## Mapa del documento
-
+#### Mapa del documento
 Requiere de un buen resaltado de sintaxis para funcionar bien: esta características nos permite tener una visión global del documento en todo momento, incluso en documentos largos; mejor dicho, sobre todo en documentos largos: ubicar rápidamente funciones, documentación, zonas de mayor densidad de código.
 
 ![todo](/assets/images/scrollbars-map.jpg)
 
-## Previsualización
-
+#### Previsualización
 Nos permite inspeccionar código en otras partes del documento con solo pasearnos por encima de la barra de desplazamiento sin necesidad de cambiar moverla. Es prácticamente un _zoom_ de la función de mapa del documento. Muy práctico si queremos revisar rápidamente un pequeño fragmento de código sin perder el contexto actual.
 
 ![todo](/assets/images/scrollbars-preview.jpg)
 
-## Indicadores
-
+#### Indicadores
 Si el uso de las _scroll bars_ es mi técnica preferida del IDE, el de los indicadores es mi media naranja. Nos muestra una pequeña marca en la barra de desplazamiento para cada uno de los siguientes casos:
 
 - Errores detectados por el IntelliSense: básicamente para adelantarnos a los errores de compilación, especialmente cuando estamos modificando el código.
@@ -58,28 +52,23 @@ Si el uso de las _scroll bars_ es mi técnica preferida del IDE, el de los indic
 
 - Resultados de búsqueda. Similar al anterior pero ni requiere de la extensión ni desaparece al comenzar modificar la selección actual. Mismos casos de uso con el añadido de que no es volátil. Se pueden usar de forma conjunta para resaltar dos términos a la vez.
 
-# Pestañas y documentos
-
+### Pestañas y documentos
 Agrupo acá tres características sobre las ventanas del editor:
 
-## Coloreado por proyecto o tipo de fichero
-
+#### Coloreado por proyecto o tipo de fichero
 La extensión [Custom Document Well](https://marketplace.visualstudio.com/items?itemName=VisualStudioPlatformTeam.CustomDocumentWell) nos permite usar un color de pestaña diferente para cada proyecto, pudiendo distinguir rápidamente ficheros cuando tenemos soluciones con muchos proyectos (algo no poco frecuente). Además, podemos indicar colores por tipo de fichero mediante expresiones regulares. Útil cuando además de los ficheros de código contamos con ficheros de recursos, hojas de estilo, etc.
 
 ![todo](/assets/images/custom-document-well.jpg)
 
-## Visualizar varios documentos a la vez
-
+#### Visualizar varios documentos a la vez
 Si nuestra pantalla es lo suficientemente grande, podemos abrir un segundo grupo de pestañas (horizontal o vertical) para poder inspeccionar dos documentos en paralelo. La opción en vertical es normalmente la que más código deja ver, especialmente si contamos con un monitor panorámico.
 
 Si además contamos con varios monitores, podemos arrastrar un documento desde su pestaña y dejarlo _flotando_, pudiendo arrastrarlo a otro monitor.
 
-## Dividir un documento en dos
-
+#### Dividir un documento en dos
 Algunas veces la previsualización del documento en la barra de desplazamiento no es suficiente ya que hay que ir modificando dos partes en simultáneo del mismo fichero. En ese caso, es posible dividir la vista del documento en dos y trabajar sobre cada parte por separado.
 
 ![todo](/assets/images/vs-split-window.jpg)
 
-# Parte II
-
+### Parte II
 En el siguiente artículo hablaré de un par de usos más del IDE así como de una herramienta fundamental en la navegación de código.

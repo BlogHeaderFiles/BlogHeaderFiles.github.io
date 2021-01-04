@@ -12,14 +12,10 @@ tags:
 ---
 Hoy hablaremos de tres casos particulares en los que es conveniente alterar el comportamiento por defecto que tienen algunos controles de Qt al recibir el foco.
 
-
-# Breve introducción
-
+### Breve introducción
 Para los que no sepan qué es el foco, básicamente éste indica qué control va a recibir los eventos de entrada más importantes (como los de teclado), y se suele representar con un pequeño realce del color de los bordes o algún tipo de contorno. El foco puede obtenerse normalmente clicando sobre el control o pulsando repetidamente la tecla tabulador, aunque esto depende (en jerga Qt) de la [política de foco (_focus policy_)](https://doc.qt.io/qt-5/qt.html#FocusPolicy-enum) que tenga el control.
 
-
-# Seleccionar todo el texto al mostrar el formulario
-
+### Seleccionar todo el texto al mostrar el formulario
 El más sencillo de los casos es el de seleccionar el texto al recibir el foco. Un caso típico es cuando tenemos un formulario cuyo primer control es un `QLineEdit` (por ejemplo, el nombre del informe a generar), con un valor por defecto para que no esté vacío, pero que normalmente el usuario va a querer cambiar. Otro caso similar es si al editar un valor se abre un cuadro de diálogo con un único `QLineEdit`: lo normal, de nuevo, será que si el usuario ha elegido _editar_ es que quiera cambiarlo. En estos casos, además de tener ya el foco y estar listo para recibir entradas del teclado, es buena idea que el texto esté previamente seleccionado, así el usuario lo reemplaza con sólo escribir, en lugar de tener que borrarlo manualmente.
 
 Como vemos, el patrón que se sigue es sencillo: al abrir el formulario se pone el foco en el control `QLineEdit` deseado y se debe seleccionar el texto:
@@ -35,9 +31,7 @@ MyDialog::MyDialog(QWidget* parent) : QDialog(parent)
 
 Es importante destacar que cuando el foco se cambia mediante la tecla tabulador, el texto siempre es seleccionado por completo. Si queremos además añadir el mismo comportamiento al cambiar el foco al clicar podemos usar un filtro de eventos similar al expuesto en el próximo caso de uso.
 
-
-# Reiniciar posición del cursor
-
+### Reiniciar posición del cursor
 Este fragmento de código lo he adaptado de [una pregunta de Stack Overflow](https://stackoverflow.com/q/22532607/1485885) y consiste en forzar a que el cursor esté siempre al comienzo del control. El escenario típico es cuando el control tiene una máscara (por ejemplo, código de activación, seriales, fechas, etc). El comportamiento por defecto es que cuando el usuario clica en el control el cursor se ubica donde haya clicado, probablemente en medio de la máscara, así el control esté _vacío_.
 
 La siguiente clase provee un filtro de eventos que captura el cambio de foco y ajusta el cursor de forma apropiada:
@@ -84,9 +78,7 @@ void installResetPositionOnFocus(QLineEdit *lineEdit)
 }
 ```
 
-
-# Deshabilitar el foco al usar la rueda
-
+### Deshabilitar el foco al usar la rueda
 El último caso de uso que presento tiene que ver ya no con los `QLineEdit` (o similares) sino con los `QComboBox` o hijos de `QAbstractSpinBox`. Por defecto, estos controles establecen la política de foco `WheelFocus`, que significa que adquieren el foco al usar la rueda del ratón sobre ellos, ya que además con ese mismo gesto cambiamos su valor.
 
 El problema surge cuando tenemos un control de éstos en un formulario con barra de desplazamiento vertical (el formulario es más largo que la ventana que lo contiene). Así, los eventos de _scroll_ para desplazarse por el formulario pudieran mezclarse con los de estos controles si el cursor resulta posicionado encima (caso no poco frecuente, os lo aseguro). ¿Resultado? El formulario deja de hacer _scroll_ y pasamos a cambiar el valor del control. Algo nada agradable y poco _user-friendly_.
