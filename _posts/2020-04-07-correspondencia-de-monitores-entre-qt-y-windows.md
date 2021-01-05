@@ -5,11 +5,6 @@ author: Carlos Buchart
 layout: post
 permalink: /2020/04/07/correspondencia-de-monitores-entre-qt-y-windows/
 image: /assets/images/featured/monitors_correspondence.jpg
-categories:
-  - programación
-tags:
-  - C++
-  - Qt
 ---
 Hace poco modifiqué el módulo de _splash screens_ (en Qt) para mostrar la imagen en el mismo monitor en el que se mostraría la aplicación. Esto implica conocer en qué monitor se va a mostrar la aplicación, calcular el tamaño del escritorio, escalar la imagen, entre otras.
 

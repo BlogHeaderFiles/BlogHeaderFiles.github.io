@@ -5,8 +5,6 @@ author: Carlos Buchart
 layout: post
 permalink: /2020/05/17/atributo-maybe_unused/
 image: /assets/images/featured/maybe_unused.jpg
-categories:
-  - programación
 ---
 En algunos ejemplos mostrados en entradas anteriores ha aparecido el uso del atributo `[[maybe_unused]]` que igual no os suena aún. Los _atributos_ son una característica del C++ moderno que permiten indicar al compilar información acerca del código, con el fin de optimizar determinados fragmentos, introducir restricciones o generar el código de una forma específica. Los atributos vienen a unificar alternativas ya existentes pero que eran propias de cada compilador, generando código no portable u obligando a usar macros y detección del compilador. Una lista completa de los atributos de C++ puede encontrarse en [cppreference.com](https://en.cppreference.com/w/cpp/language/attributes).
 

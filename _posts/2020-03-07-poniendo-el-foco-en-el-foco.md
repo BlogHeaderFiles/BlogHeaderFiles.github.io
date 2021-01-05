@@ -4,11 +4,6 @@ date: 2020-03-07T10:00:27+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/03/07/poniendo-el-foco-en-el-foco/
-categories:
-  - programación
-tags:
-  - C++
-  - Qt
 ---
 Hoy hablaremos de tres casos particulares en los que es conveniente alterar el comportamiento por defecto que tienen algunos controles de Qt al recibir el foco.
 

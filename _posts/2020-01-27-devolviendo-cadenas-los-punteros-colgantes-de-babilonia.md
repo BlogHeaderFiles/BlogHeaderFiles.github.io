@@ -4,8 +4,6 @@ date: 2020-01-27T23:58:38+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/01/27/devolviendo-cadenas-los-punteros-colgantes-de-babilonia/
-categories:
-  - programación
 ---
 En mis clases de Sistemas Operativos suelo dedicar un apartado a problemas de gestión de memoria, especialmente en el lado del programador: pérdidas de memoria (_memory leaks_), accesos fuera de límites (_out-of-bound access_), punteros colgantes (_dangling pointers_), entre otros. De los dos primeros ya hablaremos en otra ocasión, esta entrada versará sobre el último, los _dangling pointers_.
 

@@ -4,11 +4,6 @@ date: 2019-03-13T14:00:02+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2019/03/13/usando-tipografias-propias-en-qt/
-categories:
-  - programación
-tags:
-  - C++
-  - Qt
 ---
 El dar un toque de distinción a nuestras aplicaciones puede pasar por utilizar tipografías que no son estándares, o que sólo vienen incluidas con instalaciones de determinados programas que no podemos asumir estén siempre presentes (ejemplo típico, MS Office, _suites_ de Adobe...).
 

@@ -4,11 +4,6 @@ date: 2019-03-31T21:42:08+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2019/03/31/efectos-colaterales-de-los-menus-contextuales-en-qt/
-categories:
-  - programación
-tags:
-  - C++
-  - Qt
 ---
 Esta publicación es más bien corta y casi más a modo de _para que no se me olvide_ que otra cosa, pero acá va.
 

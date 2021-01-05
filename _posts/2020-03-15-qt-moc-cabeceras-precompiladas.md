@@ -4,11 +4,6 @@ date: 2020-03-15T19:16:53+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/03/15/qt-moc-cabeceras-precompiladas/
-categories:
-  - programación
-tags:
-  - C++
-  - Qt
 ---
 Si vuestro proyecto Qt presenta las siguientes características (todas):
 

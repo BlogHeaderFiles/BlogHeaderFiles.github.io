@@ -5,8 +5,6 @@ author: Carlos Buchart
 layout: post
 permalink: /2020/08/17/mostrar-fecha-compilacion/
 image: /assets/images/featured/build_timestamp.jpg
-categories:
-  - programación
 ---
 Un dato importante cuando se está investigando un fallo o probando una nueva funcionalidad en un software es saber sobre qué versión del código estamos trabajando. Además del _número de versión_ (más adecuado para versiones públicas) o el número de compilación, una forma de identificar la versión actual del código es usando la fecha de compilación del mismo. Este dato tiene varias ventajas inherentes: no necesita de ningún contador que haya que incrementar, viene de _fábrica_, y es natural usarlo tanto en conversaciones (en la compilación de hace dos días...) como al buscar el _commit_ relacionado.
 

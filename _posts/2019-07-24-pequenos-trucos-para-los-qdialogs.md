@@ -4,11 +4,6 @@ date: 2019-07-24T19:04:09+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2019/07/24/pequenos-trucos-para-los-qdialogs/
-categories:
-  - programación
-tags:
-  - C++
-  - Qt
 ---
 Es habitual que nuestras aplicaciones no se restrinjan a una única ventana, sino que se sucedan diversas ventanas de opciones, mensajes, informes, selección de datos, visualización de resultados, etc.
 

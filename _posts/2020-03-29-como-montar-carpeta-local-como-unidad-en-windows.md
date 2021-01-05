@@ -5,8 +5,6 @@ author: Carlos Buchart
 layout: post
 permalink: /2020/03/29/como-montar-carpeta-local-como-unidad-en-windows/
 image: /assets/images/featured/map_network_drive.jpg
-categories:
-  - programación
 ---
 Llevo un par de años trabajando a distancia y, aunque no pretendo abrir un especial de teletrabajo, me gustaría compartir un pequeño cambio que hice en mi sistema para ajustarme mejor a esa situación y poder agilizar mi día a día. No es ningún secreto pero igual ayuda a los que hayáis tenido que cambiar al _remote working_.
 

@@ -4,11 +4,6 @@ date: 2019-04-07T08:52:12+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2019/04/07/un-breve-tratado-sobre-la-coexistencia-de-multiples-qapplication/
-categories:
-  - programación
-tags:
-  - C++
-  - Qt
 ---
 ### Breve historia de este post
 Hace un par de años me tocó embeber el editor de interfaces de Qt (Qt Designer) dentro de otra aplicación. Si bien el cómo lo hice no tiene demasiada importancia ahora mismo, resulta que me enfrenté al siguiente problema: Qt Designer crea su propia instancia de `QApplication`, pero es que ¡la nueva aplicación contenedora también! Así que ante la clara pregunta _¿tendré problemas?_, decidí estudiar el tema un poco más a fondo.

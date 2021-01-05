@@ -5,11 +5,6 @@ author: Carlos Buchart
 excerpt: 'Al hablar de Qt vienen inmediatamente a la cabeza dos palabras: _signals_ y _slots_. Y es que Qt usa ampliamente este mecanismo de comunicación, muy similar al patrón observador, especialmente en lo referente a interfaces gráficas. La documentación de Qt es muy extensa en el uso de este mecanismo, pero me ha parecido interesante resaltar algunos aspectos básicos y otros un poco menos obvios.'
 layout: post
 permalink: /2019/04/26/signals-y-slots-en-qt-parte-i/
-categories:
-  - programación
-tags:
-  - C++
-  - Qt
 ---
 Es normal que, para muchos, al hablar de Qt vengan a la cabeza dos palabras: _signals_ y _slots_. Y es que Qt usa ampliamente este [mecanismo de comunicación](https://en.wikipedia.org/wiki/Signals_and_slots), muy similar al [patrón observador](https://es.wikipedia.org/wiki/Observer_(patr%C3%B3n_de_dise%C3%B1o)), especialmente en lo referente a interfaces gráficas.
 

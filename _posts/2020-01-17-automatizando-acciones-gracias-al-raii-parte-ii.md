@@ -4,8 +4,6 @@ date: 2020-01-17T18:22:21+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/01/17/automatizando-acciones-gracias-al-raii-parte-ii/
-categories:
-  - programación
 ---
 En la [entrada anterior]({{url}}/2020/01/13/automatizando-acciones-gracias-al-raii-parte-i/) estudiamos lo que es el [RAII](https://es.wikipedia.org/wiki/RAII), cómo es una de las técnicas bases de C++11 y algunos ejemplos.
 

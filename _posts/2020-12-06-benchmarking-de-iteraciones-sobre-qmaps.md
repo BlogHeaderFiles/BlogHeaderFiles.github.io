@@ -5,11 +5,6 @@ author: Carlos Buchart
 layout: post
 permalink: /2020/12/06/benchmarking-de-iteraciones-sobre-qmaps/
 image: /assets/images/featured/iterating_qmaps.jpg
-categories:
-  - programación
-tags:
-  - C++
-  - Qt
 ---
 Como usuario asiduo de Qt, el rendimiento de sus diferentes componentes resulta crítico. Hoy me gustaría comentar brevemente una pequeña comparativa que hice recientemente sobre las diversas formas de iterar sobre un `QMap`. Esta entrada es básicamente un estudio de rendimiento de las opciones presentadas hace ya un tiempo en [esta otra]({{url}}/2020/04/26/iterando-sobre-qmaps/).
 
