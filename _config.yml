@@ -4,6 +4,8 @@ author: Carlos Buchart
 email: cbuchart@gmail.com
 description: template&lt;class Cpp, class Qt, class ... Y_Mas&gt;
 show_excerpts: true
+paginate: 10
+paginate_path: "page:num/"
 
 sass:
   sass_dir: _sass
@@ -34,4 +36,5 @@ plainwhite:
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-paginate
   - jekyll-feed

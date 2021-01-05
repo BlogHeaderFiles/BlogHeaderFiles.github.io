@@ -1,14 +1,7 @@
 ---
 layout: default
 ---
-
-{%- if page.title -%}
-  <h1 class="page-heading">{{ page.title }}</h1>
-{%- endif -%}
-
-{{ content }}
-
-{%- if site.posts.size > 0 -%}
+{%- if paginator.posts.size > 0 -%}
   <ul class="posts">
     <li class="posts-labelgroup" id="posts-labelgroup">
       <h1 id="posts-label">posts</h1>
@@ -23,7 +16,7 @@ layout: default
       {% endif %}
     </li>
 
-    {%- for post in site.posts -%}
+    {%- for post in paginator.posts -%}
       <li class="post-row">
         {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
         {% if post.image %}
@@ -56,9 +49,22 @@ layout: default
         </div>
       </li>
     {%- endfor -%}
-  </ul>
 
-  <!-- <p class="feed-subscribe"><svg class="svg-icon orange">
-		<use xlink:href="{{ '/assets/minima-social-icons.svg#rss' | relative_url }}"></use>
-	</svg><a href="{{ "/feed.xml" | relative_url }}">Subscribe</a></p> -->
+    <!-- Pagination links -->
+    <div class="pagination">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}" class="previous">⏮</a>
+      {% else %}
+        <span class="previous">⏮</span>
+      {% endif %}
+      <span class="page_number ">
+        {{ paginator.page }} / {{ paginator.total_pages }}
+      </span>
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}" class="next">⏭</a>
+      {% else %}
+        <span class="next ">⏭</span>
+      {% endif %}
+    </div>
+  </ul>
 {%- endif -%}
