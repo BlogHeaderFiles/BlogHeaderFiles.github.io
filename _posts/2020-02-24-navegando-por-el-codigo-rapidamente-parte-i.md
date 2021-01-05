@@ -4,6 +4,7 @@ date: 2020-02-24T00:34:04+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/02/24/navegando-por-el-codigo-rapidamente-parte-i/
+excerpt: 'En esta serie de dos entregas comentaré cómo navego por el código con el que trabajo. Se trata de un conjunto de herramientas, pasos, técnicas que me ayudan a leer el código, a inspeccionarlo, a tenerlo a la mano, a no perderme en los cambios que hago. No son métodos para escribir mejor código (ni temas de formato, ni organización, ni nomenclatura). Son ayudas para leer y navegar por código ya existente.'
 ---
 Como dicen muchos autores, escribir código no es lo único que hace un programador, un programador _lee_ mucho código. Además, la mayor parte de ese código (casi la totalidad) **no** la hemos escrito nosotros. No, ni siquiera en esos proyectos en los que somos el único desarrollador. ¿Cuántos os acordáis de todo el código, con sus más íntimos recovecos, explicaciones y casos borde, que habéis escrito en los últimos... 6 meses? ¿4 semanas? ¿5 días? ¿el viernes? Lo normal es solucionar problemas, refactorizar código, hacerlo mejor, agregar nuevas funcionalidades, documentarlas... y lo normal es no acordarnos de todo. No digo olvidarlo todo, pero sí que es normal que nos olvidemos de cosas, del nombre exacto de una función o clase, de un error descubierto y solucionado sobre la marcha, de un efecto colateral...
 

@@ -1,5 +1,5 @@
 ---
-title: 'Poniendo el foco en&#8230; el foco'
+title: 'Poniendo el foco en el foco'
 date: 2020-03-07T10:00:27+01:00
 author: Carlos Buchart
 layout: post

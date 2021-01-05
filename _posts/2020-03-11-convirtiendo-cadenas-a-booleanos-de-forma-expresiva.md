@@ -4,6 +4,7 @@ date: 2020-03-11T08:00:09+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/03/11/convirtiendo-cadenas-a-booleanos-de-forma-expresiva/
+excerpt: 'Al almacenar y recuperar valores desde un JSON, XML o cualquier otra notación de datos, es frecuente encontrarnos con la necesidad de convertir booleanos a cadenas y viceversa. En términos generales no es una operación complicada, pero es fácil terminar con uncódigo poco legible y propenso a errores.'
 ---
 Al almacenar y recuperar valores desde un JSON, XML o cualquier otra notación de datos, es frecuente encontrarnos con la necesidad de convertir booleanos a cadenas y viceversa. En términos generales no es una operación complicada, y seguramente nos hagamos un par de funciones de ayuda similares a la siguientes:
 

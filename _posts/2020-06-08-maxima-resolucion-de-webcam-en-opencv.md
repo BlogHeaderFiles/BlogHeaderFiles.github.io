@@ -2,10 +2,10 @@
 title: Máxima resolución de webcam en OpenCV
 date: 2020-06-08T23:54:21+02:00
 author: Carlos Buchart
-excerpt: 'En este artículo nos ocuparemos de un aspecto en específico: las resoluciones soportadas, o mejor dicho, la máxima resolución que una webcam puede soportar y cómo obtenerla usando OpenCV.'
 layout: post
 permalink: /2020/06/08/maxima-resolucion-de-webcam-en-opencv/
 image: /assets/images/featured/opencv_max_resolution.jpg
+excerpt: 'En este artículo nos ocuparemos de un aspecto en específico: las resoluciones soportadas, o mejor dicho, la máxima resolución que una webcam puede soportar y cómo obtenerla usando OpenCV.'
 ---
 Desde que comencé a usar ordenadores allá por 1992 (😱), siempre me pareció que el lado más oscuro e incomprensible de la informática se llamaba _impresoras_. Esta opinión cambió ligeramente desde que añadimos soporte para webcams en nuestras aplicaciones; ¡ahora hay un segundo lado oscuro e incomprensible! Cada webcam es, como se dice coloquialmente, de su padre y de su madre, con ajustes y especificaciones propios y casi únicos. Para poner peor las cosas, OpenCV (la biblioteca por antonomasia para procesamiento de imágenes) es bastante básica, o mejor dicho, genérica, en cuanto a captura de vídeo se refiere. En este artículo nos ocuparemos de un aspecto en específico: las resoluciones soportadas, o mejor dicho, la máxima resolución que una webcam puede soportar y cómo obtenerla usando OpenCV.
 
