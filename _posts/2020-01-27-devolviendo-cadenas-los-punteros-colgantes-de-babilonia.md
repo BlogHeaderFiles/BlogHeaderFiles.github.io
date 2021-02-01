@@ -126,15 +126,15 @@ Como nota final, el número de elementos normalmente no debería ser muy elevado
 Se puede ejecutar online en [Coliru](https://coliru.stacked-crooked.com/a/8621b4e3a77e14ac).
 
 ```cpp
-###include <iostream>
-###include <cassert>
-###include <vector>
-###include <string>
-###include <map>
-###include <numeric>
-###include <thread>
-###include <mutex>
-###include <sstream>
+#include <iostream>
+#include <cassert>
+#include <vector>
+#include <string>
+#include <map>
+#include <numeric>
+#include <thread>
+#include <mutex>
+#include <sstream>
 
 const char *saveString(std::string str)
 {

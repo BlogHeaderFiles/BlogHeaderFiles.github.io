@@ -64,10 +64,10 @@ Cuando se diseña un diálogo usando el Qt Designer, lo más normal es crear una
 Este modo es especialmente útil cuando uno no quiere poblar el proyecto de micro-clases para diálogos que apenas constan de un par de _widgets_ (usualmente alguna etiqueta) y un par de botones.
 
 ```cpp
-###include <qdialog.h>
-###include <qlayout.h>
-###include <qpushbutton.h>
-###include <qlabel.h>
+#include <qdialog.h>
+#include <qlayout.h>
+#include <qpushbutton.h>
+#include <qlabel.h>
 
 bool basicDialog()
 {

@@ -23,9 +23,9 @@ Y aunque ya sé que el uso de macros debe limitarse, ésta es una de esas situac
 
 #### Código
 ```cpp
-###include <string>
-###include <chrono>
-###include <iostream>
+#include <string>
+#include <chrono>
+#include <iostream>
 
 class TicToc {
 public:
@@ -51,11 +51,11 @@ private:
 };
 
 // Más información acá: https://stackoverflow.com/q/1489932/1485885
-###define HELPER_JOIN(a, b) HELPER_JOIN2(a, b)
-###define HELPER_JOIN2(a, b) a ## b
+#define HELPER_JOIN(a, b) HELPER_JOIN2(a, b)
+#define HELPER_JOIN2(a, b) a ## b
 // Genera un nombre único de variable dentro del fichero actual
 // Usa como etiqueta de medición el nombre de la función desde la que se llama y el número de línea
-###define TICTOC() STT::TicToc HELPER_JOIN(tic_toc_, __LINE__)(std::string(__FUNCTION__) + "@" + std::to_string(__LINE__) + " = ");
+#define TICTOC() STT::TicToc HELPER_JOIN(tic_toc_, __LINE__)(std::string(__FUNCTION__) + "@" + std::to_string(__LINE__) + " = ");
 
 void run() {
   TICTOC(); // esto es todo!
@@ -80,7 +80,7 @@ int main() {
 Si nuestra aplicación depende de Boost, una posible mejora sería usar `boost::timer::auto_cpu_timer`, similar al comando `time` de Linux. Esta clase, similar al `TicToc` presentado, muestra el tiempo de ejecución entre la declaración del objeto y su destrucción:
 
 ```cpp
-###include <boost/timer/timer.hpp>
+#include <boost/timer/timer.hpp>
 
 void run() {
   boost::timer::auto_cpu_timer t;

@@ -48,11 +48,11 @@ Acá fue donde más problemas tuve y lo que me llevó a escribir este post, de f
 Ficheros de cabecera de OpenSSL necesarios:
 
 ```cpp
-###include <openssl/err.h>
-###include <openssl/bio.h>
-###include <openssl/pem.h>
-###include <openssl/evp.h>
-###include <openssl/rsa.h>
+#include <openssl/err.h>
+#include <openssl/bio.h>
+#include <openssl/pem.h>
+#include <openssl/evp.h>
+#include <openssl/rsa.h>
 ```
 
 Al cargar la clave pública, contemplo dos opciones (aunque soy partidario de la segunda):

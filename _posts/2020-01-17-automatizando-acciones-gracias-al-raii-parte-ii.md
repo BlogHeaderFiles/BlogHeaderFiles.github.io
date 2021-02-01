@@ -103,8 +103,8 @@ void foo() {
 De igual forma podemos hacer clases individuales para nuestras diferentes necesidades. En lo particular nunca me ha gustado eso de escribir _código similar que difiere en pocas cosas_, por lo que comparto una solución genérica que nos ahorrará el crear estas clases intermedias:
 
 ```cpp
-###include <iostream>
-###include <functional>
+#include <iostream>
+#include <functional>
 
 class RAII_Helper {
 public:

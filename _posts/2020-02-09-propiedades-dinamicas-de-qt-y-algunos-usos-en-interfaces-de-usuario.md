@@ -28,7 +28,7 @@ Otra opción sería la de tener un controlador específico de ese estado, que gu
 Las propiedades nos son de gran ayuda en nuestro problema: necesitamos guardar un valor de forma temporal, estrechamente asociado a un control, sin tener que _contaminar_ el resto de nuestro código. Así, podemos cambiar la _variable_ temporal por una _propiedad_ temporal guardada en cada control del interfaz afectado:
 
 ```cpp
-###define LAST_CHECK_STATE "last_check_state"
+#define LAST_CHECK_STATE "last_check_state"
 
 void saveAndSetLastCheckedState(QAbstractButton *button, bool checked)
 {

@@ -15,7 +15,7 @@ Un gran número de funcionalidades de Qt requieren de la existencia de un objeto
 Dependiendo del modo de la aplicación, este objeto puede ser de tipo `QCoreApplication` para aplicaciones de consola, o `QApplication` para aplicaciones con interfaz gráfica (existe el `QGuiApplication` también, pero es más común usar el `QApplication`). Ejemplo:
 
 ```cpp
-###include <qapplication.h>
+#include <qapplication.h>
 
 int main(int argc, char* argv[])
 {
@@ -37,8 +37,8 @@ El siguiente programa ilustrará las consecuencias de tener uno o más `Q*Applic
 El código de este proyecto (para VS) está disponible en [GitHub](https://github.com/cbuchart/HeaderFiles.com/tree/master/Multiple_QApplications).
 
 ```cpp
-###include <QtCore>
-###include <qapplication.h>
+#include <QtCore>
+#include <qapplication.h>
 
 QTranslator tr1;
 
