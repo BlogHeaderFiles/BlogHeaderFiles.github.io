@@ -1,6 +1,6 @@
 ---
 title: Argumentos expresivos
-date: 2021-02-067T00:00:00+01:00
+date: 2021-02-07T00:00:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2021/02/07/expressive-args/
