@@ -123,7 +123,7 @@ using first_argument = decltype(first_argument_helper(std::declval<T>()));
 
 ### Implementación final
 
-Por último, sólo nos queda la función _visit_ que recorrerá el contenedor:
+Por último, sólo nos queda la función _filtered_visit_ que recorrerá el contenedor:
 
 ```cpp
 template<typename T, typename F, typename... Ts>
@@ -167,9 +167,10 @@ int main() {
 
 ## Conclusiones
 
-El patrón _visitor_ es ampliamente utilizado en muchos diseño ya que simplifica el tratamiento de datos heterogéneos. Con esta variante podemos expandir su uso a otros escenarios donde se requieren acciones específicas sobre un determinado sub-tipo de elementos de un conjunto.
+El patrón _visitor_ es ampliamente utilizado en muchos diseños ya que simplifica el tratamiento de datos heterogéneos. Con esta variante podemos expandir su uso a otros escenarios donde se requieren acciones específicas sobre un determinado sub-tipo de elementos de una colección.
 
 ## Comentarios finales
+
 Una de las limitaciones de este _visitor_ es que no puede aplicar un método de la clase base a un único tipo heredado, ya que las reglas de deducción utilizadas llevarán a la clase base. En este caso basta con utilizar un _lambda_.
 
 Por otro lado, habréis visto que uso `dynamic_cast` para determinar si un objeto del contenedor es del tipo que soporta el _visitor_. Bien se podría cambiar por algún método estático de cada clase que devuelva un identificador de tipo y compararlo con el que devuelve la clase del _visitor_, o cualquier otra estrategia de identificación de tipos en tiempo de ejecución.
