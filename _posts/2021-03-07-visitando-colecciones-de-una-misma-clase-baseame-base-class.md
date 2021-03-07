@@ -145,6 +145,12 @@ void filtered_visit(T&& cont, F f, Ts... args)
 Su uso sería el siguiente:
 
 ```cpp
+namespace {
+  void foo(BaseWorker* obj) {
+    std::cout << "foo " << obj->value << '\n';
+  }
+}
+
 int main() {
   std::vector<BaseWorker*> workers = {
     new Worker1{10},
@@ -152,14 +158,14 @@ int main() {
     new Worker1{30},
   };
   
+  filtered_visit(workers, &BaseWorker::run); // 'run' on all elements
+  filtered_visit(workers, &Worker1::convert, "path"); // 'convert' on elements of type 'Worker1' with one argument
+  filtered_visit(workers, &Worker2::print); // 'print' on elements of type 'Worker2'
+  filtered_visit(workers, [](Worker1* obj) { obj->value += 5; }); // lambda on elements of type 'Worker1'
   filtered_visit(workers, &BaseWorker::run);
-  filtered_visit(workers, &Worker1::convert, "path");
-  filtered_visit(workers, &Worker2::print);
-  filtered_visit(workers, [](Worker1* obj) { obj->value += 5; });
-  filtered_visit(workers, &BaseWorker::run);
-  filtered_visit(workers, &foo);
+  filtered_visit(workers, &foo); // global function (on all elements in this case)
   
-  filtered_visit(workers, [](BaseWorker* obj) { delete obj; });
+  filtered_visit(workers, [](BaseWorker* obj) { delete obj; }); // lambda on all elements
 }
 ```
 
