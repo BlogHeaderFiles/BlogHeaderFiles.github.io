@@ -169,7 +169,7 @@ int main() {
 }
 ```
 
-👨🏻‍💻El código completo se puede probar en vivo en [Wandbox](https://wandbox.org/permlink/FozfuCrUQs7hple4).
+👨🏻‍💻El código completo se puede probar en vivo en [Wandbox](https://wandbox.org/permlink/YNNpgYwQ6PoB7sA9).
 
 ## Conclusiones
 
