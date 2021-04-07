@@ -21,7 +21,7 @@ Apple es bien conocida por muchos guiños sutiles en el diseño de sus productos
 
 ![textedit](https://cdn.osxdaily.com/wp-content/uploads/2011/10/textedit-icon-crazy-ones.jpg)
 
-![pc_icon](https://i.stack.imgur.com/zv6jf.png)
+![pc_icon](https://i.stack.imgur.com/5rYVr.png)
 
 El primer huevo de Pascua de Apple fue la inclusión de las firmas de todos los integrantes del equipo del Macintosh en su carcasa. Otro ejemplo más reciente es el de Mac OS X Mountain Lion (2012), en el que las aplicaciones descargadas tenían temporalmente la fecha 24 de enero de 1984 (lanzamiento del primer Macintosh).
 
