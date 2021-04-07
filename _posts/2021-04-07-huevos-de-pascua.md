@@ -25,14 +25,14 @@ Apple es bien conocida por muchos guiños sutiles en el diseño de sus productos
 
 El primer huevo de Pascua de Apple fue la inclusión de las firmas de todos los integrantes del equipo del Macintosh en su carcasa. Otro ejemplo más reciente es el de Mac OS X Mountain Lion (2012), en el que las aplicaciones descargadas tenían temporalmente la fecha 24 de enero de 1984 (lanzamiento del primer Macintosh).
 
-![os_x_mountain_lion](http://www.tecnomundo.net/wp-content/uploads/2012/07/Apple-easter-egg.jpg)
+![os_x_mountain_lion](https://ashfurrow.com/static/af67cc95dd0c060c41a7107af04b2759/17788/FE8762B45417433CBB6AFAA9924049F9.png)
 
 Google por su parte es muy dado a los huevos de Pascua, siendo mi favorito el coche de Mario Kart que lanzaron por el Día Internacional de Mario en el 2018 (10 de marzo, Mar10).
 
-![mario_karts](https://cdn.andro4all.com/files/2018/03/Google-Maps-Mario-Kart-Easter-Egg.jpg?width=1200)
+![mario_karts](https://cdn.andro4all.com/files/2018/03/Google-Maps-Mario-Kart-Easter-Egg.jpg?width=600)
 
 Para cerrar, me gustaría añadir uno que introduje en las aplicaciones que desarrollo en STT (2DMA, 3DMA y iSen), y que ya algún usuario ha descubierto por su cuenta 😄. En la ficha de cliente de la BBDD se cambia el icono del cliente por una tarta si se abre la ficha del mismo el día de su cumpleaños.
 
 ![2dma](/assets/images/2dma_easter_egg.gif)
 
-En https://eeggs.com es posible encontrar una gran listado de huevos de Pascua, ¿cuáles conocíais ya?
+En [https://eeggs.com] es posible encontrar una gran listado de huevos de Pascua, ¿cuáles conocíais ya?
