@@ -35,4 +35,4 @@ Para cerrar, me gustaría añadir uno que introduje en las aplicaciones que desa
 
 ![2dma](/assets/images/2dma_easter_egg.gif)
 
-En [https://eeggs.com] es posible encontrar una gran listado de huevos de Pascua, ¿cuáles conocíais ya?
+En [https://eeggs.com](https://eeggs.com) es posible encontrar una gran listado de huevos de Pascua, ¿cuáles conocíais ya?
