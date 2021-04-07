@@ -4,7 +4,7 @@ date: 2021-04-04T16:16:16+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2021/04/07/huevos-de-pascua
-image: /assets/images/featured/easter_egss.jpg
+image: /assets/images/featured/easter_eggs.jpg
 excerpt: Un muy breve comentario sobre los huevos de Pascua, aunque no precisamente los de chocolate.
 ---
 Primero que nada, ¡feliz Pascua de Resurrección! Como viene siendo tradición desde hace muchísimos años, una de las actividades que realizan los pequeños en este domingo es la búsqueda de pequeños (o no tan pequeños) huevos de chocolate que han sido escondidos por diversos lugares, los llamados _huevos de Pascua_. De forma similar, los _huevos de Pascua virtuales_ son mensajes, detalles o características ocultas en una aplicación, película, etc.
