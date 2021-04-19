@@ -46,7 +46,7 @@ protected:
   virtual bool eventFilter(QObject *obj, QEvent *event) override
   {
     auto le = qobject_cast<QLineEdit *>(obj);
-    if (le &amp;&amp; event->type() == QEvent::FocusIn) {
+    if (le && event->type() == QEvent::FocusIn) {
       QMetaObject::invokeMethod(this, "resetCursor", Qt::QueuedConnection, Q_ARG(QWidget *, le));
     }
 
@@ -91,7 +91,7 @@ public:
   {
     if (e->type() == QEvent::Wheel) {
       auto widget = qobject_cast<T *>(obj);
-      if (widget &amp;&amp; !widget->hasFocus()) { return true; }
+      if (widget && !widget->hasFocus()) { return true; }
     }
     return false;
   }

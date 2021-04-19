@@ -18,7 +18,7 @@ class Database {
   Connection* m_connection = nullptr;
 
 public:
-  bool init(const std::string&amp; url) {
+  bool init(const std::string& url) {
     m_connection = new Connection(url);
 
     if (!m_connection->connect()) {
@@ -47,7 +47,7 @@ class Database {
   std::unique_ptr<Connection> m_connection;
 
 public:
-  bool init(const std::string&amp; url) {
+  bool init(const std::string& url) {
     auto connection = std::make_unique<Connection>(url);
 
     if (!connection->connect()) { return false; }
@@ -108,18 +108,18 @@ De igual forma podemos hacer clases individuales para nuestras diferentes necesi
 
 class RAII_Helper {
 public:
-  explicit RAII_Helper(const std::function<void(void)>&amp; on_finish)
+  explicit RAII_Helper(const std::function<void(void)>& on_finish)
     : m_finish_handler(on_finish) {
   }
   
-  explicit RAII_Helper(const std::function<void(void)>&amp; on_start,
-                       const std::function<void(void)>&amp; on_finish)
+  explicit RAII_Helper(const std::function<void(void)>& on_start,
+                       const std::function<void(void)>& on_finish)
     : m_finish_handler(on_finish) {
     if (on_start) on_start();
   }
   
-  RAII_Helper(const RAII_Helper&amp;) = delete;
-  RAII_Helper(const RAII_Helper&amp;&amp;) = delete;
+  RAII_Helper(const RAII_Helper&) = delete;
+  RAII_Helper(const RAII_Helper&&) = delete;
 
   ~RAII_Helper() {
     if (m_finish_handler) m_finish_handler();

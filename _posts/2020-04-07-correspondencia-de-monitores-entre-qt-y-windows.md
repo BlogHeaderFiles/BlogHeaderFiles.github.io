@@ -27,7 +27,7 @@ int getMonitorToShowSplashScreen()
   QWidget fake_widget;
   fake_widget.restoreGeometry(QSettings().value("window_geometry").toByteArray());
 
-  return qApp->desktop()->screenNumber(&amp;fake_widget);
+  return qApp->desktop()->screenNumber(&fake_widget);
 }
 ```
 
@@ -39,7 +39,7 @@ RECT getInitialWindowPositionStoredAtHKEY(HKEY hKey)
 {
   DWORD dwReturn[32];
   DWORD dwBufSize = sizeof(dwReturn);
-  if (RegQueryValueEx(hKey, "MainWindowRect", 0, 0, (LPBYTE)dwReturn, &amp;dwBufSize) != ERROR_SUCCESS) { return {}; }
+  if (RegQueryValueEx(hKey, "MainWindowRect", 0, 0, (LPBYTE)dwReturn, &dwBufSize) != ERROR_SUCCESS) { return {}; }
   return *(RECT*)dwReturn;
 }
 
@@ -58,9 +58,9 @@ int getMonitorForInitialWindowPosition()
 Una vez recuperada la geometría de la ventana principal se calcula el monitor asociado ([Stack Overflow](https://stackoverflow.com/q/54326892/1485885)):
 
 ```cpp
-int getMonitorForRect(const RECT &amp;rect)
+int getMonitorForRect(const RECT &rect)
 {
-  const HMONITOR screen = MonitorFromRect(&amp;rect, MONITOR_DEFAULTTONEAREST);
+  const HMONITOR screen = MonitorFromRect(&rect, MONITOR_DEFAULTTONEAREST);
   return getMonitorIndex(screen);
 }
 
@@ -75,7 +75,7 @@ int getMonitorIndex(HMONITOR hMonitor)
   sEnumInfo info;
   info.hMonitor = hMonitor;
 
-  if (EnumDisplayMonitors(NULL, NULL, getMonitorByHandle, (LPARAM)&amp;info)) return -1;
+  if (EnumDisplayMonitors(NULL, NULL, getMonitorByHandle, (LPARAM)&info)) return -1;
   return info.iIndex + 1;
 }
 
@@ -99,11 +99,11 @@ El siguiente código solventa ese problema creando una lista que relaciona índi
 bool isPrimaryMonitor(HMONITOR hMonitor)
 {
   MONITORINFOEX info;
-  memset(&amp;info, 0, sizeof(MONITORINFOEX));
+  memset(&info, 0, sizeof(MONITORINFOEX));
   info.cbSize = sizeof(MONITORINFOEX);
-  if (GetMonitorInfo(hMonitor, &amp;info) == FALSE) { return false; }
+  if (GetMonitorInfo(hMonitor, &info) == FALSE) { return false; }
 
-  return (info.dwFlags &amp; MONITORINFOF_PRIMARY) != 0;
+  return (info.dwFlags & MONITORINFOF_PRIMARY) != 0;
 }
 
 BOOL CALLBACK monitorEnumCallback(HMONITOR hMonitor, HDC, LPRECT, LPARAM p)
@@ -122,7 +122,7 @@ BOOL CALLBACK monitorEnumCallback(HMONITOR hMonitor, HDC, LPRECT, LPARAM p)
 int getQtScreenNumber(int win_screen_number)
 {
   QList<int> screens;
-  EnumDisplayMonitors(0, 0, monitorEnumCallback, reinterpret_cast<LPARAM>(&amp;screens));
+  EnumDisplayMonitors(0, 0, monitorEnumCallback, reinterpret_cast<LPARAM>(&screens));
 
   return screens.indexOf(win_screen_number);
 }

@@ -14,7 +14,7 @@ std::string bool2string(bool value)
   return value ? "true" : "false";
 }
 
-bool string2bool(const std::string &amp;value)
+bool string2bool(const std::string &value)
 {
   return value == "true";
 }
@@ -23,12 +23,12 @@ bool string2bool(const std::string &amp;value)
 Ahora, supongamos que, para facilitar la lectura del fichero y para ser más expresivos en su contenido, en lugar de `"true"` y `"false"`, elegimos `"yes"` / `"no"` para unos casos, `"show"` / `"hide"` para otros, `"enabled"` / `"disabled"` en unos cuantos, etc. Nuestras funciones se complican un poco:
 
 ```cpp
-std::string bool2string(bool value, const std::string &amp;true_str, const std::string &amp;false_str)
+std::string bool2string(bool value, const std::string &true_str, const std::string &false_str)
 {
   return value ? true_str : false_str;
 }
 
-bool string2bool(const std::string &amp;value, const std::string &amp;true_str)
+bool string2bool(const std::string &value, const std::string &true_str)
 {
   return value == true_str;
 }
@@ -70,7 +70,7 @@ struct FalseValue
 };
 
 template<typename T>
-bool string2bool(const std::string &amp;str, T &amp;&amp;value)
+bool string2bool(const std::string &str, T &&value)
 {
   constexpr bool is_true_exp = std::is_same_v<T, TrueValue>;
   constexpr bool is_false_exp = std::is_same_v<T, FalseValue>;

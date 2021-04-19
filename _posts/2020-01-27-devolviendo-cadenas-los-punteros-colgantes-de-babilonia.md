@@ -52,7 +52,7 @@ public:
   // ...
   const char* toJSON() const {
     std::string json = '{' + std::accumulate(begin(m_values), end(m_values), std::string{},
-      [](const std::string&amp; s, const std::pair<std::string, std::string>&amp; p) {
+      [](const std::string& s, const std::pair<std::string, std::string>& p) {
         const auto e = '\"' + p.first + "\":\"" + p.second + '\"';
         if (s.empty()) return e;
         return s + ',' + e;
@@ -77,7 +77,7 @@ public:
     static std::string json;
 
     json = '{' + std::accumulate(begin(m_values), end(m_values), std::string{},
-      [](const std::string&amp; s, const std::pair<std::string, std::string>&amp; p) {
+      [](const std::string& s, const std::pair<std::string, std::string>& p) {
         const auto e = '\"' + p.first + "\":\"" + p.second + '\"';
         if (s.empty()) return e;
         return s + ',' + e;
@@ -166,7 +166,7 @@ public:
 
   const char* toJSON() const {
     std::string json = '{' + std::accumulate(begin(m_values), end(m_values), std::string{},
-      [](const std::string&amp; s, const std::pair<std::string, std::string>&amp; p) {
+      [](const std::string& s, const std::pair<std::string, std::string>& p) {
         const auto e = '\"' + p.first + "\":\"" + p.second + '\"';
         if (s.empty()) return e;
         return s + ',' + e;
@@ -200,11 +200,11 @@ int main()
   d.setValue("website", "https://headerfiles.com");
     
   std::vector<std::thread> threads(20);
-  for (auto &amp;t : threads) {
+  for (auto &t : threads) {
     t = std::thread{print, d};
   }
 
-  for (auto &amp;t : threads) {
+  for (auto &t : threads) {
     t.join();
   }
 }

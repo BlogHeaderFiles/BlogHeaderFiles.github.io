@@ -42,7 +42,7 @@ Por lo que respecta a esta publicación, nos quedaremos en una búsqueda simple,
 Para lograr el _efecto_ de filtrado simplemente marcamos como ocultos aquellos ítems que no cumplen con el criterio de búsqueda.
 
 ```cpp
-void MainWindow::search(const QString&amp; text)
+void MainWindow::search(const QString& text)
 {
   for (int ii = 0; ii < ui->listWidget->count(); ++ii) {
     const auto item_text = ui->listWidget->item(ii)->text();
@@ -55,7 +55,7 @@ void MainWindow::search(const QString&amp; text)
 Y conectamos el cajetín de texto con la función de búsqueda mediante la señal `QLineEdit::textChanged`, la cual se emite cada vez que se modificar el contenido del control (es decir, la lista se irá actualizando en tiempo real conforme se vaya escribiendo).
 
 ```cpp
-connect(ui->txtSearch, &amp;QLineEdit::textChanged, this, &amp;MainWindow::search);
+connect(ui->txtSearch, &QLineEdit::textChanged, this, &MainWindow::search);
 ```
 
 Existe otra señal similar en `QLineEdit`: `QLineEdit::textEdited`. La diferencia principal está en que ésta se emite cuando el texto se cambar _por acción directa del usuario_, mientras que `QLineEdit::textChanged` se emite tanto cuando el usuario escribe como cuando el valor se cambia programáticamente. Veremos mejor la diferencia en el siguiente apartado.
@@ -103,13 +103,13 @@ QStringList splitSearchString(QString pattern)
   return pattern.split(' ', QString::SkipEmptyParts); 
 }
 
-void MainWindow::search(const QString&amp; text)
+void MainWindow::search(const QString& text)
 {
   const auto tokens = splitSearchString(text);
   
   for (int ii = 0; ii < ui->listWidget->count(); ++ii) {
     bool matched = true;
-    for (const auto&amp; token : tokens) {
+    for (const auto& token : tokens) {
       if (!ui->listWidget->item(ii)->text().contains(token, Qt::CaseInsensitive)) {
         matched = false; // debe haber una coincidencia con todos los tokens
         break;

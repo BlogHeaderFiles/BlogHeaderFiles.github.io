@@ -32,7 +32,7 @@ for (auto it = std_map.begin(); it != std_map.end(); ++it) {
 Complejidad O(n). Añadir `const` a `elem` para inmutables.
 
 ```cpp
-for (auto&amp; elem : std_map) {
+for (auto& elem : std_map) {
   std::cout << elem.first << ' ' << elem.second << '\n';
 }
 ```
@@ -68,7 +68,7 @@ QMapIterator<decltype(qmap)::key_type, decltype(qmap)::mapped_type> it(qmap);
 Complejidad O(n). Añadir `const` a `elem` para inmutables.
 
 ```cpp
-for (auto&amp; elem : qmap) {
+for (auto& elem : qmap) {
   qDebug() << elem;
 }
 ```
@@ -77,7 +77,7 @@ Lo malo es que con esta sintaxis sólo se itera sobre los valores, no hay forma 
 
 ##### Iterar sobre las claves
 ```cpp
-for (const auto&amp; key : qmap.keys()) {
+for (const auto& key : qmap.keys()) {
   qDebug() << key << qmap[key];
 }
 ```
@@ -86,7 +86,7 @@ El problema es que en ninguna parte se garantiza que la lista de claves se extra
 
 ##### Convertir a `std::map`
 ```cpp
-for (auto&amp; elem : qmap.toStdMap()) {
+for (auto& elem : qmap.toStdMap()) {
   qDebug() << elem.first << elem.second;
 }
 ```
@@ -119,8 +119,8 @@ Haciendo uso de los iteradores compatibles con STL, el _wrapper_ sería:
 ```cpp
 template<class K, class V>
 struct qmap_wrapper {
-  QMap<K, V>&amp; map;
-  qmap_wrapper(QMap<K, V>&amp; map_) : map(map_) {}
+  QMap<K, V>& map;
+  qmap_wrapper(QMap<K, V>& map_) : map(map_) {}
   auto begin() { return map.keyValueBegin(); }
   auto end() { return map.keyValueEnd(); }
 };
@@ -139,7 +139,7 @@ public:
   typedef typename Iterator::difference_type difference_type;
   typedef std::pair<Key, T> value_type;
   typedef const value_type *pointer;
-  typedef const value_type &amp;reference;
+  typedef const value_type &reference;
 
   QKeyValueIterator() = default;
   Q_DECL_CONSTEXPR explicit QKeyValueIterator(Iterator o) noexcept(std::is_nothrow_move_constructible<Iterator>::value)
@@ -152,9 +152,9 @@ public:
   friend bool operator==(QKeyValueIterator lhs, QKeyValueIterator rhs) noexcept { return lhs.i == rhs.i; }
   friend bool operator!=(QKeyValueIterator lhs, QKeyValueIterator rhs) noexcept { return lhs.i != rhs.i; }
 
-  inline QKeyValueIterator &amp;operator++() { ++i; return *this; }
+  inline QKeyValueIterator &operator++() { ++i; return *this; }
   inline QKeyValueIterator operator++(int) { return QKeyValueIterator(i++);}
-  inline QKeyValueIterator &amp;operator--() { --i; return *this; }
+  inline QKeyValueIterator &operator--() { --i; return *this; }
   inline QKeyValueIterator operator--(int) { return QKeyValueIterator(i--); }
   Iterator base() const { return i; }
 
@@ -168,8 +168,8 @@ private:
 template<class K, class V>
 struct qmap_wrapper {
   using qiterator = QKeyValueIterator<K, V, typename QMap<K, V>::iterator>;
-  QMap<K, V>&amp; map;
-  qmap_wrapper(QMap<K, V>&amp; map_) : map(map_) {}
+  QMap<K, V>& map;
+  qmap_wrapper(QMap<K, V>& map_) : map(map_) {}
   auto begin() { return qiterator(map.begin()); }
   auto end() { return qiterator(map.end()); }
 };

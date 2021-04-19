@@ -66,7 +66,7 @@ std::vector<C> foo(size_t n) {
   std::vector<C> vector_style(n);
 
   size_t count = 0;
-  for (const auto&amp; c : vector_style) {
+  for (const auto& c : vector_style) {
     if (!c.is_valid()) { return {}; }
 
     if (old_style[ii].bar()) {

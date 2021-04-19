@@ -31,7 +31,7 @@ class QDateEditWithNull : public QDateEdit
   Q_PROPERTY(QDate nullDate READ nullDate WRITE setDate USER true)
 
 public:
-  explicit QDateEditWithNull(const QDate &amp;date, QWidget *parent = nullptr) : QDateEdit(date, parent) {
+  explicit QDateEditWithNull(const QDate &date, QWidget *parent = nullptr) : QDateEdit(date, parent) {
     setSpecialValueText(tr("No date"));
     setMinimumDate(QDate(1900, 1, 1));
     setCalendarPopup(true);
@@ -40,7 +40,7 @@ public:
   virtual ~QDateEditWithNull() = default;
 
 public:
-  bool isNullDate(const QDate &amp;date) const {
+  bool isNullDate(const QDate &date) const {
     return date.isNull() || date <= minimumDate();
   }
 
@@ -57,7 +57,7 @@ protected:
     if (calendarWidget()) {
       updateCalendarWidgetPage();
 
-      connect(calendarWidget(), &amp;QCalendarWidget::selectionChanged, [=]() { updateCalendarWidgetPage(); });
+      connect(calendarWidget(), &QCalendarWidget::selectionChanged, [=]() { updateCalendarWidgetPage(); });
     }
   }
 
@@ -65,7 +65,7 @@ public slots:
   void clear() {
     setDate(minimumDate());
   }
-  void setDate(const QDate &amp;date) {
+  void setDate(const QDate &date) {
     QDateEdit::setDate(isNullDate(date) ? minimumDate() : date);
     setCalendarPopup(calendarPopup());
   }

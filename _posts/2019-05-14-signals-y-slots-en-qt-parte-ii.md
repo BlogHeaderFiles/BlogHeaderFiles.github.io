@@ -24,8 +24,8 @@ Simplificando los escenarios, podríamos dividir esta nueva sintaxis en dos tipo
 De forma general:
 
 ```cpp
-connect(objeto_emisor, &amp;ClaseEmisora::la_señal,
-        objeto_receptor, &amp;ClaseReceptora::el_slot);
+connect(objeto_emisor, &ClaseEmisora::la_señal,
+        objeto_receptor, &ClaseReceptora::el_slot);
 ```
 
 Un dato interesante es que, gracias a esta nueva sintaxis, el método receptor no tiene por qué estar marcado como _slot_, sino que puede ser cualquier función accesible. Esto proporciona un pequeño ahorro en el tamaño final del ejecutable, ya que es posible prescindir de la pequeña sobrecarga que supone el código del meta-objeto, en caso de no requerirse para más nada, y un mínimo ahorro en tiempo de compilación.
@@ -40,11 +40,11 @@ Ahora bien, tiene tres _desventajas_ menores:
 Mi forma favorita, ya que permite ahorrar la creación de multitud de micro-métodos específicos (inevitables en Qt 4), además de servir de _puente_ para salvar otras limitaciones de la forma anterior:
 
 ```cpp
-connect(ui.button1, &amp;QPushButton::clicked,
+connect(ui.button1, &QPushButton::clicked,
         []() { QMessageBox::information(nullptr, "", "Hello world!"); });
 
 // foo recibe un QString, por lo que no puede conectarse con la señal clicked
-connect(ui.button2, &amp;QPushButton::clicked,
+connect(ui.button2, &QPushButton::clicked,
         [this]() { foo("hello world!"); });
 ```
 
@@ -57,13 +57,13 @@ Esto puede hacerse mediante [`qOverload`](https://doc.qt.io/qt-5/qtglobal.html#q
 
 ```cpp
 // .h
-void printString(const QString&amp; str);
+void printString(const QString& str);
 
 // .cpp
-connect(m_ui->cboValues, qOverload<QString>(&amp;QComboBox::activated),
-        this, &amp;MainWindow::printString); // error de compilación
-connect(m_ui->cboValues, qOverload<const QString&amp;>(&amp;QComboBox::activated),
-        this, &amp;MainWindow::printString);
+connect(m_ui->cboValues, qOverload<QString>(&QComboBox::activated),
+        this, &MainWindow::printString); // error de compilación
+connect(m_ui->cboValues, qOverload<const QString&>(&QComboBox::activated),
+        this, &MainWindow::printString);
 ```
 
 En caso de que el método esté sobrecargado como const y no-const se usarán `qConstOverload` (para usar la versión const) y `qNonConstOverload` (para la versión no-const).
@@ -71,8 +71,8 @@ En caso de que el método esté sobrecargado como const y no-const se usarán `q
 `qOverload` require que compilemos con soporte para C++14. En caso de disponer de C++11 únicamente, puede usarse la clase de ayuda `QOverload`:
 
 ```cpp
-connect(m_ui->cboThirdParty, QOverload<QString>::of(&amp;QComboBox::activated),
-        this, &amp;About::showThirdPartyAbout);
+connect(m_ui->cboThirdParty, QOverload<QString>::of(&QComboBox::activated),
+        this, &About::showThirdPartyAbout);
 ```
 
 ### Valores por defecto
@@ -80,7 +80,7 @@ El otro gran _problema_ de la nueva sintaxis son los valores por defecto en el _
 
 ```cpp
 // .h
-void onTextChanged(const QString&amp; text, bool refresh = true);
+void onTextChanged(const QString& text, bool refresh = true);
 
 // .cpp
 connect(m_ui->lineEdit, SIGNAL(textChanged(QString)), SLOT(onTextChanged(QString)));
@@ -91,21 +91,21 @@ Para hacer lo mismo en Qt 5 debemos crear un método intermediario, bien como m�
 ```cpp
 // Opción 1: sobrecargando el método
 // .h
-void onTextChanged(const QString&amp; text, bool refresh);
-void onTextChanged(const QString&amp; text) { onTextChanged(text); }
+void onTextChanged(const QString& text, bool refresh);
+void onTextChanged(const QString& text) { onTextChanged(text); }
 
 // Opción 2: conectando a un lambda intermedio
 // .cpp
-connect(m_ui->lineEdit, &amp;QLineEdit::textChanged,
-        this, qOverload<const QString&amp;>(Class::onTextChanged));
-connect(m_ui->lineEdit, &amp;QLineEdit::textChanged,
-        [this](const QString&amp; text) { onTextChanged(text, true); });
+connect(m_ui->lineEdit, &QLineEdit::textChanged,
+        this, qOverload<const QString&>(Class::onTextChanged));
+connect(m_ui->lineEdit, &QLineEdit::textChanged,
+        [this](const QString& text) { onTextChanged(text, true); });
 ```
 
 Nótese que no hablo de diferencia en el número de parámetros, ya que la señal pasará al _slot_ todos los parámetros compatibles, de _izquierda a derecha_, e ignorará el resto. En el siguiente ejemplo `textChanged` envía un `QString`, pero que es ignorado por el _slot_:
 
 ```cpp
-connect(m_ui->lineEdit, &amp;QLineEdit::textChanged,
+connect(m_ui->lineEdit, &QLineEdit::textChanged,
         []() { qDebug() << "Text has changed"; });
 ```
 
@@ -118,7 +118,7 @@ void record(int secs = 0);
 
 // .cpp
 // Conversión bool -> int
-connect(m_ui->btnRecord, &amp;QPushButton::clicked, this, &amp;Video::record);
+connect(m_ui->btnRecord, &QPushButton::clicked, this, &Video::record);
 ```
 
 En este caso, se hace una conversión implícita del parámetro `bool` de `clicked` y se le pasa a `record` como un entero. Para más información sobre qué pasaría en el caso contrario (`int` a `bool`), sugiero una mirada a [esta publicación en S.O.](https://stackoverflow.com/a/2192801/1485885).

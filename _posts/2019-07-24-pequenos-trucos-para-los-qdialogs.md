@@ -79,10 +79,10 @@ bool basicDialog()
   auto h_layout = new QHBoxLayout();
   h_layout->addStretch();
   auto ok_button = new QPushButton("OK");
-  QObject::connect(ok_button, &amp;QPushButton::clicked, &amp;dlg, &amp;QDialog::accept);
+  QObject::connect(ok_button, &QPushButton::clicked, &dlg, &QDialog::accept);
   h_layout->addWidget(ok_button);
   auto cancel_button = new QPushButton("Cancel");
-  QObject::connect(cancel_button, &amp;QPushButton::clicked, &amp;dlg, &amp;QDialog::reject);
+  QObject::connect(cancel_button, &QPushButton::clicked, &dlg, &QDialog::reject);
   h_layout->addWidget(cancel_button);
   layout->addLayout(h_layout);
   

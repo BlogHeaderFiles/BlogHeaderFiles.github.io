@@ -38,7 +38,7 @@ int computeDistance(float x, float y)
 Suele ser producto de algún _refactoring_, actualización de código para ser compatible con una nueva API, o limpieza después de algunas pruebas temporales. Por ejemplo:
 
 ```cpp
-bool checkFileIntegrity(const std::filesystem::path &amp;file_path, const std::string &amp;checksum)
+bool checkFileIntegrity(const std::filesystem::path &file_path, const std::string &checksum)
 {
   std::ifstream file(file_path);
   if (!file.is_open()) return false;
@@ -61,12 +61,12 @@ Ahora que conocemos el aviso que nos concierne, vamos a ver por qué nos interes
 class BaseDrawingTool {
   // ...
 protected:
-  virtual void mouseClicked(int button, const std::tuple<int, int> &amp;pos_xy) = 0;
+  virtual void mouseClicked(int button, const std::tuple<int, int> &pos_xy) = 0;
 }
 
 class ClearWholeCanvas : public BaseDrawingTool {
 protected:
-  virtual void mouseClicked(int button, const std::tuple<int, int> &amp;pos_xy) override
+  virtual void mouseClicked(int button, const std::tuple<int, int> &pos_xy) override
   {
     switch (button) {
     case LEFT: clearCanvas(m_foreground_color); break;
@@ -74,7 +74,7 @@ protected:
     }
   }
 
-  void clearCanvas(const Color &amp;color) { ... }
+  void clearCanvas(const Color &color) { ... }
 }
 ```
 
@@ -84,8 +84,8 @@ Claramente, la herramienta `ClearWholeCanvas` no necesita conocer la posición e
 La solución más obvia sería comentar el parámetro o simplemente dejarlo sin nombre
 
 ```cpp
-virtual void mouseClicked(int button, const std::tuple<int, int> &amp;) ...
-virtual void mouseClicked(int button, const std::tuple<int, int> &amp; /*pos_xy*/) ...
+virtual void mouseClicked(int button, const std::tuple<int, int> &) ...
+virtual void mouseClicked(int button, const std::tuple<int, int> & /*pos_xy*/) ...
 ```
 
 El problema acá es que se pierde la información semántica del parámetro: ¿qué significa?, ¿por qué está comentado?, si necesito la posición del cursor en el futuro ¿me acordaré que ya la tengo disponible?. El caso del comentario es algo mejor pero muchos ayudantes de código (como el IntelliSense) no interpretan estos comentarios cuando presentan los prototipos de las funciones, por lo que perdemos esa ayuda extra _in-situ_.
@@ -93,7 +93,7 @@ El problema acá es que se pierde la información semántica del parámetro: ¿q
 En todos estos casos tendríamos que referirnos a la clase padre para saber estos datos pero, además de tedioso, ¿y qué pasa si la clase padre también los tiene borrados? Situación típica en clases que dejan una implementación vacía por defecto:
 
 ```cpp
-virtual void mouseClicked(int, const std::tuple<int, int> &amp;) {}
+virtual void mouseClicked(int, const std::tuple<int, int> &) {}
 ```
 
 De nuevo, los comentarios serían de utilidad pero no tendríamos esa información en el ayudante contextual (IntelliSense, p.e.)
@@ -101,7 +101,7 @@ De nuevo, los comentarios serían de utilidad pero no tendríamos esa informaci�
 Podríamos también generar un NOOP (_no-operation_), que en general es de las mejores opciones y de hecho es implementado por muchas bibliotecas, como Qt con su [`Q_UNUSED`](https://doc.qt.io/qt-5/qtglobal.html#Q_UNUSED).
 
 ```cpp
-virtual void mouseClicked(int button, const std::tuple<int, int> &amp;pos_xy) override
+virtual void mouseClicked(int button, const std::tuple<int, int> &pos_xy) override
 {
   (void)(pos_xy);
 }
@@ -110,14 +110,14 @@ virtual void mouseClicked(int button, const std::tuple<int, int> &amp;pos_xy) ov
 Sin embargo, la solución usando `[[maybe_unused]]` es más sencilla y explícita:
 
 ```cpp
-virtual void mouseClicked(int button, [[maybe_unused]] const std::tuple<int, int> &amp;pos_xy) override { ... }
+virtual void mouseClicked(int button, [[maybe_unused]] const std::tuple<int, int> &pos_xy) override { ... }
 ```
 
 #### Variable o argumento de función no utilizado, a veces
 Una variante del caso anterior es cuando el argumento (o variable local) es usada sólo bajo determinados escenarios de compilación. Pongamos como ejemplo una función que verifica la validez de un fichero de licencia, pero sólo si se está compilando para despliegue (las versiones de desarrollo se ejecutarían sin licencia):
 
 ```cpp
-bool checkLicense(const std::filesystem::path &amp;license)
+bool checkLicense(const std::filesystem::path &license)
 {
 ###ifdef PROJECT_IN_DEPLOYMENT_MODE
   std::ifstream file(license);
@@ -137,7 +137,7 @@ El caso de `checkLicense` es diferente al anterior, ya que hay situaciones en la
 La única solución hasta ahora ha sido generar un NOOP:
 
 ```cpp
-bool checkLicense(const std::filesystem::path &amp;license)
+bool checkLicense(const std::filesystem::path &license)
 {
 ###ifdef PROJECT_IN_DEPLOYMENT_MODE
   std::ifstream file(license);
@@ -154,7 +154,7 @@ bool checkLicense(const std::filesystem::path &amp;license)
 La solución usando `[[maybe_unused]]` es, de nuevo, muy explícita:
 
 ```cpp
-bool checkLicense([[maybe_unused]] const std::filesystem::path &amp;license)
+bool checkLicense([[maybe_unused]] const std::filesystem::path &license)
 {
 ###ifdef PROJECT_IN_DEPLOYMENT_MODE
   std::ifstream file(license);

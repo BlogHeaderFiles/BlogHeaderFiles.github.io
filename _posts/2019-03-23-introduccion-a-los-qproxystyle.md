@@ -31,7 +31,7 @@ Comencemos con la definición del proxy:
 ```cpp
 class MyProxyStyle : public QProxyStyle {
 public:
-  explicit MyProxyStyle(const QString&amp; name)
+  explicit MyProxyStyle(const QString& name)
     : QProxyStyle(name), // definimos acá el estilo padre
       m_warning_icon(":/resources/warning.png") {
   }

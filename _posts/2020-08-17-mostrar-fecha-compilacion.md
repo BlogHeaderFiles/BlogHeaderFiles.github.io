@@ -28,7 +28,7 @@ Ahora bien, para trazas más elaboradas, tales como mensajes al usuario que deba
 La siguiente función extrae los componentes de fecha y hora y construye una nueva cadena de texto en base al formato presentado (los especificadores de formato son estándar y están listados [acá](http://www.cplusplus.com/reference/ctime/strftime/)). Dejo al lector la modificación del código para usar `__DATE__` y `__TIME__` en lugar de `__TIMESTAMP__`.
 
 ```cpp
-std::string getFormattedBuildDatetime(const std::string &amp;format)
+std::string getFormattedBuildDatetime(const std::string &format)
 {
   // Build timestamp, uses Boost to allow conversion from the compiler
   // __TIMESTAMP__ string to a custom format
