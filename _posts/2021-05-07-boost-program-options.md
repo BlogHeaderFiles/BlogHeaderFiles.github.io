@@ -172,7 +172,7 @@ verbose = po_vm["verbose"].as<bool>();
 
 Los argumentos posicionales son aquellos cuya semántica viene dada por su posición en la lista de argumentos. Por ejemplo `app input.txt output.txt` podría tener dos argumentos posicionales, donde el primero representa al ruta del fichero de entrada y el segundo la ruta del de salida.
 
-De nuestro ejemplo anterior, supongamos queremos que el fichero de entrada y el salida sean posicionales:
+De nuestro ejemplo anterior, supongamos queremos que el fichero de entrada y el de salida sean posicionales:
 
 ```cpp
 po::positional_options_description po_pos;
@@ -180,7 +180,7 @@ po_pos.add("input", 1);
 po_pos.add("output", 1);
 ```
 
-Los argumentos se seleccionan en el orden en el que se definen, y se asocian a la opción con el nombre que se indica. El número después del nombre indica cuántos argumentos de ese tipo se esperan, donde `-1` indica ilimitados (como sugiere la lógica, no se pueden definir nuevos argumentos posicionales una vez se define uno ilimitado).
+Los argumentos se seleccionan en el orden en el que se definen, y se asocian a la opción que se indica. El número después del nombre indica cuántos argumentos de ese tipo se esperan, donde `-1` indica ilimitados (como sugiere la lógica, no se pueden definir nuevos argumentos posicionales una vez se define uno ilimitado).
 
 Por último, es necesario añadirlos al analizador:
 
