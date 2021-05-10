@@ -109,7 +109,7 @@ cmdline_options.add(po_desc).add(po_desc_hidden);
 
 #### Sugerencia👀
 
-Como nota de experiencia, sugiero desactivar el formateo automático de código para esta sección, a fin de mantener cada opción en una línea. Esto mejora la lectura del códguo y mantiene más limpio el historial de cambios en el repositorio. For ejemplo, si usáis `clang-format`:
+Como nota de experiencia, sugiero desactivar el formateo automático de código para esta sección, a fin de mantener cada opción en una línea. Esto mejora la lectura del código y mantiene más limpio el historial de cambios en el repositorio. Por ejemplo, si usáis `clang-format` se puede hacer de la siguiente forma:
 
 ```cpp
 // clang-format off
@@ -148,7 +148,7 @@ Ahora tenemos la línea de comandos descompuesta en las opciones que hemos defin
 Existen varias formas de acceder a estas opciones, aunque las tres más comunes son:
 
 - Verificando si la opción ha sido escrita por el usuario: `po_vm.count("option_name") > 0`.
-- Sabiendo que existe (bien por el método anterior, o porque hemos indicado que siempre tenga un valor por defecto), podemos acceder a su valor: `po_vm["option_name"].as<T>`, donde `T` es el tipo de datos que hemos indicado en la definición. Aviso⚠: acceder de esta forma a una opción no definida o sin valor lanza una excepción. Por mi parte, en lo posible trato de que todas las opciones tengan un valor por defecto
+- Sabiendo que existe (bien por el método anterior, o porque hemos indicado que siempre tenga un valor por defecto), podemos acceder a su valor: `po_vm["option_name"].as<T>`, donde `T` es el tipo de datos que hemos indicado en la definición. Aviso⚠: acceder de esta forma a una opción no definida o sin valor lanza una excepción. Por mi parte, en lo posible trato de que todas las opciones no obligatorias tengan un valor por defecto.
 - Asociando una opción a una variable: esta opción es muy práctica, aunque no la suelo usar simplemente porque me gusta separar mentalmente el análisis de la interpretación, sabiendo que no tengo valores a medias en caso de error. Para asociar una opción a una variable solamente tenemos que indicarlo en la definición de la opción: `("language", po::value<std::string>(&lang), "UI language")`.
 
 ```cpp
@@ -180,7 +180,7 @@ po_pos.add("input", 1);
 po_pos.add("output", 1);
 ```
 
-Los argumentos se seleccionan en el orden en el que se definen, y se asocian a la opción con el nombre que se indica. El número después del nombre indica cuántos argumentos de ese tipo se esperan, donde `-1` indica ilimitados (como dice la lógica, no se pueden definir nuevos argumentos posicionales una vez se define uno ilimitado).
+Los argumentos se seleccionan en el orden en el que se definen, y se asocian a la opción con el nombre que se indica. El número después del nombre indica cuántos argumentos de ese tipo se esperan, donde `-1` indica ilimitados (como sugiere la lógica, no se pueden definir nuevos argumentos posicionales una vez se define uno ilimitado).
 
 Por último, es necesario añadirlos al analizador:
 
