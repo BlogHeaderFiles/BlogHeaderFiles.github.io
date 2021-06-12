@@ -35,7 +35,7 @@ Como se puede ver en este ejemplo, se ha usado el puntero [`qApp`](https://doc.q
 ### Código de ejemplo
 El siguiente programa ilustrará las consecuencias de tener uno o más `Q*Application`s instanciados. Las pruebas se han hecho ejecutando Qt 5.12.2 de 32 bits compilado con Visual Studio 2017 (15.9.11). Las mismas pruebas las he realizado con versiones anteriores de Qt 5 con los mismos resultados.
 
-El código de este proyecto (para VS) está disponible en [GitHub](https://github.com/cbuchart/HeaderFiles.com/tree/master/Multiple_QApplications).
+El código de este proyecto (para VS) está disponible en [GitHub](https://github.com/BlogHeaderFiles/SourceCode/tree/master/Multiple_QApplications).
 
 ```cpp
 #include <QtCore>

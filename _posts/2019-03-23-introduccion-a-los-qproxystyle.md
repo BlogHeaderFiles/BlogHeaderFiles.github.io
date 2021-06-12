@@ -70,7 +70,7 @@ int main(int argc, char* argv[]) {
 
 ![todo](/assets/images/Screenshot-2019-03-23-12.22.41-e1553340253450.png)
 
-El proyecto completo (VS) de este ejemplo está disponible en [GitHub](https://github.com/cbuchart/HeaderFiles.com/tree/master/QProxyStyles_example).
+El proyecto completo (VS) de este ejemplo está disponible en [GitHub](https://github.com/BlogHeaderFiles/SourceCode/tree/master/QProxyStyles_example).
 
 ### Otro ejemplo: quitar el cuadro de foco de todos los controles
 Para esto necesitaremos reimplementar `QProxyStyle::drawPrimitive` y evitar el dibujado de los elementos `PE_FrameFocusRect`:

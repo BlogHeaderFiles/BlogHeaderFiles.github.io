@@ -175,6 +175,6 @@ struct qmap_wrapper {
 };
 ```
 
-El código completo de este artículo está disponible en [GitHub](https://github.com/cbuchart/HeaderFiles.com/tree/master/IteratingQMap).
+El código completo de este artículo está disponible en [GitHub](https://github.com/BlogHeaderFiles/SourceCode/tree/master/IteratingQMap).
 
 _Créditos:_ este artículo fue inspirado por [esta entrada de Stack Overflow](https://stackoverflow.com/q/8517853/1485885), donde se detallan diversas formas de iterar sobre un `QMap`, con excelentes comentarios acerca de su rendimiento, ventajas y desventajas.

@@ -10,7 +10,7 @@ Es normal que, para muchos, al hablar de Qt vengan a la cabeza dos palabras: _si
 
 La [documentación de Qt](https://doc.qt.io/qt-5/signalsandslots.html) es muy extensa en el uso de este mecanismo, pero me ha parecido interesante resaltar algunos aspectos básicos y otros un poco menos obvios. Por su extensión, dividiré este artículo en dos entregas. En esta primera parte introduciré el uso más común y _tradicional_ (el usado hasta Qt 4, aunque sea dentro del contexto de Qt 5), y en la [segunda entrega]({{url}}/2019/05/14/signals-y-slots-en-qt-parte-ii/) pasaré a explicar las novedades introducidas en Qt 5, una comparativa entre ambas versiones, y algunos tópicos más avanzados o al menos no tan frecuentes.
 
-He creado un pequeño proyecto de ejemplo para ilustrar las principales ideas de esta entrada; está disponible en [GitHub](https://github.com/cbuchart/HeaderFiles.com/tree/master/SignalsAndSlots).
+He creado un pequeño proyecto de ejemplo para ilustrar las principales ideas de esta entrada; está disponible en [GitHub](https://github.com/BlogHeaderFiles/SourceCode/tree/master/SignalsAndSlots).
 
 ### Conceptos generales
 Una señal (_signal_) es emitida por un objeto para informar acerca de _algo_. El _slot_ no es más que una función encargada de recibir ese mensaje (_callback_). Al proceso de unir una señal con un _slot_ se le llama _conexión_. Las conexiones son del tipo uno-a-muchos, es decir, una señal puede estar conectada a múltiples _slots_ (aunque no hay ninguna garantía del orden de ejecución de las mismas). Un _slot_ puede invocarse desde varias señales, pero es un uso menos frecuente.

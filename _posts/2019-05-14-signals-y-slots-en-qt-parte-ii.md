@@ -7,7 +7,7 @@ permalink: /2019/05/14/signals-y-slots-en-qt-parte-ii/
 ---
 En esta segunda entrega de _Signals y Slots_, estudiaremos la nueva sintaxis introducida en Qt 5, así como una comparativa respecto a la forma antigua, y cómo resolver los principales problemas que puedan surgir.
 
-Actualización: el código de ejemplo para esta entrada está ya disponible en [GitHub (Part_2)](https://github.com/cbuchart/HeaderFiles.com/tree/master/SignalsAndSlots).
+Actualización: el código de ejemplo para esta entrada está ya disponible en [GitHub (Part_2)](https://github.com/BlogHeaderFiles/SourceCode/tree/master/SignalsAndSlots).
 
 ### Qt 4
 El método clásico descrito en el [artículo anterior]({{url}}/2019/04/26/signals-y-slots-en-qt-parte-i) (el único en Qt 4 y anteriores), tiene básicamente dos desventajas:

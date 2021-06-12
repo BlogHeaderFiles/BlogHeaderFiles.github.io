@@ -114,4 +114,4 @@ _Nota:_ en caso de usar estas líneas en un diálogo diseñado en Qt Designer, h
 #### Más de dos posibles valores de retorno
 Imaginemos que tenemos un diálogo para seleccionar un elemento de entre varios posible, de un _combo box_. Existe una opción que es la de, dentro de la clase que gestiona el código, usar el método [`QDialog::done`](https://doc.qt.io/qt-5/qdialog.html#done): el valor especificado será el devuelto por el diálogo. De todas formas, se recomienda en estos casos usar el `accepted` e implementar un método alternativo para consultar el valor de retorno; de esta forma se marca mejor la diferencia entre un diálogo aceptado y uno cancelado.
 
-El código completo de esta entrada está disponible en [GitHub](https://github.com/cbuchart/HeaderFiles.com/tree/master/QDialog_tips).
+El código completo de esta entrada está disponible en [GitHub](https://github.com/BlogHeaderFiles/SourceCode/tree/master/QDialog_tips).
