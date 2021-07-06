@@ -20,7 +20,7 @@ Lenguajes como Python ayudan en este problema mediante la posibilidad de usar el
 
 En C++ podemos atacar el problema con una combinación de tipeado fuerte y de bloquear las conversiones implícitas. Como ejemplo tomaré el caso de argumentos booleanos, donde el problema se reduce en poder indicar si el argumento es verdadero o falso. En este caso además, interesa poder dar contexto a la vez que no añadimos demsiado ruido a nuestro código.
 
-Los siguientes dos artículos de [FluenCpp](https://www.fluentcpp.com/2018/05/04/passing-booleans-to-an-interface-in-an-expressive-way/) y [Andrzej's](https://akrzemi1.wordpress.com/2017/02/16/toggles-in-functions/) abordan el problema en cuestión con diferentes técnicas (los comentarios también aportan algunas interesantes).
+Los siguientes dos artículos de [FluenCpp](https://www.fluentcpp.com/2018/05/04/passing-booleans-to-an-interface-in-an-expressive-way/) y [Andrzej's](https://akrzemi1.wordpress.com/2017/02/16/toggles-in-functions/) abordan el problema en cuestión con diferentes técnicas (los comentarios también aportan algunas ideas interesantes).
 
 #### Enumeraciones
 Una de las ténicas que más se usan es la de definir enumeraciones con dos posibles valores `False`y `True`, y usar el tipo de dicha enumeración en lugar del booleano. Por ejemplo
@@ -60,6 +60,8 @@ void showAnalysisWidget(ReadOnly read_only, Maximized maximized);
 showAnalysisWidget(ReadOnly{true}, Maximized{false});
 ```
 
+Nota: no es recomendable usar un `using` para declarar el nuevo tipo de datos, ya que esto no es un tipo nuevo sino un alias, por lo que sería posible convertir entre dos _tipos diferentes_.
+
 Ahora bien, puede que nos interese deshabilitar las conversiones de otros tipos a booleano, para ello simplemente eliminamos dichos constructores:
 
 ```cpp
@@ -73,3 +75,5 @@ Una versión completa de este código puede ser probada [acá](https://wandbox.o
 Esta técnica además puede ser replicada para crear tipos básicos como la mencionada "velocidad", que unido a los literales definidos por el usuario, dotan a nuestro código de una expresividad y robustez casi insuperables.
 
 Como nota final, documentándome mientras escribía esta entrada me topé con la biblioteca [explicit](https://github.com/akrzemi1/explicit), que entre otras cosas, tiene una variante de esta solución algo más completa (`tagged_bool`).
+
+En la [siguiente entrega](https://headerfiles.com/2021/07/06/expressive-args-2/) generalizaremos estos conceptos a otros tipos de datos.
