@@ -5,7 +5,7 @@ author: Carlos Buchart
 layout: post
 permalink: /2021/07/06/expressive-args-2/
 image: /assets/images/featured/expressive_args.jpg
-excerpt: En esta segunda entre generalizamos la solución propuesta anteriormente para más tipos de datos.
+excerpt: En esta segunda entre generalizamos para más tipos de datos la solución propuesta anteriormente.
 ---
 Se suele decir que lo más difícil de la programación no es escribir código, es leerlo. Y los que hemos trabajado con bases de código de varios lustros de edad lo sabemos muy bien: funciones que tenemos que leer durante un par de horas para saber qué hacen, cómo lo hacen, sus precondiciones, sus casos borde, sus efectos colaterales. Muchas veces tenemos que pasar por largas sesiones de depuración paso a paso y refactorización para descifrar ese método que otro (¿nosotros?) escribió hace años (¿meses? ¿semanas?). Para más información sobre el trabajo con código legado recomiendo [esta lectura](https://www.fluentcpp.com/2019/02/01/the-legacy-code-programmers-toolbox-is-out/).
 
