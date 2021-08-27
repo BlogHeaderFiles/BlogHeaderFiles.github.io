@@ -1,9 +1,9 @@
 ---
-title: Escalando imágenes en QLabels
+title: Ajuste dinámico de imágenes en QLabels
 date: 2021-08-27T13:30:00+01:00
 author: Carlos Buchart
 layout: post
-permalink: /2021/08/27/escalando-imagenes-qlabel/
+permalink: /2021/08/27/ajuste-dinamico-imagenes-qlabel/
 image: /assets/images/featured/resize_image_qlabel.jpg
 excerpt: Estudiamos cómo auto-escalar una imagen dentro de un QLabel.
 ---
