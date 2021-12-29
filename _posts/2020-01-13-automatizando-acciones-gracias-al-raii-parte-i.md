@@ -8,14 +8,14 @@ excerpt: 'Uno de los aspectos que más me gusta de C++ es el RAII (Resource Acqu
 ---
 Como mencioné en una entrada anterior, uno de los aspectos que más me gusta de C++ es el [RAII](https://es.wikipedia.org/wiki/RAII) (Resource Acquisition Is Initialization). Introducida por Bjarne Stroustrup (creador de C++), esta técnica hace uso de los constructores y destructores para la correcta gestión de recursos. Tiene como bases las siguientes premisas:
 
- -  Un constructor siempre se ejecuta antes de que el objeto pueda ser usado, por lo que es un lugar seguro para reservar, inicializar, preparar los recursos a ser utilizados posteriormente.
- -  Los destructores son llamados implícitamente cuando el objeto, bueno, se destruye, y es lo último que hace el objeto antes de liberar su propia memoria. Es el momento adecuado de liberar otros recursos usados.
- -  Lo único que está garantizado que se ejecutará después de una excepción son los destructores de los objetos ya creados.
+- Un constructor siempre se ejecuta antes de que el objeto pueda ser usado, por lo que es un lugar seguro para reservar, inicializar, preparar los recursos a ser utilizados posteriormente.
+- Los destructores son llamados implícitamente cuando el objeto, bueno, se destruye, y es lo último que hace el objeto antes de liberar su propia memoria. Es el momento adecuado de liberar otros recursos usados.
+- Lo único que está garantizado que se ejecutará después de una excepción son los destructores de los objetos ya creados.
 
 Además, recordar que:
 
- -  Los miembros de una clase se destruyen automáticamente al destruir un objeto (y a su vez los miembros de los miembros, etc).
- -  Las variables locales y parámetros, por estar en el _stack_, son destruidos automáticamente al finalizar su alcance.
+- Los miembros de una clase se destruyen automáticamente al destruir un objeto (y a su vez los miembros de los miembros, etc).
+- Las variables locales y parámetros, por estar en el _stack_, son destruidos automáticamente al finalizar su alcance.
 
 Lo que implica que podemos automatizar la gestión de gran parte de los recursos de nuestra aplicación únicamente con esta técnica. Casi todo C++ hace uso de la misma; acá algunos ejemplos:
 
@@ -56,9 +56,9 @@ int main() {
 
 He acá los principales _defectos_ de este código:
 
- -  El programador es el encargado de gestionar la memoria para cada punto de salida de la función `foo` (3 en este caso).
- -  La función que llame a `foo` hereda esta responsabilidad.
- -  Adicionalmente, es fácil perder el contexto y no saber cuántos elementos tiene `c`, teniendo que guardarlo para evitar errores de acceso fuera de límites.
+- El programador es el encargado de gestionar la memoria para cada punto de salida de la función `foo` (3 en este caso).
+- La función que llame a `foo` hereda esta responsabilidad.
+- Adicionalmente, es fácil perder el contexto y no saber cuántos elementos tiene `c`, teniendo que guardarlo para evitar errores de acceso fuera de límites.
 
 #### Usando `std::vector<T>`
 ```cpp
@@ -192,8 +192,8 @@ Podemos ver cómo nos hemos quitado las destrucciones manuales en la gestión de
 ### Otros ejemplos clásicos
 Enumeraré otros casos en los cuales se usa el RAII ampliamente, para que los tengáis en cuenta en vuestros desarrollos:
 
- -  Entrada / salida por ficheros: [`std::ifstream`](https://es.cppreference.com/w/cpp/io/basic_ifstream) / [`std::ofstream`](https://es.cppreference.com/w/cpp/io/basic_ofstream) automáticamente cierran el fichero cuando son destruidos.
- -  Mutex (otro de mis favoritos): [`std::lock_guard<Mutex>`](https://es.cppreference.com/w/cpp/thread/lock_guard), [`std::scoped_lock<...>`](https://en.cppreference.com/w/cpp/thread/scoped_lock).
+- Entrada / salida por ficheros: [`std::ifstream`](https://es.cppreference.com/w/cpp/io/basic_ifstream) / [`std::ofstream`](https://es.cppreference.com/w/cpp/io/basic_ofstream) automáticamente cierran el fichero cuando son destruidos.
+- Mutex (otro de mis favoritos): [`std::lock_guard<Mutex>`](https://es.cppreference.com/w/cpp/thread/lock_guard), [`std::scoped_lock<...>`](https://en.cppreference.com/w/cpp/thread/scoped_lock).
 
 ### Próximamente
 En el [siguiente artículo]({{url}}/2020/01/17/automatizando-acciones-gracias-al-raii-parte-ii/) utilizaremos el RAII para automatizar otro tipo de acciones en nuestro código. Mientras tanto, os dejo con una reflexión al respecto de parte de Jonathan Boccara, autor de Fluent C++, [To RAII or not to RAII](https://www.fluentcpp.com/2018/02/13/to-raii-or-not-to-raii/).

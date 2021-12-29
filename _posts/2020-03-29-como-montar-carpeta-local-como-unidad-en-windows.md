@@ -21,4 +21,4 @@ Para montar la carpeta como disco tenemos cualquiera de las siguientes opciones:
 
 P.D.: dependiendo de la configuración de la VPN, especialmente si fue montada específicamente para esta ocasión (lo que puede llevar a una configuración incompleta), puede que no tengáis acceso a los nombres de dominio internos de vuestra corporación. En ese caso sugiero le echéis un ojo a [este artículo de mi compañero Rubén de Celis en Mascando Bits](https://mascandobits.es/tips/problemas-de-acceso-a-una-ip-o-dominio-publico-desde-una-red-lan/).
 
-Espero os sirva en estos días de confinamiento o cuarentena (dependiendo desde dónde me leáis). Mientras tanto, yo me sigo quedando en casa ;).
+Espero os sirva en estos días de confinamiento o cuarentena (dependiendo desde dónde me leáis). Mientras tanto, yo me sigo quedando en casa 😷.
