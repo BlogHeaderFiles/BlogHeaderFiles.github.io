@@ -1,6 +1,6 @@
 ---
 title: Patrón Factory
-date: 2022-01-11T00:22:00+01:00
+date: 2022-01-11T01:10:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2022/01/11/patron-factory
