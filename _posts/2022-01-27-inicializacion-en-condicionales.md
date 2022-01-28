@@ -79,6 +79,15 @@ ptr->print(); // < 'ptr' may be null
 
 En cambio, con esta sintaxis, es el propio compilador el que nos avisa con un fallo de compilación, ya que la variable no existe fuera del `if`. Es una de esas grandes ventajas de los lenguajes compilados: con poco esfuerzo podemos detectar y solucionar muchos problemas en el código antes de que se manifiesten por primera vez en ejecución, y sin necesidad de hacer pruebas unitarias para ello.
 
+Otro ejemplo de uso sería el de desreferenciar un `std::weak_ptr`. El método `std::weak_ptr<>::lock` devuelve `nullptr` si no ha sido posible obtener una referencia:
+
+```cpp
+void foo(std::weak_ptr<Object> weak)
+{
+    if (auto obj = weak.lock()) { ... }
+}
+```
+
 ## Declaración y comparación
 
 C++17 introduce una nueva mejora a esta sintaxis, que la hace mucho más flexible aún. En su primera aparición, declarábamos la variable y la condición quedaba implícita en diferente de cero, verdadero, diferente de nulo. Con esta sintaxis extendida podemos agregar una expresión adicional que será la que se evalúe para decidir el condicional:
@@ -118,3 +127,7 @@ for (size_t i = 0; auto value : container) {
 ```
 
 Para más información de este caso, otros usos y alternativas podéis consultar [esta entrada en Stack Overflow](https://stackoverflow.com/a/60209974/1485885).
+
+## Conclusión
+
+Commo hemos visto, esta sintaxis permite limitar el alcance de una variable, limitándola al entorno _seguro_ que le hemos definido, evitando además que se use para varios propósitos. Su uso es recomendado en los [C++ Core Guidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es6-declare-names-in-for-statement-initializers-and-conditions-to-limit-scope) (lectura prácticamente obligatoria para mejorar en el lenguaje).
