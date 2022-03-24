@@ -15,14 +15,16 @@ Por otro lado, en el primer ejemplo no me refiero a métodos para fijar propieda
 
 Adicionalmente, tenemos algunas posibles fuentes de errores, como intercambiar los nombres de los argumentos en la clase base durante un _refactoring_, pero olvidarse de hacerlo en las subclases; problema que no sería detectado por ningún compilador y que de seguro pasaría inadvertido en muchos escenarios de prueba. Además, podríamos toparnos con conversiones implícitas de enteros o punteros a booleanos.
 
-### Posibles soluciones
+## Posibles soluciones
+
 Lenguajes como Python ayudan en este problema mediante la posibilidad de usar el nombre del argumento en la llamada. De hecho, se quería que dicha funcionalidad fuese incluida en C++20, pero al final no ha entrado en el estándar (de momento). La sintaxis propuesta era similar a `showAnalysisWidget(.read_only=true, .maximized=true)`.
 
 En C++ podemos atacar el problema con una combinación de tipeado fuerte y de bloquear las conversiones implícitas. Como ejemplo tomaré el caso de argumentos booleanos, donde el problema se reduce en poder indicar si el argumento es verdadero o falso. En este caso además, interesa poder dar contexto a la vez que no añadimos demsiado ruido a nuestro código.
 
 Los siguientes dos artículos de [FluenCpp](https://www.fluentcpp.com/2018/05/04/passing-booleans-to-an-interface-in-an-expressive-way/) y [Andrzej's](https://akrzemi1.wordpress.com/2017/02/16/toggles-in-functions/) abordan el problema en cuestión con diferentes técnicas (los comentarios también aportan algunas ideas interesantes).
 
-#### Enumeraciones
+### Enumeraciones
+
 Una de las ténicas que más se usan es la de definir enumeraciones con dos posibles valores `False`y `True`, y usar el tipo de dicha enumeración en lugar del booleano. Por ejemplo
 
 ```cpp
@@ -36,9 +38,9 @@ showAnalysisWidget(ReadOnly::True, Maximized::False);
 
 Esto documentaría muy bien el contexto de cada argumento, evitaría confusiones de tipo así como conversiones implícitas. Las pocas _pegas_ son que si queremos usar el argumento en un condicional debemos hacer una comparación "tipográficamente más larga": `if (read_only == ReadOnly::True)` o `if (static_cast<bool>(read_only))`, o al querer convertir una expresión booleana en argumento de nuestra función. Un ejemplo en vivo puede verse [acá](https://wandbox.org/permlink/cTOU2txr974xyW7D).
 
-#### Clase TrueFalse
-Esta solución también es bastante corta y sencilla de recordar, y no tiene los inconvenientes antes vistos con los _castings_, y particularmente es mi preferida. Básicamente se trata de construir una pequeña clase que sólo pueda ser construida con un booleano y que se convierte implícita en booleano si hace falta. Además, una sencilla macro nos facilita la vida a la hora de declarar nuevos tipos.
+### Clase TrueFalse
 
+Esta solución también es bastante corta y sencilla de recordar, y no tiene los inconvenientes antes vistos con los _castings_, y particularmente es mi preferida. Básicamente se trata de construir una pequeña clase que sólo pueda ser construida con un booleano y que se convierte implícita en booleano si hace falta. Además, una sencilla macro nos facilita la vida a la hora de declarar nuevos tipos.
 
 ```cpp
 struct TrueFalse
