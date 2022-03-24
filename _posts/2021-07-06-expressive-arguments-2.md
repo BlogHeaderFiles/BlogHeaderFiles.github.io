@@ -40,41 +40,41 @@ Basándonos en esta solución es posible generalizar parte de la clase para sopo
 
 ```cpp
 template<typename T>
-class ExplicitValue
+class StrongType
 {
   T value;
 
 public:
-  explicit ExplicitValue(T value) noexcept : value{value} {}
+  explicit StrongType(T value) noexcept : value{value} {}
 
-  ExplicitValue(const ExplicitValue &other) noexcept : value{other.value} {}
-  ExplicitValue(ExplicitValue &&other) noexcept : value{std::move(other.value)} {}
+  StrongType(const StrongType &other) noexcept : value{other.value} {}
+  StrongType(StrongType &&other) noexcept : value{std::move(other.value)} {}
 
-  ExplicitValue<T> &operator=(const ExplicitValue &other)
+  StrongType<T> &operator=(const StrongType &other)
   {
     value = other.value;
     return *this;
   }
-  ExplicitValue<T> &operator=(ExplicitValue &&other)
+  StrongType<T> &operator=(StrongType &&other)
   {
     value = std::move(other.value);
     return *this;
   }
-  
+
   operator T() const { return value; }
 };
 
-#define DEF_EXPLICIT_VALUE(name, Type) class name : public ExplicitValue<Type> { using ExplicitValue::ExplicitValue; }
-#define DEF_TRUE_FALSE(name) DEF_EXPLICIT_VALUE(name, bool)
+#define DEF_STRONG_TYPE(name, Type) class name : public StrongType<Type> { using StrongType::StrongType; }
+#define DEF_TRUE_FALSE(name) DEF_STRONG_TYPE(name, bool)
 ```
 
 Por último, podemos extender esta funcionalidad aún más definiendo un literal de usuario para construir el tipo de dato. Es importante tener en cuenta las [limitaciones de este operador](https://en.cppreference.com/w/cpp/language/user_literal) respecto a los tipos de datos soportados, ya que es probable que tengamos que forzar un _casting_ si nuestro tipo de datos usa valores con menor rango.
 
 ```cpp
-DEF_EXPLICIT_VALUE(Kilometers, long double);
+DEF_STRONG_TYPE(Kilometers, long double);
 inline Kilometers operator""_km(long double value) { return Kilometers{value}; }
 
 const auto distance = 42.0_km;
 ```
 
-Podéis encontrar el ejemplo completo y ejecutable en [Coliru](http://coliru.stacked-crooked.com/a/8f3db63f9d7fa94b).
+Podéis encontrar el ejemplo completo y ejecutable en [Coliru](http://coliru.stacked-crooked.com/a/3ec753ba6d3c9b7b).
