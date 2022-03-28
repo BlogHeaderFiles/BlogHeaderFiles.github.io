@@ -19,9 +19,9 @@ Adicionalmente, tenemos algunas posibles fuentes de errores, como intercambiar l
 
 Lenguajes como Python ayudan en este problema mediante la posibilidad de usar el nombre del argumento en la llamada. De hecho, se quería que dicha funcionalidad fuese incluida en C++20, pero al final no ha entrado en el estándar (de momento). La sintaxis propuesta era similar a `showAnalysisWidget(.read_only=true, .maximized=true)`.
 
-En C++ podemos atacar el problema con una combinación de tipeado fuerte y de bloquear las conversiones implícitas. Como ejemplo tomaré el caso de argumentos booleanos, donde el problema se reduce en poder indicar si el argumento es verdadero o falso. En este caso además, interesa poder dar contexto a la vez que no añadimos demsiado ruido a nuestro código.
+En C++ podemos atacar el problema con una combinación de tipado fuerte y de bloqueo de las conversiones implícitas. Como ejemplo tomaré el caso de argumentos booleanos, donde el problema se reduce en poder indicar si el argumento es verdadero o falso. En este caso además, interesa poder dar contexto a la vez que no añadimos demsiado ruido a nuestro código.
 
-Los siguientes dos artículos de [FluenCpp](https://www.fluentcpp.com/2018/05/04/passing-booleans-to-an-interface-in-an-expressive-way/) y [Andrzej's](https://akrzemi1.wordpress.com/2017/02/16/toggles-in-functions/) abordan el problema en cuestión con diferentes técnicas (los comentarios también aportan algunas ideas interesantes).
+Los siguientes dos artículos de [FluentCpp](https://www.fluentcpp.com/2018/05/04/passing-booleans-to-an-interface-in-an-expressive-way/) y [Andrzej's](https://akrzemi1.wordpress.com/2017/02/16/toggles-in-functions/) abordan el problema en cuestión con diferentes técnicas (los comentarios también aportan algunas ideas interesantes).
 
 ### Enumeraciones
 
