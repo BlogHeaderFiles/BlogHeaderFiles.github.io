@@ -14,6 +14,7 @@ Qt ofrece una forma muy amigable de solicitar información sobre las pantallas d
 Nótese que este módulo se usa tanto en aplicaciones creadas en Qt como en aplicaciones más antiguas desarrolladas usando, en su mayor parte, MFC.
 
 ### Aplicaciones Qt
+
 En el primer caso (Qt) el problema se resolvió guardando la geometría de la ventana al cerrar la aplicación. Al arrancar se crea un widget falso con dicha geometría y se calcula en qué monitor saldrá:
 
 ```cpp
@@ -32,6 +33,7 @@ int getMonitorToShowSplashScreen()
 ```
 
 ### Aplicaciones MFC
+
 En el caso de MFC se hace uso del guardado automático de geometría de todas las ventanas. Esta geometría se guarda en el registro de Windows bajo `HKCU\Software\<Company>\<Application>\Workspace\WindowPlacement`, aunque con MFC podemos obtener el _handle_ mediante `AfxGetApp()->GetSectionKey("Workspace\\WindowPlacement")`. Cada valor de posición y tamaño se almacena en el registroy como un volcado directo de memoria de la estructura `RECT` de la geometría de la ventana en cuestión (se pueden consultar más detalles en [esta entrada de Stack Overflow](https://stackoverflow.com/q/54327046/1485885)).
 
 ```cpp
@@ -89,6 +91,7 @@ BOOL CALLBACK getMonitorByHandle(HMONITOR hMonitor, HDC, LPRECT, LPARAM dwData)
 ```
 
 ### Correspondencia Qt / Windows (MFC)
+
 Como expliqué al principio, se usaría `QApplication::screens` para acceder a los datos del monitor en el que arrancaría nuestra aplicación. La sorpresa, o mejor dicho, el problema de verdad surgió cuando usamos el índice de monitor de las aplicaciones MFC para ubicar nuestro _widget_ Qt: no siempre había correspondencia. El módulo se probó en diversas configuraciones de ordenadores de 1, 2 y 3 pantallas y no siempre se comportaba correctamente.
 
 El estudio que hice está mejor detallado en [Stack Overflow](https://stackoverflow.com/q/54351270/1485885) pero el resumen es que Qt enumera los monitores igual que Windows salvando que la pantalla principal está siempre en la primera posición de la lista de monitores (`QApplication::screens()[0]`). Así, en un sistema con tres pantallas donde la segunda es la principal, su orden en la lista Qt sería: `2, 1, 3`, mientras que Windows siempre devuelve `1, 2, 3`.

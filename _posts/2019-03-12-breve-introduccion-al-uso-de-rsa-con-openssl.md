@@ -13,6 +13,7 @@ Dejo acá un poco mi experiencia y resumen de uso, tanto en la línea de comando
 Nota: lo he usado sólo en entorno Windows, por lo que no estoy seguro si la sintaxis sea exactamente igual.
 
 #### Generar el par de claves pública y privada
+
 Primero generamos la clave privada en formato [PEM](http://www.cryptosys.net/pki/rsakeyformats.html) (el número al final es el tamaño de la clave, si se omite será de 512 bits):
 
 ```bash
@@ -26,6 +27,7 @@ openssl rsa -pubout -in private.pem -out public.pem
 ```
 
 #### Firmar ficheros
+
 Para el proyecto que mencioné necesitaba verificar la autenticidad de ciertos ficheros. Para ello decidí utilizar un protocolo de verificación bastante tradicional consistente en firmar los ficheros en cuestión con la clave privada y al recibir los ficheros desencriptarlos con la clave pública y comprobar que el contenido coincide con el del fichero sin firmar. Ambos pasos son necesarios (desencriptar y comprobar) para evitar que versiones correctamente firmadas, pero no las deseadas, puedan enviarse en lugar del fichero correcto.
 
 Para firmar un fichero:
@@ -43,6 +45,7 @@ openssl rsautl -verify -in signed.txt -inkey public.pem -pubin
 Se debería mostrar el contenido del fichero. En caso de que el fichero no estuviese firmado con la clave privada OpenSSL dará un error.
 
 #### Verificar el fichero firmado utilizando C/C++
+
 Acá fue donde más problemas tuve y lo que me llevó a escribir este post, de forma que otros puedan aprovecharse de mis golpes al aire. Haré la menor cantidad de suposiciones posibles a fin de que esté todo claro. Sólo asumiré que las rutas de los ficheros de cabeceras y todo eso está configurado.
 
 Ficheros de cabecera de OpenSSL necesarios:
@@ -57,19 +60,17 @@ Ficheros de cabecera de OpenSSL necesarios:
 
 Al cargar la clave pública, contemplo dos opciones (aunque soy partidario de la segunda):
 
--  Desde un fichero. El problema está en que fácilmente pueden cambiar la clave pública por otra y falsificar los ficheros firmados. El código sería:
+- Desde un fichero. El problema está en que fácilmente pueden cambiar la clave pública por otra y falsificar los ficheros firmados. El código sería:
 
-  
 ```cpp
   BIO *pubkeyin = BIO_new(BIO_s_file());
-  if (BIO_read_filename(pubkeyin, "public.pem") <= 0)
-  	// error reading public key
-  
+  if (BIO_read_filename(pubkeyin, "public.pem") <= 0) {
+    // error reading public key
+  }
 ```
 
--  Desde una cadena de caracteres. Esta opción es más genérica y permite, además de cargar la cadena desde un fichero, incrustarla en el ejecutable o descargarla desde un servidor, por ejemplo. En el siguiente ejemplo `public_key_str` es una cadena de caracteres de tipo `char[]`. Nota importante si se incrusta la cadena de caracteres, y es el incluir los saltos de línea al copiar la clave al código fuente.
-  
-  
+- Desde una cadena de caracteres. Esta opción es más genérica y permite, además de cargar la cadena desde un fichero, incrustarla en el ejecutable o descargarla desde un servidor, por ejemplo. En el siguiente ejemplo `public_key_str` es una cadena de caracteres de tipo `char[]`. Nota importante si se incrusta la cadena de caracteres, y es el incluir los saltos de línea al copiar la clave al código fuente.
+
 ```cpp
   char public_key_str[] = "-----BEGIN PUBLIC KEY-----\n"
   "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDMe9XS8VDg6H5dgqoWeJGhwJw4\n"
@@ -79,7 +80,6 @@ Al cargar la clave pública, contemplo dos opciones (aunque soy partidario de la
   "-----END PUBLIC KEY-----\n";
 
   BIO *pubkeyin = BIO_new_mem_buf(_public_key, strlen(public_key_str));
-  
 ```
 
 Extraer la clave pública y preparar las estructuras de datos necesarias:
@@ -104,11 +104,11 @@ Finalmente, desencriptar el fichero firmado (`RSA_PKCS1_PADDING` es el valor est
 unsigned char *rsa_out = (unsigned char *)OPENSSL_malloc(keysize + 1);
 int rsa_outlen = RSA_public_decrypt(rsa_inlen, rsa_in, rsa_out, rsa, RSA_PKCS1_PADDING);
 if (rsa_outlen <= 0)
-	// Error, fichero firmado incorrectamente
-	// Acá su código de error
+  // Error, fichero firmado incorrectamente
+  // Acá su código de error
 else {
-	// Importante convertir la cadena leída en una cadena de caracteres válida para C
-	rsa_out[rsa_outlen] = 0;
+  // Importante convertir la cadena leída en una cadena de caracteres válida para C
+  rsa_out[rsa_outlen] = 0;
 }
 ```
 

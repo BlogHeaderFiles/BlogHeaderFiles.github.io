@@ -34,4 +34,5 @@ std::tuple<int, int> query_maximum_resolution(cv::VideoCapture* camera)
 }
 ```
 
-_Créditos: la técnica la vi por primera vez en [Stack Overflow](https://stackoverflow.com/q/18458422/1485885)._
+_Créditos: la técnica la vi por primera vez en [Stack Overflow](https://stackoverflow.com/q/18458422/1485885).
+_

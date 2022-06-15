@@ -37,6 +37,7 @@ bool string2bool(const std::string &value, const std::string &true_str)
 La interfaz del nuevo `string2bool` obvia el `false_str` por simplicidad: si no es el `true_str` pues será el `false_str`, ¿no? Bueno, esto es cierto salvo que queramos validar la integridad del fichero, pero muchas veces para valores booleanos nos conformamos con saber uno de los dos casos, el otro cae por omisión.
 
 ### Controlando valores por defecto
+
 Ahora bien, imaginemos que nuestro campo booleano debe valer `true` por defecto, es decir, incluso si no está presente:
 
 ```cpp
@@ -57,6 +58,7 @@ const bool value = !string2bool(value_str, "disabled");
 El problema de este enfoque es que hay que leer detenidamente el código para no interpretar erróneamente la conversión.
 
 ### Mejorando la expresividad del código
+
 La siguiente versión de `string2bool` permite indicar de una forma expresiva la intención del programador (requiere C++17):
 
 ```cpp
@@ -90,6 +92,7 @@ const bool value = string2bool(value_str, FalseValue{"disabled"});
 ```
 
 ### Explicación rápida
+
 Desde C++17 es posible usar condicionales evaluados en tiempo de compilación ([`if constexpr`](https://arne-mertz.de/2017/03/constexpr-additions-c17/)) de forma que el compilador es capaz de generar código a partir de una condición dada. En el código antes expuesto se usa para generar tres versiones de la función `string2bool`: una para `TrueValue`, una para `FalseValue` y una versión que emitirá un error de compilación si no se usa uno de estos dos tipos válidos. Esto es posible mediante el _trait_ [`std::is_same_v`](https://en.cppreference.com/w/cpp/types/is_same) el cual indica si dos tipos son idénticos.
 
 El código completo de la solución final está disponible en [GitHub](https://github.com/BlogHeaderFiles/SourceCode/tree/master/string2bool) y en [Coliru](https://coliru.stacked-crooked.com/a/e830d4fb94163bb6).

@@ -50,19 +50,19 @@ Veamos una estructura de clases de ejemplo:
 struct BaseWorker {
   explicit BaseWorker(int value_) : value{value_} {}
   virtual ~BaseWorker() {}
-  
+
   virtual void run() = 0;
-  
+
   int value = 0;
 };
 
 struct Worker1 : BaseWorker {
   using BaseWorker::BaseWorker;
-  
+
   void run() override {
     std::cout << "Worker1::run " << value << '\n';
   }
-  
+
   void convert(const std::string& path) {
     std::cout << "Converting " << value << " to " << path << '\n';
   }
@@ -74,7 +74,7 @@ struct Worker2 : BaseWorker {
   void run() override {
     std::cout << "Worker2::run " << value << '\n';
   }
-  
+
   void print() {
     std::cout << "Printing " << value << '\n';
   }
@@ -157,14 +157,14 @@ int main() {
     new Worker2{20},
     new Worker1{30},
   };
-  
+
   filtered_visit(workers, &BaseWorker::run); // 'run' on all elements
   filtered_visit(workers, &Worker1::convert, "path"); // 'convert' on elements of type 'Worker1' with one argument
   filtered_visit(workers, &Worker2::print); // 'print' on elements of type 'Worker2'
   filtered_visit(workers, [](Worker1* obj) { obj->value += 5; }); // lambda on elements of type 'Worker1'
   filtered_visit(workers, &BaseWorker::run);
   filtered_visit(workers, &foo); // global function (on all elements in this case)
-  
+
   filtered_visit(workers, [](BaseWorker* obj) { delete obj; }); // lambda on all elements
 }
 ```

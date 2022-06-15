@@ -10,10 +10,12 @@ Un caso de uso recurrente en muchas aplicaciones es la de tener un conjunto de e
 El código completo de este ejemplo está disponible en [GitHub](https://github.com/BlogHeaderFiles/SourceCode/tree/master/Basic_search_box). Esta vez el ejemplo ha sido programado usando Qt Creator, por dar algo de variedad 😉
 
 ### Requerimientos
+
 - Mostrar un listado de nombres y apellidos.
 - Proporcionar un mecanismo de filtrado en tiempo real.
 
 ### Interfaz gráfica
+
 La forma tradicional de mostrar información en listas, tablas y árboles en Qt es mediante el patrón [modelo-vista-controlador](https://doc.qt.io/qt-5/model-view-programming.html) o MVC. Qt proporciona diversos widgets y clases para ello, donde los primeros heredan de [`QAbstractItemView`](https://doc.qt.io/qt-5/qabstractitemview.html) y los modelos de [`QAbstractItemModel`](https://doc.qt.io/qt-5/qabstractitemmodel.html).
 
 En otro momento profundizaremos en esto del MVC en Qt, de momento resumir que también existe un widget especial llamado [`QListWidget`](https://doc.qt.io/qt-5/qlistwidget.html) que combina un `QListView` y un modelo de lista básico (con soporte para cadenas de texto y poco más). Usaremos este `QListWidget` para nuestro listado de nombres.
@@ -36,7 +38,8 @@ ui->txtSearch->setPlaceholderText("Search...");
 
 ![todo](/assets/images/search_ui.png)
 
-### Buscando...
+### Buscando
+
 Por lo que respecta a esta publicación, nos quedaremos en una búsqueda simple, donde se buscará que el texto escrito sea parte del nombre (obviando diferencias entre mayúsculas y minúsculas). Una función más compleja dividiría la cadena de texto en _tokens_ a buscar, aceptaría operadores lógicos, etc.
 
 Para lograr el _efecto_ de filtrado simplemente marcamos como ocultos aquellos ítems que no cumplen con el criterio de búsqueda.
@@ -63,6 +66,7 @@ Existe otra señal similar en `QLineEdit`: `QLineEdit::textEdited`. La diferenci
 _Advertencia: el método de búsqueda en sí no es el más eficiente, simplemente sirve de caja negra para ejemplificar la función "buscar"._
 
 ### Botón borrar
+
 Es bastante común ofrecer al usuario una forma rápida de eliminar el filtro creado, de _borrar_ el criterio de búsqueda. `QLineEdit` ofrece una propiedad, [`QLineEdit::clearButtonEnabled`](https://doc.qt.io/qt-5/qlineedit.html#clearButtonEnabled-prop) que, cuando está activada, muestra un pequeño botón de _borrar_ en un extremo del control.
 
 ![todo](/assets/images/qlineedit_clear_button.png)
@@ -72,6 +76,7 @@ Al presionarse el botón de borrar se llama automáticamente a `QLineEdit::clear
 Como nota, el método `QString::contains` devuelve `true` si la cadena a buscar es vacía, lo cual lleva a que al borrar todo el texto se muestren todas las entradas de la lista, ideal ¿no?
 
 #### Estilo visual
+
 Para terminar esta entrada, vamos a modificar el botón de borrar, que personalmente me parece bastante feo. Dicho icono está controlado por el estilo activo a través del icono estándar `SP_LineEditClearButton`. Usaremos un estilo _proxy_ para evitar diseñar nosotros un estilo desde cero y además añadiremos un par de retoques usando una hoja de estilo. (Para más información sobre los `QProxyStyle` se puede consultar [este otro artículo](introduccion-a-los-qproxystyle/)).
 
 ```cpp
@@ -89,9 +94,11 @@ Como comentario al diseñador, es importante saber que el icono ocupará todo el
 Créditos: el icono de borrar fue diseñado por [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/).
 
 ### Mejorando el motor de búsqueda
+
 Hemos visto cómo diseñar rápidamente una búsqueda _al vuelo_. La implementación mostrada es suficiente para conjuntos de datos no demasiado grandes y sólo permite una búsqueda _textual_.
 
 #### Dar flexibilidad a la búsqueda
+
 En el ejemplo dado, si busco "bill g" me mostrará "Bill Gates", pero si busco "jobs steve" no me dará ninguna coincidencia. Una forma de solucionarlo es extraer los diferentes _tokens_ de búsqueda, por ejemplo:
 
 ```cpp
@@ -100,13 +107,13 @@ QStringList splitSearchString(QString pattern)
   // Posibles delimitadores: cambiar a espacios
   pattern.replace(QRegExp("[.,;:]+"), " ");
 
-  return pattern.split(' ', QString::SkipEmptyParts); 
+  return pattern.split(' ', QString::SkipEmptyParts);
 }
 
 void MainWindow::search(const QString& text)
 {
   const auto tokens = splitSearchString(text);
-  
+
   for (int ii = 0; ii < ui->listWidget->count(); ++ii) {
     bool matched = true;
     for (const auto& token : tokens) {
@@ -121,9 +128,11 @@ void MainWindow::search(const QString& text)
 ```
 
 #### Tablas
-En el ejemplo se ha usado una lista para mostrar los datos. En caso de usar una tabla el procedimiento es similar sólo que, adicionalmente, habría que recorrer cada una de las columnas buscando coincidencias. Acá entra en juego entonces: saber sobre qué columnas se buscará, si se busca todo el texto o sólo una coincidencia parcial, si todos los _tokens_ de búsqueda han de tener correspondencia (*and* lógico), etc.
+
+En el ejemplo se ha usado una lista para mostrar los datos. En caso de usar una tabla el procedimiento es similar sólo que, adicionalmente, habría que recorrer cada una de las columnas buscando coincidencias. Acá entra en juego entonces: saber sobre qué columnas se buscará, si se busca todo el texto o sólo una coincidencia parcial, si todos los _tokens_ de búsqueda han de tener correspondencia (_and_ lógico), etc.
 
 #### Mejoras adicionales
+
 Algunas posibles optimizaciones y mejoras que quedan fuera del ámbito de este artículo son:
 
 - Normalmente una búsqueda progresiva tiende a restringir cada vez más el conjunto de datos, por lo que es un desperdicio de tiempo re-evaluar ítems que ya han sido descartados. Una posible optimización es la de obviar los ítems que ya están ocultos, salvo en el caso de que el patrón de búsqueda se haya relajado (por simplificarlo: que el texto ahora tenga menos caracteres).

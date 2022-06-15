@@ -67,4 +67,5 @@ std::cout << "Formatted: " << getFormattedBuildDatetime("%Y/%m/%d %H:%M:%S") << 
 Un ejemplo completo puede encontrarse en [GitHub](https://github.com/BlogHeaderFiles/SourceCode/tree/master/BuildDateTime).
 
 #### Créditos
+
 La imagen del reloj de la cabecera es obra de [www.flaticon.es](https://www.flaticon.es/).
