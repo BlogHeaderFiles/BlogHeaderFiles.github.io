@@ -16,7 +16,7 @@ El [patrón _factory_](https://es.wikipedia.org/wiki/Factory_Method_(patr%C3%B3n
 
 ## Implementación
 
-Para ilustrar este patrón de diseño expondré cómo podemos crear una factoría de formas geométricas. A saber, el cliente tiene expuestos los ficheros `shape.h` (donde se declara una interfaz `IShape` que cumpliran todos los objetos) y `factory.h` (donde se define la función factoría que creará dichos objetos). Los subtipos específicos no están expuestos a los clientes; para construirlos hay que invocar a la función factoría `make_shape` con el identificador del tipo deseado: `triangle`, `square`, `circle`.
+Para ilustrar este patrón de diseño expondré cómo podemos crear una factoría de formas geométricas. A saber, el cliente tiene expuestos los ficheros `shape.h` (donde se declara una interfaz `IShape` que cumplirán todos los objetos) y `factory.h` (donde se define la función factoría que creará dichos objetos). Los subtipos específicos no están expuestos a los clientes; para construirlos hay que invocar a la función factoría `make_shape` con el identificador del tipo deseado: `triangle`, `square`, `circle`.
 
 ```cpp
 std::unique_ptr<IShape> make_shape(std::string const& id);

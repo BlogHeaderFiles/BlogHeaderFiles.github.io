@@ -38,7 +38,7 @@ Esto no sólo aplica a los nombres de variables, tipos y funciones. La expresivi
 - Seguir los _guidelines_ generales del lenguaje
 - Un correcto uso de la semántica propia (¿por qué usar lenguaje imperativo cuando se soporta y prefiere el funcional?)
 
-En resumen, el mejor comentario es el que no se necesita, ya que el código puede hablar por sí mismo. Esto no quita que debamos indicar el propósito general si éste no se puede extraer fácilmente del propio código. Veamos cómo documentar el resto.
+En resumen, el mejor comentario es el que no se necesita, ya que en ese caso el código habla por sí mismo. Esto no quita que debamos indicar el propósito general si éste no se puede extraer fácilmente del propio código. Veamos cómo documentar el resto.
 
 ## Documentación de API
 
