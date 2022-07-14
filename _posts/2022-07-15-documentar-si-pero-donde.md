@@ -1,6 +1,6 @@
 ---
 title: Documentar, sí, ¿pero dónde?
-date: 2022-07-15T00:45:00+01:00
+date: 2022-07-15T00:45:00+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2022/07/15/documentar-si-pero-donde
