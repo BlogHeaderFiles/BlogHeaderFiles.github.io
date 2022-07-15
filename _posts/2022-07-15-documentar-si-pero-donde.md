@@ -15,9 +15,9 @@ Al poco tiempo aprendí la importancia de dejar, usando palabras en cristiano, u
 
 ## Las etapas de la documentación
 
-Al principio uno ve la documentación como algo tedioso e innecesario: ¿por qué he de poner en la lengua de Cervantes (o Shakespeare) lo que esa hermosa línea de código hace, si se ve a leguas? Bueno, cualquier que haya vuelto a un código suyo escrito pocas semanas atrás sabrá responder a esta pregunta rápidamente (aunque no todo son comentarios, pero hablaremos de ello en un rato).
+Al principio uno ve la documentación como algo tedioso e innecesario: ¿por qué he de poner en la lengua de Cervantes (o Shakespeare) lo que esa hermosa línea de código hace, si se ve a leguas? Bueno, cualquiera que haya vuelto a un código suyo escrito pocas semanas atrás sabrá responder a esta pregunta rápidamente (aunque no todo son comentarios, pero hablaremos de ello en un rato).
 
-Poco después casi siempre uno pasa por un período oscuro, opuesto por completo a la falta de documentación pero igual de malo: la _sobredocumentación_. Si no poner ningún comentario es malo, parafrasear cada comando, instrucción y ciclo de reloj no solo es una pérdida de tiempo en ese momento, es además una pérdida de tiempo a futuro cuando se esté leyendo el código y una pérdida de tiempo aún mayor ya que hay que mantener una documentación tan rígida que con el mínimo cambio queda obsoleta.
+Poco después casi siempre uno pasa por un período oscuro, opuesto por completo a la falta de documentación pero igual de malo: la _sobredocumentación_. Si no poner ningún comentario es malo, parafrasear cada comando, instrucción y ciclo de reloj no solo es una pérdida de tiempo en ese momento, es además una pérdida de tiempo a futuro cuando se esté leyendo el código y una pérdida de tiempo aún mayor ya que hay que mantener una documentación que es tan rígida que con el mínimo cambio queda obsoleta.
 
 En términos generales sabemos bien lo que una línea individual hace: leer un fichero, incrementar un valor, grabar un valor a disco... El problema no es _qué_ hace una línea, sino _qué se supone que queremos hacer_ con el conjunto (bloque, función, clase), el _por qué_ se hace. Para el ejemplo anterior bien podría ser _generar y almacenar el siguiente ID único_. Esto hace a la documentación más útil y además más duradera en el tiempo, ya que no depende del código sino del diseño de la solución y de los requerimientos.
 
@@ -34,8 +34,8 @@ int common_digits_count = get_number_of_common_digits(ANSWER, PI, BEST_YEAR);
 
 Esto no sólo aplica a los nombres de variables, tipos y funciones. La expresividad también está en el correcto uso del lenguaje en el que programamos. Por listar algunos:
 
-- Uso de la biblioteca estándar (no reinventar la rueda, usando un idioma común a otros programadores)
-- Seguir los _guidelines_ generales del lenguaje
+- Uso de la biblioteca estándar (no reinventar la rueda, usando un idioma común a otros programadores). ¿Para qué usar un bucle `for` recorriendo todo el vector en busca de un registro específico, si tenemos `std::find_if`?
+- Seguir los _guidelines_ generales del lenguaje: como el lenguaje principal de este blog es C++, acá tenéis los [_guidelines_ oficiales](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines). Por otro lado, Python por ejemplo usa el [PEP 8](https://peps.python.org/pep-0008/).
 - Un correcto uso de la semántica propia (¿por qué usar lenguaje imperativo cuando se soporta y prefiere el funcional?)
 
 En resumen, el mejor comentario es el que no se necesita, ya que en ese caso el código habla por sí mismo. Esto no quita que debamos indicar el propósito general si éste no se puede extraer fácilmente del propio código. Veamos cómo documentar el resto.
