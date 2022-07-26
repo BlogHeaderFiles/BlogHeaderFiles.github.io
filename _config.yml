@@ -18,6 +18,7 @@ plainwhite:
   dark_mode: false
   portfolio_image: "assets/portfolio.png"
   html_lang: "es"
+  disqus_shortname: "headerfiles"
   condensed_mobile:
     - home
     - page

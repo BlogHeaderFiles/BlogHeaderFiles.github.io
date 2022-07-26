@@ -22,6 +22,7 @@ layout: default
     {{ content }}
   </div>
   <div class="post-date"><span class="likebtn-wrapper" data-theme="review" data-lang="es" data-ef_voting="push" data-dislike_enabled="false" data-icon_dislike_show="false" data-share_size="small" data-site_id="62dfa9406fd08b6271ae71f1"></span></div>
+  {%- if page.comments -%}
   {%- if site.plainwhite.disqus_shortname -%}
   <div id="disqus_thread" style="margin-top:25px"></div>
   <script>
@@ -38,5 +39,6 @@ layout: default
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments
       powered by Disqus.</a></noscript>
+  {%- endif -%}
   {%- endif -%}
 </div>
