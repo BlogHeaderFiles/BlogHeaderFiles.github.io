@@ -8,6 +8,8 @@ layout: default
   </a>
   <div class="post-meta">
     <div class="post-date"><i class="icon-calendar"></i>{{ page.date | date: date_format }}</div>
+    <div><span class="likebtn-wrapper" data-theme="review" data-lang="es" data-ef_voting="push" data-show_like_label="false" data-dislike_enabled="false" data-share_enabled="false"></span></div>
+    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
     {%- if page.categories.size > 0 -%}
     <ul class="post-categories">
       {%- for tag in page.categories -%}
