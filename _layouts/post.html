@@ -8,8 +8,6 @@ layout: default
   </a>
   <div class="post-meta">
     <div class="post-date"><i class="icon-calendar"></i>{{ page.date | date: date_format }}</div>
-    <div class="post-date"><span class="likebtn-wrapper" data-theme="review" data-lang="es" data-ef_voting="push" data-dislike_enabled="false" data-icon_dislike_show="false" data-share_size="small" data-site_id="62dfa9406fd08b6271ae71f1"></span></div>
-    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
     {%- if page.categories.size > 0 -%}
     <ul class="post-categories">
       {%- for tag in page.categories -%}
@@ -21,7 +19,6 @@ layout: default
   <div class="post">
     {{ content }}
   </div>
-  <div class="post-date"><span class="likebtn-wrapper" data-theme="review" data-lang="es" data-ef_voting="push" data-dislike_enabled="false" data-icon_dislike_show="false" data-share_size="small" data-site_id="62dfa9406fd08b6271ae71f1"></span></div>
   {%- if site.plainwhite.disqus_shortname -%}
   <div id="disqus_thread" style="margin-top:25px"></div>
   <script>
