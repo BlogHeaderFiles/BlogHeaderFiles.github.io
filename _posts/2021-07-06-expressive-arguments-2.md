@@ -1,5 +1,5 @@
 ---
-title: Argumentos expresivos (parte 2)
+title: Argumentos expresivos (tipos fuertemente tipados, parte 2)
 date: 2021-07-06T11:30:00+01:00
 author: Carlos Buchart
 layout: post

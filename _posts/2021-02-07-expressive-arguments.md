@@ -1,5 +1,5 @@
 ---
-title: Argumentos expresivos
+title: Argumentos expresivos (booleanos fuertemente tipados)
 date: 2021-02-07T00:00:00+01:00
 author: Carlos Buchart
 layout: post
@@ -38,7 +38,7 @@ showAnalysisWidget(ReadOnly::True, Maximized::False);
 
 Esto documentaría muy bien el contexto de cada argumento, evitaría confusiones de tipo así como conversiones implícitas. Las pocas _pegas_ son que si queremos usar el argumento en un condicional debemos hacer una comparación "tipográficamente más larga": `if (read_only == ReadOnly::True)` o `if (static_cast<bool>(read_only))`, o al querer convertir una expresión booleana en argumento de nuestra función. Un ejemplo en vivo puede verse [acá](https://wandbox.org/permlink/cTOU2txr974xyW7D).
 
-### Clase TrueFalse
+### Clase TrueFalse (booleano fuertemente tipado)
 
 Esta solución también es bastante corta y sencilla de recordar, y no tiene los inconvenientes antes vistos con los _castings_, y particularmente es mi preferida. Básicamente se trata de construir una pequeña clase que sólo pueda ser construida con un booleano y que se convierte implícita en booleano si hace falta. Además, una sencilla macro nos facilita la vida a la hora de declarar nuevos tipos.
 
