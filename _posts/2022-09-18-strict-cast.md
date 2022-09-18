@@ -15,13 +15,15 @@ Uno de los _warnings_ que seguramente más hayamos visto es el una conversión d
 
 Esto suele darse muy especialmente cuando pasamos un valor entre dos módulos que fueron diseñados con requerimientos diferentes y ahora tienen la mala suerte de vivir juntos. Algunas veces no pasará nada y será seguro su uso; en otros tendremos que recurrir a una función de conversión o tendremos que refactorizar uno de los módulos para ajustarnos a esta nueva comunicación.
 
-En los casos en los que la conversión se considere segura probablemente querremos deshacernos del mensaje: bien sea por seguir una regla del equipo de no tener _warnings_, bien para poder seguir la compilación en caso de que se traten como errores, o por simple manía de no querer que el compilador nos _contamine_ frente a otros mensajes más relevantes. En cualquier esto se puede hacer mediante un `static_cast`, que además nos asegurará en tiempo de compilación que los tipos son "compatibles" entre sí, y pongo las comillas porque esto tiene una coletilla a tener en cuenta.
+En los casos en los que la conversión se considere segura probablemente querremos deshacernos del mensaje: bien sea por seguir una regla del equipo de no tener _warnings_, bien para poder seguir la compilación en caso de que se traten como errores, o por simple manía de no querer que el compilador nos _contamine_ frente a otros mensajes más relevantes. En cualquier esto se puede hacer mediante un `static_cast`, que además nos asegurará en tiempo de compilación que los tipos son "compatibles" entre sí, y pongo las comillas porque esto tiene una coletilla que veremos más adelante.
 
 Antes de proseguir, comentar que todos los ejemplos serán compilados teniendo habilitados los _warnings_ de conversión entre tipos:
 
 ```shell
 g++ -std=c++20 -Wconversion -Wsign-conversion -Wall main.cpp
 ```
+
+## Caso de estudio
 
 Supongamos pues el caso de que necesitemos unir dos módulos: el motor físico de un simulador de conducción y el controlador de actuadores de la cabina de entrenamiento. El primero debe pasarle al segundo la velocidad del vehículo. Ambos módulos fueron diseñados por separado y ahora toca integrarlos.
 
@@ -50,6 +52,8 @@ int main()
     return 0;
 }
 ```
+
+### Problema y solución inicial
 
 Todo _marcha sobre ruedas_ hasta que vemos un _warning_ que el actuador usa registros de 16 bits _sin signo_, mientras que la velocidad del simulador se devuelve como un entero de 16 bits _con signo_ (negativo indica retroceso).
 
@@ -87,7 +91,8 @@ A efectos de este artículo, añadiremos un mensaje adicional para mostrar el va
 void write_to_register(uint16_t reg, uint16_t value)
 {
     auto const signed_value = static_cast<std::make_signed_t<decltype(value)>>(value);
-    cout << "Write " << value << " to 0x" << uppercase << hex << reg << dec << ". Signed value: " << signed_value << endl;
+    cout << "Write " << value << " to 0x" << uppercase << hex << reg << dec <<
+        ". Signed value: " << signed_value << endl;
 }
 ```
 
@@ -122,7 +127,7 @@ Write 3072 to 0xFF. Signed value: 3072
 
 Como podemos imaginar, el problema reside en que el `static_cast<uint16_t>` está ocultado un _warning_ que, de estar activo, nos habría alertado del cambio de 32 a 16 bits. El escenario completo se puede ver [acá](https://coliru.stacked-crooked.com/a/5828f9dfc9738dfd).
 
-## Propuesta
+### Solución propuesta: `strict_cast`
 
 Tenemos entonces dos problemas en simultáneo: silenciar el _warning_ pero recuperándolo cuando haya cambiado el escenario en el que fue silenciado. Desafortunadamente esto no es posible con ninguno de los operadores de `casting` estándar de C++, así que presentaremos uno que nos permite todo esto. Por iniciativa propia he decidido nombrar a esta solución `strict_cast`, y se puede definir como
 
@@ -154,7 +159,8 @@ int32_t get_speed(int16_t speed)
 void write_to_register(uint16_t reg, uint16_t value)
 {
     auto const signed_value = static_cast<std::make_signed_t<decltype(value)>>(value);
-    cout << "Write " << value << " to 0x" << uppercase << hex << reg << dec << ". Signed value: " << signed_value << endl;
+    cout << "Write " << value << " to 0x" << uppercase << hex << reg << dec <<
+        ". Signed value: " << signed_value << endl;
 }
 
 template<typename ExpectedFrom, typename To, typename From>
@@ -195,6 +201,8 @@ El _casting_ (incluso nuestro ya amado `strict_cast`) pasó a escribir siempre v
 
 Acá la cosa se complica porque la conversión es válida y el error viene del _doble casting_ que hemos aplicado (el explícito del `strict_cast` y el implícito de 16 a 32 bits). Aún así, tenemos una forma de detectarlo pero su uso es menos intuitivo.
 
+### Solución propuesta: `strict_args`
+
 Lo primero que necesitamos es poder extraer el tipo de los argumentos de una función. Para ello construiremos un _invocador_ que recibirá la función que queremos llamar y sus argumentos. Luego usaremos una función _template_ que nos devolverá una tupla con los argumentos de la función en cuestión (créditos a [Cassio Neri](https://stackoverflow.com/a/18872019/1485885)), y la compararemos con una construida en base a los tipos de los valores pasados. Si todo va bien, llamamos a la función:
 
 ```cpp
@@ -206,12 +214,12 @@ constexpr To strict_cast(From const& from)
 }
 
 template <typename R, typename... Args>
-std::tuple<Args...> apply_args(R(Args...));
+std::tuple<Args...> extract_args(R(Args...));
 
 template<typename Function, typename... ExpectedArgs>
 constexpr auto strict_args(Function&& f, ExpectedArgs... args)
 {
-    using function_args_t = decltype(apply_args(f));
+    using function_args_t = decltype(extract_args(f));
     using expected_args_t = std::tuple<ExpectedArgs...>;
     static_assert(std::is_same_v<function_args_t, expected_args_t>, "Invalid expected types");
     return f(std::forward<ExpectedArgs>(args)...);
@@ -228,7 +236,7 @@ Puede notarse que he tenido que añadir un `strict_cast<uint16_t>` para el núme
 
 ## Otras posibles soluciones
 
-En el caso de que dispongamos de control de la API conflictiva (`get_speed` o `write_register`), podríamos mejorar la solución aún más sin necesidades de los operadores presentados, mediante el uso de tipos fuertemente tipados (para más información se pueden consultar [éste](https://headerfiles.com/2021/02/07/expressive-args/) y [éste](https://headerfiles.com/2021/07/06/expressive-args-2/) artículo previo).
+En el caso de que dispongamos de control de la API conflictiva (`get_speed` o `write_register`), podríamos mejorar la solución aún más sin necesidades de los operadores presentados, mediante el uso de tipos fuertemente tipados (para más información se pueden consultar los artículos sobre [booleanos fuertemente tipados](https://headerfiles.com/2021/02/07/expressive-args/) y [argumentos fuertemente tipados](https://headerfiles.com/2021/07/06/expressive-args-2/)).
 
 ## Conclusión
 
