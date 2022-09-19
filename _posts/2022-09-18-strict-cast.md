@@ -206,13 +206,6 @@ Acá la cosa se complica porque la conversión es válida y el error viene del _
 Lo primero que necesitamos es poder extraer el tipo de los argumentos de una función. Para ello construiremos un _invocador_ que recibirá la función que queremos llamar y sus argumentos. Luego usaremos una función _template_ que nos devolverá una tupla con los argumentos de la función en cuestión (créditos a [Cassio Neri](https://stackoverflow.com/a/18872019/1485885)), y la compararemos con una construida en base a los tipos de los valores pasados. Si todo va bien, llamamos a la función:
 
 ```cpp
-template<typename ExpectedFrom, typename To, typename From>
-constexpr To strict_cast(From const& from)
-{
-    static_assert(std::is_same_v<ExpectedFrom, From>, "Invalid expected type");
-    return static_cast<To>(from);
-}
-
 template <typename R, typename... Args>
 std::tuple<Args...> extract_args(R(Args...));
 
