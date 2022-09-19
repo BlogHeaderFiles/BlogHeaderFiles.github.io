@@ -15,7 +15,7 @@ Uno de los _warnings_ que seguramente más hayamos visto es el una conversión d
 
 Esto suele darse muy especialmente cuando pasamos un valor entre dos módulos que fueron diseñados con requerimientos diferentes y ahora tienen la mala suerte de vivir juntos. Algunas veces no pasará nada y será seguro su uso; en otros tendremos que recurrir a una función de conversión o tendremos que refactorizar uno de los módulos para ajustarnos a esta nueva comunicación.
 
-En los casos en los que la conversión se considere segura probablemente querremos deshacernos del mensaje: bien sea por seguir una regla del equipo de no tener _warnings_, bien para poder seguir la compilación en caso de que se traten como errores, o por simple manía de no querer que el compilador nos _contamine_ frente a otros mensajes más relevantes. En cualquier esto se puede hacer mediante un `static_cast`, que además nos asegurará en tiempo de compilación que los tipos son "compatibles" entre sí, y pongo las comillas porque esto tiene una coletilla que veremos más adelante.
+En los casos en los que la conversión se considere segura probablemente querramos deshacernos del mensaje: bien sea por seguir una regla del equipo de no tener _warnings_, bien para poder seguir la compilación en caso de que se traten como errores, o por simple manía de no querer que el compilador nos _contamine_ frente a otros mensajes más relevantes. En cualquier caso esto se puede hacer mediante un `static_cast`, que además nos asegurará en tiempo de compilación que los tipos son "compatibles" entre sí, y pongo las comillas porque esto tiene una coletilla que veremos más adelante.
 
 Antes de proseguir, comentar que todos los ejemplos serán compilados teniendo habilitados los _warnings_ de conversión entre tipos:
 
@@ -25,7 +25,7 @@ g++ -std=c++20 -Wconversion -Wsign-conversion -Wall main.cpp
 
 ## Caso de estudio
 
-Supongamos pues el caso de que necesitemos unir dos módulos: el motor físico de un simulador de conducción y el controlador de actuadores de la cabina de entrenamiento. El primero debe pasarle al segundo la velocidad del vehículo. Ambos módulos fueron diseñados por separado y ahora toca integrarlos.
+Supongamos pues el caso de que necesitemos unir dos módulos: el motor físico de un simulador de conducción y el controlador de actuadores de la cabina de entrenamiento. El primero debe pasarle al segundo la velocidad del vehículo. Ambos módulos fueron diseñados por separado y ahora nos toca integrarlos.
 
 ```cpp
 #include <iostream>
@@ -64,7 +64,7 @@ main.cpp:26:29: warning: conversion to 'uint16_t' {aka 'short unsigned int'} fro
       |                             ^~~~~
 ```
 
-Consultando el manual vemos que no es un problema del hardware sino del API del controlador (el hardware _considera_ los valores desde el 32.768 hasta el 65.535 como negativos en complemento a 2 (es decir, con signo, sólo que la API fue mal escrita).
+Consultando el manual vemos que no es un problema del hardware sino del API del controlador (el hardware _considera_ los valores desde el 32.768 hasta el 65.535 como negativos en complemento a 2, es decir, con signo, sólo que la API fue mal escrita).
 
 ```shell
 Speed factor: -1
@@ -85,7 +85,7 @@ int main()
 }
 ```
 
-A efectos de este artículo, añadiremos un mensaje adicional para mostrar el valor con signo correspondiente:
+Como nota adicional, y a efectos de facilitar el entendimiento de lo que sucede, añadiremos un mensaje adicional para mostrar el valor con signo correspondiente:
 
 ```cpp
 void write_to_register(uint16_t reg, uint16_t value)
@@ -96,11 +96,11 @@ void write_to_register(uint16_t reg, uint16_t value)
 }
 ```
 
-Podemos ejecutar el ejemplo mostrado hasta ahora en [Coliru](https://coliru.stacked-crooked.com/a/f92216805b2a4a9c).
+Podemos ejecutar este ejemplo inicial en [Coliru](https://coliru.stacked-crooked.com/a/f92216805b2a4a9c).
 
-## Cambios en el tipo de retorno
+## Primer problema: cambios en la API emisora (valor de retorno)
 
-Como ejercicio, supongamos que el equipo de diseño del motor físico ha aumentado la potencia del sistema y ahora es capaz de reportar un mayor rango de velocidad:
+Como ejercicio, supongamos que el equipo de diseño del motor físico ha aumentado la potencia del sistema y ahora es capaz de reportar un mayor rango de velocidad, pasando de 16 bits a 32:
 
 ```cpp
 int32_t get_speed(int32_t time);
@@ -125,7 +125,7 @@ Speed: -128000
 Write 3072 to 0xFF. Signed value: 3072
 ```
 
-Como podemos imaginar, el problema reside en que el `static_cast<uint16_t>` está ocultado un _warning_ que, de estar activo, nos habría alertado del cambio de 32 a 16 bits. El escenario completo se puede ver [acá](https://coliru.stacked-crooked.com/a/5828f9dfc9738dfd).
+Como podemos imaginar, el problema reside en que el `static_cast<uint16_t>` está ocultado un _warning_ que, de estar activo, nos habría alertado del _downcastings_ de 32 a 16 bits. El escenario completo se puede ver [acá](https://coliru.stacked-crooked.com/a/5828f9dfc9738dfd).
 
 ### Solución propuesta: `strict_cast`
 
@@ -140,11 +140,11 @@ constexpr To strict_cast(From&& from)
 }
 ```
 
-Para los más curiosos, acá no hay riesgo de deducción de tipos ya que, aunque se puede deducir el argumento no se puede deducir el tipo de retorno, por lo que hay que indicarlo explícitamente y, como es el segundo argumento del _template_, nos obliga entonces a indicar también el tipo esperado.
+Para los más curiosos, acá no hay riesgo de deducción de tipos ya que, aunque se puede deducir el argumento no se puede deducir el tipo de retorno, por lo que hay que indicarlo explícitamente y, como es el segundo argumento del _template_, nos obliga entonces a indicar también el tipo esperado. El último tipo sí lo deducimos automáticamente para asegurar que siempre tenemos el tipo original.
 
-Además, podemos notar cómo hemos forzado la detección de tipos mediante el `static_assert`. Así, si estamos usando este operador podemos desentendernos de la configuración del compilador y de _warnings_ ignorados.
+Además, podemos notar cómo hemos forzado los errores mediante el `static_assert`. Así, si estamos usando este operador podemos desentendernos de la configuración del compilador y de _warnings_ ignorados.
 
-Incorporando esta solución a nuestro ejemplo anterior (en la versión `int32_t`):
+Incorporando esta solución a nuestro ejemplo anterior (la versión `int32_t`), tenemos:
 
 ```cpp
 #include <iostream>
@@ -185,7 +185,7 @@ int main()
 
 El código completo se puede ver, como antes, en [Coliru](https://coliru.stacked-crooked.com/a/7994971a47b1ee59).
 
-## Escenarios no resueltos por `strict_cast`
+## Segundo problema: cambios en la API receptora (argumentos)
 
 El operador propuesto funciona únicamente con los tipos conocidos _antes_ de ejecutarse el operador (el tipo de retorno esperado y el tipo de retorno real), pero no puede hacer nada con el tipo real del argumento en el que se usará el resultado, por lo que todavía quedan casos en los cuales podemos tener un error.
 
@@ -241,3 +241,5 @@ En el caso de que dispongamos de control de la API conflictiva (`get_speed` o `w
 ## Conclusión
 
 Hemos comentado la importancia de prestar atención a los _warnings_ de compilación y de los problemas que nos puede atraer el silenciarlos. Para resolverlo hemos presentado dos operadores: `strict_cast` para asegurarnos que el tipo del dato origen coincide con el que esperamos, y `strict_args` para comprobar si los tipos de datos de los argumentos han cambiado.
+
+_Nota final:_ la solución propuesta es compatible con C++17. Si se quisiese usar en C++14 deberíamos cambiar las líneas del tipo `std::is_same_v<T, U>` for `std::is_same<T, U>::value`.
