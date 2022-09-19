@@ -242,4 +242,4 @@ En el caso de que dispongamos de control de la API conflictiva (`get_speed` o `w
 
 Hemos comentado la importancia de prestar atención a los _warnings_ de compilación y de los problemas que nos puede atraer el silenciarlos. Para resolverlo hemos presentado dos operadores: `strict_cast` para asegurarnos que el tipo del dato origen coincide con el que esperamos, y `strict_args` para comprobar si los tipos de datos de los argumentos han cambiado.
 
-_Nota final:_ la solución propuesta es compatible con C++17. Si se quisiese usar en C++14 deberíamos cambiar las líneas del tipo `std::is_same_v<T, U>` for `std::is_same<T, U>::value`.
+_Nota final:_ la solución propuesta es compatible con C++17. Si se quisiese usar en C++14 deberíamos cambiar las líneas del tipo `std::is_same_v<T, U>` por `std::is_same<T, U>::value`.
