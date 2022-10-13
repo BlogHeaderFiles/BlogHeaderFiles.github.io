@@ -8,7 +8,7 @@ main {
 
 .posts-labelgroup {
   /* Firefox Flex Hack */
-  @-moz-document url-prefix() { 
+  @-moz-document url-prefix() {
     align-items: center;
   }
 

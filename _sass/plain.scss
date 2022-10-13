@@ -232,24 +232,24 @@ main {
 
   .post-image {
     flex: 25%;
-    
+
     img {
       border-radius: 4px;
     }
   }
-  
+
   .post-text {
     flex: 75%;
     margin-left: 10px;
-    
+
     h2 {
       margin-top: 0px;
     }
-    
+
     p:last-child {
       margin-bottom: 0px;
     }
-  }  
+  }
 }
 
 .post-title {
