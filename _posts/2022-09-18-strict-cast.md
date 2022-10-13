@@ -9,7 +9,7 @@ excerpt: Alternativas expresivas al _type casting_ y con detección de cambios d
 ---
 ## Introducción
 
-Es bien sabido que, en términos generales, los _warnings_ del compilador son más que mensajes de un _puritano del lenguaje_; casi siempre son una señal de que algo no está del todo bien y que deberíamos revisar: asignaciones en lugar de comparaciones, valores de un enum que no se han tomado en cuenta en un _switch_, variables del utilizar (si hay muchas para una misma función puede ser una señal de que necesitamos un _refactoring_), funciones que no devuelven valor cuando su declaración dice que sí, uso de funciones inseguras, etc.
+Es bien sabido que, en términos generales, los _warnings_ del compilador son más que mensajes de un _puritano del lenguaje_; casi siempre son una señal de que algo no está del todo bien y que deberíamos revisar: asignaciones en lugar de comparaciones, valores de un _enum_ que no se han tomado en cuenta en un _switch_, variables sin utilizar (si hay muchas para una misma función puede ser una señal de que necesitamos un _refactoring_), funciones que no devuelven valor cuando su declaración dice que sí, uso de funciones inseguras, etc.
 
 Uno de los _warnings_ que seguramente más hayamos visto es el de conversión de un tipo más _grande_ a uno más _chico_ (o entre enteros con y sin signo), con la posible pérdida de precisión o valores inesperados.
 
