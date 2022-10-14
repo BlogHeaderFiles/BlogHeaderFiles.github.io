@@ -9,10 +9,14 @@ div.highlight {
   border: 1px solid #c0c0c0;
   border-radius: 5px;
 }
+
 pre.highlight, code {
   margin: 0;
   font-family: 'Consolas', Menlo, monospace;
   line-height: 1.4em;
   tab-size: 4;
-  color: #df7570
+}
+
+code.language-plaintext {
+  color: #cf6560
 }
