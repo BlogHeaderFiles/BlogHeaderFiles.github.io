@@ -16,6 +16,11 @@ layout: default
     </ul>
     {%- endif -%}
   </div>
+  {% if page.excerpt != page.content %}
+  <div class="post-excerpt">
+    {{ page.excerpt }}
+  </div>
+  {%- endif -%}
   <div class="post">
     {{ content }}
   </div>
