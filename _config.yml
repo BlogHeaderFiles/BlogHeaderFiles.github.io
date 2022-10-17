@@ -41,6 +41,14 @@ plainwhite:
     linkedIn: in/cbuchart
     stackoverflow: 1485885/cbuchart
 
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  blanklines: true
+  profile: false
+  startings: all
+
 plugins:
   - jekyll-seo-tag
   - jekyll-paginate
