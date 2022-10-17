@@ -1,16 +1,11 @@
 title: Header Files
 author: Carlos Buchart
 email: cbuchart@gmail.com
-description: template&lt;class Cpp, class Qt, class ... Y_Mas&gt;
+description: Blog personal con artículos sobre C++, Qt, desarrollo y más.
 show_excerpts: true
 paginate: 16
 paginate_path: "page:num/"
 encoding: UTF-8
-
-site:
-  related_by: categories
-  related_limit: 5
-  related: true
 
 sass:
   sass_dir: _sass
