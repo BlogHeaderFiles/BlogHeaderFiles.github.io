@@ -4,7 +4,7 @@
         {% if post.image %}
         <img src="{{ post.image | relative_url }}" />
         {% else %}
-        <img src="{{ site.url }}/assets/images/featured/default.jpg" />
+        <img src="{{ "/assets/images/featured/default.jpg" | relative_url }}" />
         {% endif %}
     </div>
     <div class="post-text">

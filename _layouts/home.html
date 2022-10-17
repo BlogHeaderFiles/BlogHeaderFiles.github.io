@@ -20,11 +20,13 @@ layout: default
       <li class="post-row">
         {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
         <div class="post-image">
+        <a class="post-link" href="{{ post.url | relative_url }}">
         {% if post.image %}
         <img src="{{ post.image | relative_url }}" />
         {% else %}
-        <img src="{{ site.url }}/assets/images/featured/default.jpg" />
+        <img src="{{ "/assets/images/featured/default.jpg" | relative_url }}" />
         {% endif %}
+        </a>
         </div>
         <div class="post-text">
         <a class="post-link" href="{{ post.url | relative_url }}">

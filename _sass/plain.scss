@@ -220,16 +220,13 @@ main {
 }
 
 .post-excerpt {
-  padding: 20px 20px;
+  padding: 20px 0 20px 0;
   margin-top: 15px;
   margin-bottom: 35px;
-  color: #586e75;
-  background-color: #f4f4f4;
-  border: 1px solid #c0c0c0;
-  border-radius: 5px;
+  color: #7f8080;
+  font-family: "Merriweather", sans-serif;
   font-size: 20px;
-  font-style: italic;
-  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 20%);
 }
 
 .post-link {
