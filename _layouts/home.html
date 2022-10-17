@@ -19,11 +19,13 @@ layout: default
     {%- for post in paginator.posts -%}
       <li class="post-row">
         {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
-        {% if post.image %}
         <div class="post-image">
+        {% if post.image %}
         <img src="{{ post.image | relative_url }}" />
-        </div>
+        {% else %}
+        <img src="{{ site.url }}/assets/images/featured/default.jpg" />
         {% endif %}
+        </div>
         <div class="post-text">
         <a class="post-link" href="{{ post.url | relative_url }}">
           <h2 class="post-title">{{ post.title | escape }}</h2>

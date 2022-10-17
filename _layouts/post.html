@@ -17,13 +17,16 @@ layout: default
     {%- endif -%}
   </div>
   {% if page.excerpt != page.content %}
-  <div class="post-excerpt">
+  <ul class="post-excerpt">
     {{ page.excerpt }}
-  </div>
+  </ul>
   {%- endif -%}
   <div class="post">
     {{ content }}
   </div>
+  {% if page.id and page.categories.size > 0 %}
+    {% include related.html %}
+  {% endif %}
   {%- if site.plainwhite.disqus_shortname -%}
   <div id="disqus_thread" style="margin-top:25px"></div>
   <script>

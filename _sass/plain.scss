@@ -256,13 +256,47 @@ main {
     flex: 75%;
     margin-left: 10px;
 
-    h2 {
+    h2, text {
       margin-top: 0px;
     }
 
     p:last-child {
       margin-bottom: 0px;
     }
+  }
+}
+
+.related-posts {
+  display: table;
+  width: 100%;
+  list-style: none;
+  border-spacing: 5px 0;
+  border-collapse: separate;
+}
+.post-related {
+  width: 23%;
+  height: auto;
+  float: none;
+
+  vertical-align: top;
+  display: table-cell;
+  @media screen and (max-width: $smallMobileW) {
+    display: block;
+  }
+
+  font-size: 16px;
+  text-align: center;
+
+  box-shadow: 0 1px 2px rgba(0,0,0,20%);
+  border-radius: 4px;
+
+
+  img {
+    display: inline-block;
+    border-radius: 4px;
+  }
+  .post-text {
+    padding: 3px;
   }
 }
 

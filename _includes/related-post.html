@@ -1,0 +1,14 @@
+<li class="post-related">
+    <a class="post-link" href="{{ post.url | relative_url }}">
+    <div>
+        {% if post.image %}
+        <img src="{{ post.image | relative_url }}" />
+        {% else %}
+        <img src="{{ site.url }}/assets/images/featured/default.jpg" />
+        {% endif %}
+    </div>
+    <div class="post-text">
+      <div class="post-title">{{ post.title | escape }}</div>
+    </div>
+    </a>
+</li>
