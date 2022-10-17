@@ -48,3 +48,4 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-feed
+  - jekyll-sitemap
