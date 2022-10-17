@@ -5,6 +5,7 @@ author: Carlos Buchart
 layout: post
 permalink: /2019/03/31/efectos-colaterales-de-los-menus-contextuales-en-qt/
 excerpt: Cuando se despliega un menú contextual en un widget de Qt, éste se apropia del mouse lo que evita que los otros widgets que han solicitado seguir continuamente el movimiento del cursor no reciban el evento mientras el menú contextual esté desplegado. En esta entrada explicamos cómo solucionar este problema.
+categories: c++ qt menus
 ---
 Esta publicación es más bien corta y casi más a modo de _para que no se me olvide_ que otra cosa, pero acá va.
 

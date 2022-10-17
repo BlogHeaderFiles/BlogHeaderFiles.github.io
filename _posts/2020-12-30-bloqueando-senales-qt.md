@@ -6,6 +6,7 @@ layout: post
 permalink: /2020/12/30/bloqueando-senales-qt/
 image: /assets/images/featured/blocksignals.jpg
 excerpt: 'Hay casos en los que no deseamos que el slot de un objeto sea llamado al emitirse una señal. Esta entrada explica una forma simple de solucionarlo.'
+categories: c++ qt signal-slot
 ---
 En entradas anteriores hemos visto cómo realizar una conexión entre una señal y un _slot_ en Qt ([1]({{url}}/2019/04/26/signals-y-slots-en-qt-parte-i/) y [2]({{url}}/2019/05/14/signals-y-slots-en-qt-parte-ii/)). Ahora bien, hay casos en los que no deseamos que el _slot_ sea llamado al emitirse la señal, como por ejemplo si debemos actualizar programáticamente una propiedad de un _widget_ en base a un cambio en el estado de nuestro modelo, pero hacerlo haría que el modelo volviese a cambiar ya que el _widget_ ha emitido una señal de cambio. Para ello algunos _widgets_ proveen dos señales diferentes para estos casos, una que se emite siempre que se cambia el valor (ya sea mediante acción directa del usuario con el _widget_, o bien programáticamente), y otra señal que se emite sólo cuando el cambio se genera desde el interfaz de usuario. En este caso, es fácil hacer la separación.
 

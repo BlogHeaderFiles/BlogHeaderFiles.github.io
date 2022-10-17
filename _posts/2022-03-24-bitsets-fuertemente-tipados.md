@@ -6,6 +6,7 @@ layout: post
 permalink: /2022/03/24/flags-fuertemente-tipadas
 image: /assets/images/featured/strong_flags.jpg
 excerpt: Exponemos una alternativa fuertemente tipada a las colecciones de banderas.
+categories: c++ strong-types flags
 ---
 ## Introducción
 

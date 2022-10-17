@@ -5,6 +5,7 @@ author: Carlos Buchart
 layout: post
 permalink: /2019/03/13/usando-tipografias-propias-en-qt/
 excerpt: En esta entrada comentamos cómo añadir ficheros de fuentes en nuestros proyectos Qt.
+categories: c++ qt fonts
 ---
 El dar un toque de distinción a nuestras aplicaciones puede pasar por utilizar tipografías que no son estándares, o que sólo vienen incluidas con instalaciones de determinados programas que no podemos asumir estén siempre presentes (ejemplo típico, MS Office, _suites_ de Adobe...).
 

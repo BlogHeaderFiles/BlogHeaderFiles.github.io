@@ -6,6 +6,7 @@ layout: post
 permalink: /2020/07/30/lo-estas-agarrando-mal/
 image: /assets/images/featured/doing_wrong.jpg
 excerpt: 'El usuario es tonto, no lee el manual, no sabe de informática... Frases que hemos oído y dicho mil veces pero, ¿son siempre verdad?'
+categories: ux
 ---
 Muchos recordarán el _antennagate_, cuando el diseño de antena exterior del iPhone 4 mostró un _pequeño_ fallo: el usuario era capaz de cortocircuitar las antenas con su mano al sujetarlo de determinada forma (una forma no precisamente extraña), degradando la recepción hasta el punto de no tener señal en algunas ocasiones. El problema era gordo, aunque también es cierto que tampoco era para empezar la tercera guerra mundial como muchos quisieron hacer. Yo mismo tuve el iPhone 4 y el fallo se convertía en problema básicamente en zonas de baja recepción; no quito peso al fallo, pero si a la publicidad que se le hizo.
 

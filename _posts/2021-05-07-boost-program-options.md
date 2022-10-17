@@ -6,6 +6,7 @@ layout: post
 permalink: /2021/05/07/boost-program-options
 image: /assets/images/featured/boost_program_options.jpg
 excerpt: Un pequeño tutorial acerca del módulo program_options de Boost para gestionar argumentos por línea de comandos.
+categories: c++ boost cli
 ---
 ## Introducción
 

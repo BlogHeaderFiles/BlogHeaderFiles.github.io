@@ -4,6 +4,7 @@ date: 2020-01-08T12:20:59+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/01/08/una-forma-sencilla-rapida-y-cuasi-automatica-de-medir-tiempos-de-ejecucion-en-funciones/
+categories: c++ benchmarking
 ---
 Una tarea típica del programador es la de saber si una función es eficiente o no, tanto desde el punto de vista algorítmico como de tiempo de ejecución real. Creo necesario matizar que ambos valores son importantes, ya que el primero nos dirá el comportamiento del algoritmo a medida que el conjunto de datos crezca, y el segundo un valor más _palpable_, _cercano_ a lo que el usuario final percibirá.
 

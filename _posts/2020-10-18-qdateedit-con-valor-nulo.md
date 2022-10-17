@@ -6,6 +6,7 @@ layout: post
 permalink: /2020/10/18/qdateedit-con-valor-nulo/
 image: /assets/images/featured/nullable_qdateedit.jpg
 excerpt: 'En este artículo presento una variante del widget QDateEdit para trabajar con fechas nulas.'
+categories: c++ qt
 ---
 A principios de este año se cumplieron 438 años desde la promulgación de la bula [Inter Gravissimas](https://es.wikipedia.org/wiki/Inter_Gravissimas), el 24 de febrero de 1582, en la que el Para Gregorio XIII instituía un nuevo calendario; el que ahora conocemos como calendario gregoriano y que es el vigente en muchos países, especialmente occidentales.
 

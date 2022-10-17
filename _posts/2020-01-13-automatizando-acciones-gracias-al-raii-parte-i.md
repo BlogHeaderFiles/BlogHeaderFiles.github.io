@@ -5,6 +5,7 @@ author: Carlos Buchart
 layout: post
 permalink: /2020/01/13/automatizando-acciones-gracias-al-raii-parte-i/
 excerpt: 'Uno de los aspectos que más me gusta de C++ es el RAII (Resource Acquisition Is Initialization). Introducida por Bjarne Stroustrup, esta técnica hace uso de los constructores y destructores para la correcta gestión de recursos.'
+categories: c++ raii
 ---
 Como mencioné en una entrada anterior, uno de los aspectos que más me gusta de C++ es el [RAII](https://es.wikipedia.org/wiki/RAII) (Resource Acquisition Is Initialization). Introducida por Bjarne Stroustrup (creador de C++), esta técnica hace uso de los constructores y destructores para la correcta gestión de recursos. Tiene como bases las siguientes premisas:
 

@@ -6,6 +6,7 @@ layout: post
 permalink: /2021/08/27/ajuste-dinamico-imagenes-qlabel/
 image: /assets/images/featured/resize_image_qlabel.jpg
 excerpt: Estudiamos cómo auto-escalar una imagen dentro de un QLabel.
+categories: c++ qt graphics
 ---
 El control para mostrar etiquetas de texto en Qt se llama `QLabel`. Además de texto, puede mostrar una imagen mediante el método `QLabel::setPixmap`, aunque de una forma bastante limitada. Me explico: la imagen se mostrará con una relación 1:1, por lo que estará recortada si es mayor que el widget, mostrándose más o menos dependiendo del tamaño del mismo.
 

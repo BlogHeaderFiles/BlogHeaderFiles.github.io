@@ -5,6 +5,7 @@ author: Carlos Buchart
 layout: post
 permalink: /2019/03/12/breve-introduccion-al-uso-de-rsa-con-openssl/
 excerpt: Breve tutorial acerca del uso de OpenSSL, generación de claves, firma y verificación de ficheros.
+categories: c openssl rsa
 ---
 De cara a un proyecto que he tenido que hacer en estos días, me he topado con la necesidad de utilizar [RSA](https://es.wikipedia.org/wiki/RSA), el cual no había tenido el placer de probar hasta la semana pasada.
 

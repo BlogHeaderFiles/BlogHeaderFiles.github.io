@@ -5,6 +5,7 @@ author: Carlos Buchart
 layout: post
 permalink: /2020/03/15/qt-moc-cabeceras-precompiladas/
 excerpt: 'Estudiaremos cómo solucionar un error de compilación en ficheros moc de Qt.'
+categories: qt moc
 ---
 Si vuestro proyecto Qt presenta las siguientes características (todas):
 

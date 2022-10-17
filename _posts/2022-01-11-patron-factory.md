@@ -6,6 +6,7 @@ layout: post
 permalink: /2022/01/11/patron-factory
 image: /assets/images/featured/factory.jpg
 excerpt: Explicamos una implementación del patrón factory basada en templates.
+categories: c++ patterns
 ---
 ## Introducción
 

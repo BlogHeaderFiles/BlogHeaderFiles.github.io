@@ -6,6 +6,7 @@ layout: post
 permalink: /2022/01/27/inicializacion-en-condicionales
 image: /assets/images/featured/init_statement.jpg
 excerpt: Estudiamos el uso de inicializaciones en condicionales y las ventajas que ello supone.
+categories: c++
 ---
 ## Introducción
 

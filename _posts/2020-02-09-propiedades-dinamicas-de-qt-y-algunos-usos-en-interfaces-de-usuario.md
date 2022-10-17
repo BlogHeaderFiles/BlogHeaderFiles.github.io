@@ -5,6 +5,7 @@ author: Carlos Buchart
 layout: post
 permalink: /2020/02/09/propiedades-dinamicas-de-qt-y-algunos-usos-en-interfaces-de-usuario/
 excerpt: 'Qt ha implementado, como parte de la la estructura de meta-objetos, un sistema de propiedades bastante completo y potente. Como resumen rápido, y dejando muchas cosas en el tintero, se trata de una forma de guardar datos a nivel de objeto sin tener que modificar su implementación, es decir, de forma dinámica.'
+categories: c++ qt properties
 ---
 Qt ha implementado, como parte de la la estructura de meta-objetos, un [sistema de propiedades](https://doc.qt.io/qt-5/properties.html) bastante completo y potente. Como resumen rápido, y dejando muchas cosas en el tintero, se trata de una forma de guardar datos a nivel de objeto sin tener que modificar su implementación, es decir, de forma dinámica:
 
