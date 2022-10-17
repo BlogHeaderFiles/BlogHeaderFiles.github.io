@@ -5,6 +5,7 @@ description: template&lt;class Cpp, class Qt, class ... Y_Mas&gt;
 show_excerpts: true
 paginate: 16
 paginate_path: "page:num/"
+encoding: UTF-8
 
 sass:
   sass_dir: _sass

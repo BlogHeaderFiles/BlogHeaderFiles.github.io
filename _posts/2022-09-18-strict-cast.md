@@ -5,7 +5,7 @@ author: Carlos Buchart
 layout: post
 permalink: /2022/09/18/strict-cast
 image: /assets/images/featured/strict_cast.jpg
-excerpt: Alternativas expresivas al _type casting_ y con detección de cambios de API.
+excerpt: Alternativas expresivas al type casting y con detección de cambios de API.
 ---
 ## Introducción
 
