@@ -106,7 +106,8 @@
 {% endif %}
 
 {% if related_posts.size > 0 %}
-<h3>Recomendado</h3>
+<div class="related-posts-section">
+<h2>Recomendado</h2>
 
 <div class="related-posts">
 {% for post in related_posts limit:related_limit %}
@@ -116,5 +117,6 @@
 
   {% include {{ related_template }} type=related_layout %}
 {% endfor %}
+</div>
 </div>
 {% endif %}

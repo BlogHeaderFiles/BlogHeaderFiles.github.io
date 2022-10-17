@@ -220,7 +220,7 @@ main {
 }
 
 .post-excerpt {
-  padding: 20px 0 20px 0;
+  padding: 20px 0 35px 0;
   margin-top: 15px;
   margin-bottom: 35px;
   color: #7f8080;
@@ -263,6 +263,12 @@ main {
   }
 }
 
+.related-posts-section {
+  padding: 20px 0 0 0;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  border-top: 1px solid rgba(0, 0, 0, 20%);
+}
 .related-posts {
   display: table;
   width: 100%;
@@ -295,6 +301,12 @@ main {
   .post-text {
     padding: 3px;
   }
+}
+
+#disqus_thread {
+  padding: 35px 0 20px 0;
+  margin-bottom: 35px;
+  border-top: 1px solid rgba(0, 0, 0, 20%);
 }
 
 .post-title {
