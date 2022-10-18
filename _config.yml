@@ -1,11 +1,13 @@
 title: Header Files
+description: Blog personal de Carlos Buchart con artículos sobre C++, Qt, buenas prácticas de programación y expresividad, desarrollo en general y más.
+tagline: Blog personal de Carlos Buchart
 author: Carlos Buchart
 email: cbuchart@gmail.com
-description: Blog personal de Carlos Buchart con artículos sobre C++, Qt, buenas prácticas de programación y expresividad, desarrollo en general y más.
 show_excerpts: true
 paginate: 16
 paginate_path: "page:num/"
 encoding: UTF-8
+locale: es_ES
 
 sass:
   sass_dir: _sass
