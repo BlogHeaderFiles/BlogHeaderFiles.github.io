@@ -22,9 +22,9 @@ layout: default
         <div class="post-image">
         <a class="post-link" href="{{ post.url | relative_url }}">
         {% if post.image %}
-        <img src="{{ post.image | relative_url }}" />
+        <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" />
         {% else %}
-        <img src="{{ "/assets/images/featured/default.jpg" | relative_url }}" />
+        <img src="{{ "/assets/images/featured/default.jpg" | relative_url }}" alt="{{ post.title | escape }}" />
         {% endif %}
         </a>
         </div>
