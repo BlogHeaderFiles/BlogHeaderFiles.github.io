@@ -35,7 +35,6 @@ layout: compress
       <p class="tagline">{{ site.plainwhite.tagline }}</p>
       {%- endif -%}
       </div>
-      {% capture footer %}
       {%- if site.plainwhite.social_links != '' -%}
       <ul class="social about-footer {{condensed_class}}">
         {%- if site.plainwhite.social_links.github -%}
@@ -165,34 +164,11 @@ layout: compress
         </p>
       </div>
       {%- endif -%}
-      {% endcapture %}
-      {{ footer }}
     </section>
     <section class="content">
       {{ content }}
     </section>
-    <footer class="{{condensed_class}}">
-      {{ footer }}
-    </footer>
   </main>
-  {% if site.plainwhite.dark_mode %}
-  <script type="text/javascript" src="{{ "/assets/js/darkmode.js" | relative_url }}"></script>
-  {% endif %}
-
-  {%- if site.plainwhite.analytics_id -%}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.plainwhite.analytics_id }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', '{{ site.plainwhite.analytics_id }}');
-  </script>
-  {%- endif -%}
-
-  {% if site.plainwhite.search %}
-  <script src="{{ "/assets/js/simple-jekyll-search.min.js" | relative_url }}"></script>
-  <script src="{{ "/assets/js/search.js" | relative_url }}"></script>
-  {% endif %}
 </body>
 
 <footer>
