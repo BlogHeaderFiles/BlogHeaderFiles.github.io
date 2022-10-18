@@ -5,6 +5,7 @@ author: Carlos Buchart
 layout: post
 permalink: /2021/01/06/happy-new-year/
 image: /assets/images/featured/happy_new_year_2021.jpg
+hide_excerpt: true
 ---
 A todos los lectores de _HeaderFiles_ un feliz año nuevo, lleno de salud, bendiciones y buenos momentos.
 

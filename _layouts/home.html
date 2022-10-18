@@ -46,9 +46,9 @@ layout: default
           {%- endif -%}
         </div>
         <div class="post">
-          {%- if site.show_excerpts -%}
+          {%- unless post.hide_excerpt == true -%}
             {{ post.excerpt }}
-          {%- endif -%}
+          {%- endunless -%}
         </div>
         </div>
       </li>
