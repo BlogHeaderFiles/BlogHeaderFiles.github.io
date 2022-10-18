@@ -39,7 +39,7 @@ plainwhite:
 compress_html:
   clippings: all
   comments: all
-  endings: all
+  endings: []
   blanklines: true
   profile: false
   startings: all
