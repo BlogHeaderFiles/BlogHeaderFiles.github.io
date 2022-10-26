@@ -7,6 +7,8 @@ permalink: /2020/01/13/automatizando-acciones-gracias-al-raii-parte-i/
 excerpt: 'Uno de los aspectos que más me gusta de C++ es el RAII (Resource Acquisition Is Initialization). Introducida por Bjarne Stroustrup, esta técnica hace uso de los constructores y destructores para la correcta gestión de recursos.'
 categories: c++ raii
 ---
+## Introducción
+
 Como mencioné en una entrada anterior, uno de los aspectos que más me gusta de C++ es el [RAII](https://es.wikipedia.org/wiki/RAII) (Resource Acquisition Is Initialization). Introducida por Bjarne Stroustrup (creador de C++), esta técnica hace uso de los constructores y destructores para la correcta gestión de recursos. Tiene como bases las siguientes premisas:
 
 - Un constructor siempre se ejecuta antes de que el objeto pueda ser usado, por lo que es un lugar seguro para reservar, inicializar, preparar los recursos a ser utilizados posteriormente.
@@ -20,11 +22,11 @@ Además, recordar que:
 
 Lo que implica que podemos automatizar la gestión de gran parte de los recursos de nuestra aplicación únicamente con esta técnica. Casi todo C++ hace uso de la misma; acá algunos ejemplos:
 
-### Colecciones dinámicas (_arrays_ dinámicos)
+## Colecciones dinámicas (_arrays_ dinámicos)
 
 [`std::vector<T>`](https://es.cppreference.com/w/cpp/container/vector) permite sustituir el duo `new[]` / `delete[]` cuando se necesitan colecciones contiguas de elementos homogéneos, por no decir que añade características adicionales como poder añadir/quitar elementos, consultar su tamaño, etc.
 
-#### Usando `new[]` / `delete[]`
+### Usando `new[]` / `delete[]`
 
 ```cpp
 C* foo(size_t n) {
@@ -63,7 +65,7 @@ He acá los principales _defectos_ de este código:
 - La función que llame a `foo` hereda esta responsabilidad.
 - Adicionalmente, es fácil perder el contexto y no saber cuántos elementos tiene `c`, teniendo que guardarlo para evitar errores de acceso fuera de límites.
 
-#### Usando `std::vector<T>`
+### Usando `std::vector<T>`
 
 ```cpp
 std::vector<C> foo(size_t n) {
@@ -90,11 +92,11 @@ int main() {
 
 Como se ve, gracias al RAII hemos podido simplificar muchísimo nuestro código, automatizando (delegando) la gestión de los recursos al propio lenguaje.
 
-### Propiedad del recurso
+## Propiedad del recurso
 
 Uno de los principales dolores de cabeza que suelo tener al diseñar software es el reparto de responsabilidades entre los diferentes componentes del software: el _quién_ hace _qué_. Entre estas responsabilidades está _quién es dueño del recurso_, es decir, quién se encarga de inicializarlo y liberarlo.
 
-#### Gestión manual
+### Gestión manual
 
 Imaginemos un gestor de cámaras de vídeo:
 
@@ -130,7 +132,7 @@ int main() {
 
 Vale, nada del otro mundo pero, como en el ejemplo anterior vemos que hay muchos `delete` debido a la gestión de errores. Además, una vez creada la cámara, es responsabilidad del programador gestionarla, saber en todo momento quién es el _dueño_ de la cámara y, por ende, quién es el encargado de destruirla. Esto no siempre es fácil cuando la cámara va pasando de mano en mano, terminando con múltiples copias del puntero.
 
-#### Centralización
+### Centralización
 
 Igual un primer pensamiento es que el gestor sea el dueño de las cámaras:
 
@@ -168,7 +170,7 @@ public:
 
 Bajo un correcto contrato entre clases esto podría resolver el problema de la gestión de memoria siempre que no se necesita que las cámaras sean destruidas en mitad del proceso. Podríamos entonces agregar un método `destroy_camera` al gestor, pero ¿no estaríamos complicando el diseño demasiado ya?
 
-#### Usando punteros inteligentes
+### Usando punteros inteligentes
 
 Desde C++11 el lenguaje ofrece varias soluciones a este problema. Aunque me centraré en el `std::unique_ptr<T>`, otra posible opción es [`std::shared_ptr<T>`](https://es.cppreference.com/w/cpp/memory/shared_ptr).
 
@@ -197,13 +199,13 @@ int main() {
 
 Podemos ver cómo nos hemos quitado las destrucciones manuales en la gestión de errores (simplicando el código enormemente) así como la liberación de recursos por parte del dueño. Además, el propio código `foo(cam.get());` grita a voces "oye, te estoy _prestando_ el objeto, pero _es mío_".
 
-### Otros ejemplos clásicos
+## Otros ejemplos clásicos
 
 Enumeraré otros casos en los cuales se usa el RAII ampliamente, para que los tengáis en cuenta en vuestros desarrollos:
 
 - Entrada / salida por ficheros: [`std::ifstream`](https://es.cppreference.com/w/cpp/io/basic_ifstream) / [`std::ofstream`](https://es.cppreference.com/w/cpp/io/basic_ofstream) automáticamente cierran el fichero cuando son destruidos.
 - Mutex (otro de mis favoritos): [`std::lock_guard<Mutex>`](https://es.cppreference.com/w/cpp/thread/lock_guard), [`std::scoped_lock<...>`](https://en.cppreference.com/w/cpp/thread/scoped_lock).
 
-### Próximamente
+## Próximamente
 
 En el [siguiente artículo]({{url}}/2020/01/17/automatizando-acciones-gracias-al-raii-parte-ii/) utilizaremos el RAII para automatizar otro tipo de acciones en nuestro código. Mientras tanto, os dejo con una reflexión al respecto de parte de Jonathan Boccara, autor de Fluent C++, [To RAII or not to RAII](https://www.fluentcpp.com/2018/02/13/to-raii-or-not-to-raii/).

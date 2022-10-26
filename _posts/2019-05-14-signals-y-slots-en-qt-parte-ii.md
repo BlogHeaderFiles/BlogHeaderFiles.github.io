@@ -6,24 +6,26 @@ layout: post
 permalink: /2019/05/14/signals-y-slots-en-qt-parte-ii/
 categories: c++ qt signal-slot
 ---
+## Introducción
+
 En esta segunda entrega de _Signals y Slots_, estudiaremos la nueva sintaxis introducida en Qt 5, así como una comparativa respecto a la forma antigua, y cómo resolver los principales problemas que puedan surgir.
 
 Actualización: el código de ejemplo para esta entrada está ya disponible en [GitHub (Part_2)](https://github.com/BlogHeaderFiles/SourceCode/tree/master/SignalsAndSlots).
 
-### Qt 4
+## Qt 4
 
 El método clásico descrito en el [artículo anterior]({{url}}/2019/04/26/signals-y-slots-en-qt-parte-i) (el único en Qt 4 y anteriores), tiene básicamente dos desventajas:
 
 - No es posible hacer comprobaciones en tiempo de compilación (abriendo la puerta a muchos errores sutiles e indetectables, tales como escribir mal el nombre del _slot_). Los errores son sólo mostrados en tiempo de ejecución, por consola, y sin ningún tipo de _assert_ ni nada parecido, por lo que es muy sencillo pasarlos por alto.
 - Sólo permite unirse a métodos marcados como _slots_ en la definición de la clase.
 
-### Nueva sintaxis en Qt 5
+## Nueva sintaxis en Qt 5
 
 Con la llegada de Qt 5 (hace ya unos años), se proporcionaron nuevas formas de conexión para solventar los problemas descritos anteriormente. Esta nueva sintaxis es, de media, un poco más larga, pero tiene como principal ventaja que la existencia de la señal, el _slot_ y la compatibilidad de tipos de datos son comprobados en tiempo de compilación en lugar de hacerlo silenciosamente en tiempo de ejecución.
 
 Simplificando los escenarios, podríamos dividir esta nueva sintaxis en dos tipos: conexión a métodos miembro y conexión a objetos función.
 
-#### Conexión a métodos miembros
+### Conexión a métodos miembros
 
 De forma general:
 
@@ -40,7 +42,7 @@ Ahora bien, tiene tres _desventajas_ menores:
 - En caso de que la señal o el _slot_ estén sobrecargados, es necesario indicar a cuál de todas las versiones se quiere conectar. Para esto se puede usar `qOverload` (ver más adelante).
 - El _slot_ no puede usar ya valores por defecto para _disminuir_ el número de parámetros (ver más adelante).
 
-#### Conexión mediante objetos función
+### Conexión mediante objetos función
 
 Mi forma favorita, ya que permite ahorrar la creación de multitud de micro-métodos específicos (inevitables en Qt 4), además de servir de _puente_ para salvar otras limitaciones de la forma anterior:
 
@@ -81,7 +83,7 @@ connect(m_ui->cboThirdParty, QOverload<QString>::of(&QComboBox::activated),
         this, &About::showThirdPartyAbout);
 ```
 
-### Valores por defecto
+#### Valores por defecto
 
 El otro gran _problema_ de la nueva sintaxis son los valores por defecto en el _slot_: cuando el _slot_ tiene más parámetros que la señal. En Qt 4 era posible definir valores por defecto a esos parámetros, con lo que la conexión usaba esos valores por defecto:
 
@@ -116,7 +118,7 @@ connect(m_ui->lineEdit, &QLineEdit::textChanged,
         []() { qDebug() << "Text has changed"; });
 ```
 
-### Conversión implícita de parámetros
+#### Conversión implícita de parámetros
 
 Ahora bien, hay que tener cuidado con conexiones que involucren señales y _slots_ con parámetros _compatibles_, es decir, que sean transformables entre sí implícitamente, dado que estas conversiones no son comprobadas en tiempo de compilación:
 
@@ -133,6 +135,6 @@ En este caso, se hace una conversión implícita del parámetro `bool` de `click
 
 De nuevo, una solución a este caso sería o bien una función lambda o una sobrecarga que internamente llame al método con los parámetros correctos.
 
-### Siguiente entrega
+## Siguiente entrega
 
 En una tercera parte discutiremos los últimos aspectos relacionados con _slots_ constantes, orden de ejecución de los _slots_, sistemas multi-hilo y el bucle de eventos.

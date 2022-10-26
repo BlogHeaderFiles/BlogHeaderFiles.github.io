@@ -8,9 +8,11 @@ image: /assets/images/featured/iterating_qmaps.jpg
 excerpt: 'Como usuario asiduo de Qt, el rendimiento de sus diferentes componentes resulta crítico. Hoy me gustaría comentar brevemente una pequeña comparativa que hice recientemente sobre las diversas formas de iterar sobre un QMap.'
 categories: c++ qt maps benchmarking
 ---
+## Introducción
+
 Como usuario asiduo de Qt, el rendimiento de sus diferentes componentes resulta crítico. Hoy me gustaría comentar brevemente una pequeña comparativa que hice recientemente sobre las diversas formas de iterar sobre un `QMap`. Esta entrada es básicamente un estudio de rendimiento de las opciones presentadas hace ya un tiempo en [esta otra]({{url}}/2020/04/26/iterando-sobre-qmaps/).
 
-### Estudio
+## Estudio
 
 El estudio se ha realizado iterando sobre `QMap<QString, int>` de entre 100 y 1.000.000 de elementos, repitiendo 1000 veces. He utilizado los _benchmark_ del módulo Qt::Test para facilitar el proceso. El código del estudio puede descargarse desde [mi repositorio en GitHub](https://github.com/BlogHeaderFiles/SourceCode/tree/master/qmap_wrapper_benchmark).
 
@@ -18,27 +20,27 @@ El entorno de pruebas es un i7 7700HQ con 16GB de RAM, ejecutando Windows 10 (20
 
 Las distintas formas de iteración valoradas han sido las siguientes:
 
-#### Iteración directa sobre los valores
+### Iteración directa sobre los valores
 
 `for (const auto &value : map) { sum += value; }`
 
-#### Iteración sobre las claves
+### Iteración sobre las claves
 
 `for (const auto &key : map.keys()) { sum += map[key]; }`
 
-#### Usando los iteradores estándar de `QMap`
+### Usando los iteradores estándar de `QMap`
 
 `for (auto it = map.begin(); it != map.end(); ++it) { sum += it.value(); }`
 
-#### Convirtiendo a `std::map`
+### Convirtiendo a `std::map`
 
 `for (const auto &it : map.toStdMap()) { sum += it.second; }`
 
-#### Usando los iteradores `keyValue` presentes desde Qt 5.10
+### Usando los iteradores `keyValue` presentes desde Qt 5.10
 
 `for (const auto it : ::qmap_wrapper{map}) { sum += it.second; }`
 
-### Resultados
+## Resultados
 
 La siguiente gráfica muestra los resultados de las pruebas:
 

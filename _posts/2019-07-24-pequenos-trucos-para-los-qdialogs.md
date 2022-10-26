@@ -6,6 +6,8 @@ layout: post
 permalink: /2019/07/24/pequenos-trucos-para-los-qdialogs/
 categories: c++ qt dialogs
 ---
+## Introducción
+
 Es habitual que nuestras aplicaciones no se restrinjan a una única ventana, sino que se sucedan diversas ventanas de opciones, mensajes, informes, selección de datos, visualización de resultados, etc.
 
 Una de las grandes decisiones que hay que tomar cuando se diseñan estas ventanas es su [modalidad](https://es.wikipedia.org/wiki/Ventana_(inform%C3%A1tica)#Modalidad) que, en lenguaje llano, dice si se puede seguir usando el resto de la aplicación (no modal) o no (modal) mientras esa ventana esté abierta.
@@ -16,7 +18,7 @@ Por otro lado, las ventanas modales son más sencillas, ya que dichos mecanismos
 
 En Qt, el soporte para ventanas modales se proporciona mediante la clase [`QDialog`](https://doc.qt.io/qt-5/qdialog.html), que, simplificando, es un `QWidget` con soporte para distintas opciones de modalidad, donde la principal es el método [`QDialog::exec`](https://doc.qt.io/qt-5/qdialog.html#exec) el cual, además de mostrar el diálogo, ejecuta su propio bucle de eventos, bloqueando el bucle del padre, pudiendo además devolver un valor de retorno.
 
-### `QMessageBox`
+## `QMessageBox`
 
 Un ejemplo básico de diálogos modales lo encontramos en los [`QMessageBox`](https://doc.qt.io/qt-5/qmessagebox.html), que proveen de diálogos básicos preconstruidos, como un diálogo de pregunta:
 
@@ -57,15 +59,15 @@ if (msg_box.exec() == QMessageBox::Yes) {
 
 ![todo](/assets/images/qdialog_tips_custom_labels.png)
 
-### `QDialog`
+## `QDialog`
 
 Lo más normal para diseñar un diálogo es usar el Qt Designer. No me alargaré en este caso, ya que acá mostraré cómo hacerlo programáticamente (además de que algunas opciones no están disponibles desde el editor gráfico). No se diferencia mucho de un `QWidget`, salvo quizá por la forma de ejecutarse (el famoso `QDialog::exec()`), y la posibilidad de conectar con los _slots_ `QDialog::accept` y `QDialog::reject` que se correspondente, respectivamente, con los botones "Aceptar" y "Cancelar".
 
-#### Qt Designer
+### Qt Designer
 
 Cuando se diseña un diálogo usando el Qt Designer, lo más normal es crear una clase que herede de `QDialog`, con una variable miembro del tipo `Ui::ElQueSeaElNombreDeLaClaseDelDialogo`, y en el constructor, invocar a `ui.setupUi(this)`. Este modo se emplea cuando el diálogo es complejo, tiene muchos controles o un flujo de trabajo complejo (modelos asociados, múltiples conexiones, etc.)
 
-#### Programáticamente
+### Programáticamente
 
 Este modo es especialmente útil cuando uno no quiere poblar el proyecto de micro-clases para diálogos que apenas constan de un par de _widgets_ (usualmente alguna etiqueta) y un par de botones.
 
@@ -120,7 +122,7 @@ Para solucionar esto debemos cambiar las bandera de ventana (un amplio ejemplo s
 
 _Nota:_ en caso de usar estas líneas en un diálogo diseñado en Qt Designer, hay que asegurarse de ponerlas _después_ de la llamada al `setupUi`, ya que si no se corre el riesgo de que se vean sobrescritas por los valores del diseño visual.
 
-#### Más de dos posibles valores de retorno
+### Más de dos posibles valores de retorno
 
 Imaginemos que tenemos un diálogo para seleccionar un elemento de entre varios posible, de un _combo box_. Existe una opción que es la de, dentro de la clase que gestiona el código, usar el método [`QDialog::done`](https://doc.qt.io/qt-5/qdialog.html#done): el valor especificado será el devuelto por el diálogo. De todas formas, se recomienda en estos casos usar el `accepted` e implementar un método alternativo para consultar el valor de retorno; de esta forma se marca mejor la diferencia entre un diálogo aceptado y uno cancelado.
 

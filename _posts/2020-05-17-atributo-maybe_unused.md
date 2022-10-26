@@ -8,11 +8,13 @@ image: /assets/images/featured/maybe_unused.jpg
 excerpt: '[[maybe_unused]] es un atributo introducido en C++17, que indica al compilador que no genere warnings de no-uso para el identificador asociado. Este artículo explica su uso y situaciones donde es de ayuda.'
 categories: c++
 ---
+## Introducción
+
 En algunos ejemplos mostrados en entradas anteriores ha aparecido el uso del atributo `[[maybe_unused]]` que igual no os suena aún. Los _atributos_ son una característica del C++ moderno que permiten indicar al compilar información acerca del código, con el fin de optimizar determinados fragmentos, introducir restricciones o generar el código de una forma específica. Los atributos vienen a unificar alternativas ya existentes pero que eran propias de cada compilador, generando código no portable u obligando a usar macros y detección del compilador. Una lista completa de los atributos de C++ puede encontrarse en [cppreference.com](https://en.cppreference.com/w/cpp/language/attributes).
 
 En nuestro caso, [`[[maybe_unused]]`](https://es.cppreference.com/w/cpp/language/attributes/maybe_unused) es un atributo introducido en C++17, que indica al compilador que no genere _warnings_ de no-uso para el identificador asociado. Esto es especialmente útil si se ha indicado al compilador que convierta los _warnings_ en errores de compilación (`/WX` para el compilador 'cl' de Visual Studio, `-Werror` en gcc) pero el código en sí es correcto (al final de la entrada hablo un poco más sobre la utilidad de este _warning_).
 
-### Utilidad de los _warnings_
+## Utilidad de los _warnings_
 
 Para muchos programadores los _warnings_ no son más que una gran molestia del compilador, que resulta ser _quisquilloso_ y no nos deja en paz. Esto es cierto en algunos escenarios, pero normalmente tienen su razón de ser: el código potencialmente puede tener un problema de lógica y el compilador nos avisa de ello, pudiendo muchas veces solucionarlos incluso antes de depurar el código.
 
@@ -24,7 +26,7 @@ Sin desviarme mucho del tema del atributo, mencionaré algunos _warnings_ genér
 - Una declaración local oculta a una de nivel superior: por ejemplo, un parámetro de un método con el mismo nombre de una variable miembro, o una variable local respecto a una de un bloque padre; potencialmente podríamos estar queriendo usar la variable original en lugar de la nueva.
 - Parámetro o variable no usada: se ha definido una variable que no se usa en ningún momento. Puede ser, por ejemplo, debido a código antiguo o por un problema similar al anterior: tienen nombres semejantes y lo hemos escrito mal, usando la variable equivocada. A continuación detallo algunos casos en los que el _warning_ nos es útil:
 
-#### Hemos metido la pata al escribir
+### Hemos metido la pata al escribir
 
 Básicamente es código que compila correctamente, pero que tiene un error de lógica: estamos usando la variable que no es. Suele pasar cuando hacemos _copy-paste_, en funciones con variables de nombre similar, al actualizar código antiguo, etc. Por ejemplo:
 
@@ -37,7 +39,7 @@ int computeDistance(float x, float y)
 }
 ```
 
-#### Código basura
+### Código basura
 
 Suele ser producto de algún _refactoring_, actualización de código para ser compatible con una nueva API, o limpieza después de algunas pruebas temporales. Por ejemplo:
 
@@ -55,11 +57,11 @@ bool checkFileIntegrity(const std::filesystem::path &file_path, const std::strin
 
 Probablemente `filename_length` se usó durante una prueba o en una versión vieja del código pero ya no es necesaria.
 
-### ¿Cuándo el _warning_ no es útil?
+## ¿Cuándo el _warning_ no es útil?
 
 Ahora que conocemos el aviso que nos concierne, vamos a ver por qué nos interesaría ignorarlo, o lo que es mejor, indicarle al compilador que sabemos lo que estamos haciendo mediante el uso del atributo `[[maybe_unused]]`.
 
-#### Argumento de función no utilizado
+### Argumento de función no utilizado
 
 Éste es el escenario más frecuente (e importante) donde uso el `[[maybe_unused]]`. En un primer momento parece que la solución es obvia (eliminar el argumento que no se usa, ya que posiblemente la interfaz se ha complicado). Un ejemplo sería una aplicación de dibujo que define una serie de herramientas que heredan todas de la misma clase. Cuando el usuario hace clic sobre el lienzo, se llama al método `mouseClicked` de la herramienta activa, pasándole el botón del ratón presionado y la posición del cursor en coordenadas del lienzo:
 
@@ -86,7 +88,7 @@ protected:
 
 Claramente, la herramienta `ClearWholeCanvas` no necesita conocer la posición exacta del cursor, únicamente qué botón se ha presionado. Como no se usa `pos_xy` el compilador generará un _warning_ (o un error si hemos activado la opción correspondiente).
 
-##### Solución a argumento no utilizado
+#### Solución a argumento no utilizado
 
 La solución más obvia sería comentar el parámetro o simplemente dejarlo sin nombre
 
@@ -120,7 +122,7 @@ Sin embargo, la solución usando `[[maybe_unused]]` es más sencilla y explícit
 virtual void mouseClicked(int button, [[maybe_unused]] const std::tuple<int, int> &pos_xy) override { ... }
 ```
 
-#### Variable o argumento de función no utilizad (a veces)
+### Variable o argumento de función no utilizad (a veces)
 
 Una variante del caso anterior es cuando el argumento (o variable local) es usada sólo bajo determinados escenarios de compilación. Pongamos como ejemplo una función que verifica la validez de un fichero de licencia, pero sólo si se está compilando para despliegue (las versiones de desarrollo se ejecutarían sin licencia):
 
@@ -139,7 +141,7 @@ bool checkLicense(const std::filesystem::path &license)
 
 Otras variantes de este ejemplo implicarían determinados parámetros que se usan sólo en un determinado sistema operativo, o en una arquitectura hardware específica.
 
-##### Solución a variable no utilizado (a veces)
+#### Solución a variable no utilizado (a veces)
 
 El caso de `checkLicense` es diferente al anterior, ya que hay situaciones en las que sí se usa el argumento, por lo que la variable debe tener nombre.
 
@@ -175,7 +177,7 @@ bool checkLicense([[maybe_unused]] const std::filesystem::path &license)
 }
 ```
 
-#### Cumplir con un `[[nodiscard]]`
+### Cumplir con un `[[nodiscard]]`
 
 El `[[nodiscard]]` es otro atributo de C++17 que indica al compilador que genere un _warning_ si el valor de retorno de una función no es tenido en cuenta (por ejemplo, para verificar que se comprueba la validez de una operación, evitar _resource-leaks_, etc). Se puede cumplir con esta restricción simplemente asignando el valor de retorno a una variable, aunque obviamente ahora el compilador nos dirá que dicha variable no está siendo usada; parafraseando a Obi-Wan: _se suponía que debías destruirlos, no unirte a ellos_.
 

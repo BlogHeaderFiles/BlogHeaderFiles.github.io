@@ -7,7 +7,11 @@ permalink: /2019/03/13/usando-tipografias-propias-en-qt/
 excerpt: En esta entrada comentamos cómo añadir ficheros de fuentes en nuestros proyectos Qt.
 categories: c++ qt fonts
 ---
+## Introducción
+
 El dar un toque de distinción a nuestras aplicaciones puede pasar por utilizar tipografías que no son estándares, o que sólo vienen incluidas con instalaciones de determinados programas que no podemos asumir estén siempre presentes (ejemplo típico, MS Office, _suites_ de Adobe...).
+
+## Registrando las tipografías
 
 La opción más conveniente es la de incluirlas con nuestra aplicación (no hablaré de licencias ni nada parecido, asumo que todo está en orden). Para esto se pueden bien copiar junto al ejecutable, o incluir en un fichero de recursos (QRC). En cualquier de ambos casos habrá que registrar las fuentes antes de poder utilizarlas, especialmente si deseamos usarlas desde hojas de estilos.
 
@@ -17,13 +21,6 @@ QFontDatabase::addApplicationFont(":/fonts/arialn.ttf");
 
 // Si está distribuida con nuestro ejecutable
 QFontDatabase::addApplicationFont("../resources/fonts/arialnb.ttf");
-```
-
-Recordad que en Qt las rutas que empiezan por ":" pertenecen al sistema de ficheros virtual de recursos, pero de eso hablaremos más en otro momento. Por otro lado, si las tipografías están en un directorio que se distribuye con la aplicación, podemos utilizar [`QApplication::applicationDirPath`](https://doc.qt.io/qt-5/qcoreapplication.html#applicationDirPath) para asegurarnos de que la ruta que pongamos no se ve modificada por el directorio actual de trabajo:
-
-```cpp
-const auto fonts_dir = qApp->applicationDirPath() + "/../resources/fonts/";
-QFontDatabase::addApplicationFont(fonts_dir + "arialnb.ttf");
 ```
 
 Esto podemos hacerlo en nuestra función `main()`, justo después de instanciar la aplicación (`QApplication`) por ejemplo. A partir de ese momento podremos utilizar las fuentes por su nombre como si se tratase de otra fuente del sistema.
@@ -36,4 +33,15 @@ QDirIterator fonts_it(":/fonts/", QDir::Files);
 while (fonts_it.hasNext()) {
   QFontDatabase::addApplicationFont(fonts_it.next());
 }
+```
+
+### Diferencias entre fuentes en el fichero de recursos y ficheros normales
+
+Recordad que en Qt las rutas que empiezan por `:` pertenecen al sistema de ficheros virtual de recursos, pero de eso hablaremos más en otro momento.
+
+Por otro lado, si las tipografías están en un directorio que se distribuye con la aplicación, podemos utilizar [`QApplication::applicationDirPath`](https://doc.qt.io/qt-5/qcoreapplication.html#applicationDirPath) para asegurarnos de que la ruta que pongamos no se ve modificada por el directorio actual de trabajo:
+
+```cpp
+const auto fonts_dir = qApp->applicationDirPath() + "/../resources/fonts/";
+QFontDatabase::addApplicationFont(fonts_dir + "arialnb.ttf");
 ```

@@ -24,7 +24,7 @@ Por otro lado, es interesante contar con un log limpio por ejecución, de forma 
 
 Algo parecido podría decirse si queremos ver el log en tiempo real durante la ejecución del programa. Para ello se muestra el log por pantalla (consola, o una ventana separada). Esto permite activar una especie de modo _depuración_ sin tener que recurrir a un _debugger_ propiamente dicho (por no decir que a veces, como en aplicaciones concurrentes, abrir el depurador rompe el estado del sistema y no nos permite seguir correctamente la pista de un fallo).
 
-### Soluciones básicas
+## Soluciones básicas
 
 Obviamente no todo sistema de logging debe cumplir con todo los requisitos expuestos anteriormente, y un subconjunto puede perfectamente cubrir nuestras necesidades. Recuerdo uno que solía tener siempre a la mano un antiguo compañero de trabajo, y que podría resumirse en un pequeño fichero de cabecera tipo
 
@@ -45,13 +45,13 @@ Obviamente no todo sistema de logging debe cumplir con todo los requisitos expue
 
 Luego añadía variantes del `LOG` para diferentes niveles de severidad y estaba servido. No necesitaba más. Lo podía usar en desarrollo, y se podía sacar de cliente mandando una versión nueva del ejecutable y redirigiendo el error estándar a un fichero. No cumple con todo lo expuesto anteriormente pero sirve, es portable e incluso puede ser escrito sobre la marcha si se necesita. Si queréis ver la versión completa está disponible en el [repositorio del miniLogger](https://github.com/RDCH106/miniLogger).
 
-### Boost.Log
+## Boost.Log
 
 Ahora bien, en este artículo quiero exponer una solución más completa. Usaré Boost.Log (`boost::log`), para no reinventar la rueda (bueno, al menos no toda la rueda). Como todos sabemos, Boost es uno de esos casi-inseparables de C++: mucho de lo que le falta a la biblioteca estándar se puede encontrar en Boost, hasta el punto que muchas de las nuevas adiciones a la biblioteca estándar toman como inspiración (o copia directa) a Boost.
 
 Como muchas cosas en Boost, Boost::log es _enorme_ y _complejo_, por lo que limitaré este artículo a introducir aquellas funcionalidades que encajen con los requerimientos arriba mencionados.
 
-#### Namespaces
+### Namespaces
 
 Para simplificar el código y hablar el mismo lenguaje, renombraremos algunos espacios de nombre y tipos:
 
@@ -67,7 +67,7 @@ using severity_t = logging::trivial::severity_level;
 
 Boost provee varias severidades por defecto bajo `logging::trivial::severity_level`: `trace`, `debug`, `info`, `warning`, `error` y `fatal`.
 
-#### Uso básico
+### Uso básico
 
 ```cpp
 logging::sources::severity_logger<severity_t> log;
@@ -85,7 +85,7 @@ Normalmente se simplifica su uso mediante macros como
 LOG_INFO() << "Message to show";
 ```
 
-#### Log a consola
+### Log a consola
 
 Siendo la configuración más simple, comenzaremos por acá. Existen varias formas de configurar el log para mostrar los mensajes por pantalla, pero la más directa es mediante:
 
@@ -95,7 +95,7 @@ logging::add_console_log(std::cout, logging::keywords::format = formatter);
 
 Donde `formatter` puede ser desde una simple cadena de formato tipo `>> %Message%`, a una función que lo haga. Optaremos por la segunda versión.
 
-#### Función de formateo
+### Función de formateo
 
 Esta función recibe un registro del mensaje, con atributos como el mensaje, marca de tiempo, etc., y un _stream_ al que escribir la entrada del log. Es en esta función donde podemos definir qué campos mostramos y cómo, formato del documento final (se usa el mismo tipo de función para consola que para fichero), coloreado, etc.
 
@@ -141,7 +141,7 @@ Para el uso del _timestamp_ es necesario definir el atributo en algún punto glo
 BOOST_LOG_ATTRIBUTE_KEYWORD(attr_timestamp, "TimeStamp", attrs::local_clock::value_type)
 ```
 
-#### Log a fichero
+### Log a fichero
 
 La configuración para guardar el log a fichero es algo más larga y conlleva crear un objeto `backend` con información como nombre de los ficheros de log y datos de rotación, y adjuntarlo a un objeto `sink` junto al formato del mismo.
 
@@ -171,17 +171,17 @@ logging::core::get()->add_sink(sink);
 
 En el `set_open_handler` y `set_close_handler` es posible instalar los texto a añadir al log al principio de cada fichero y al final. En el ejemplo de arriba se usa un formato HTML, pero bien se podría describir cualquier otro formato.
 
-### Yalog
+## Yalog
 
 Este artículo se ha nutrido de la biblioteca de log [`yalog`](https://github.com/cbuchart/yalog), la cual podéis ojear para encontrar más detalles de implementación y usar en vuestros proyectos (está publicada bajo [licencia MIT](https://es.wikipedia.org/wiki/Licencia_MIT)).
 
-### Otras soluciones
+## Otras soluciones
 
 El objetivo de esta entrada era mostrar cómo hacer un sistema de logging usando Boost. Existen otras soluciones muy buenas disponibles. Por ejemplo, una de las que más me gusta es [spdlog](https://github.com/gabime/spdlog), por su simplicidad y eficiencia. Como nota, usa cadenas de formato tipo `fmt` en lugar de flujos de datos (`<<`).
 
 Pueden encontrarse más en este [listado de GitHub](https://github.com/topics/logging?l=c%2B%2B&o=desc&s=updated).
 
-### Más opciones que se pueden implementar
+## Más opciones que se pueden implementar
 
 Este artículo no pretende cubrir al completo Boost.Log, sino ofrecer un primer acercamiento al mismo (aunque bastante completo). Como ideas futuras que se pueden agregar están:
 

@@ -6,11 +6,13 @@ layout: post
 permalink: /2020/01/08/una-forma-sencilla-rapida-y-cuasi-automatica-de-medir-tiempos-de-ejecucion-en-funciones/
 categories: c++ benchmarking
 ---
+## Introducción
+
 Una tarea típica del programador es la de saber si una función es eficiente o no, tanto desde el punto de vista algorítmico como de tiempo de ejecución real. Creo necesario matizar que ambos valores son importantes, ya que el primero nos dirá el comportamiento del algoritmo a medida que el conjunto de datos crezca, y el segundo un valor más _palpable_, _cercano_ a lo que el usuario final percibirá.
 
 Por otro lado, no es necesario partirse el cerebro optimizando nuestro código a diestra y siniestra, ya que la mayoría de las veces el tiempo real de ejecución es bueno para el grueso de nuestro código, y el cuello de botella se encuentra en pequeñas porciones de código: búsquedas sobre conjuntos enormes de datos no-ordenados, repeticiones innecesarias, funciones que se llaman decenas de miles de veces por segundo, accesos a disco, fallos de caché... Esto se resume en la famosa regla del 90-10 (el 90% del tiempo de ejecución se gasta en el 10% del código, más información [acá](https://softwareengineering.stackexchange.com/q/334528/266565)).
 
-### Medir
+## Medir
 
 Una de las primeras fases de la optimización es la medición: optimizar algo sin medirlo previamente (tiempo, espacio, etc.) puede hacer que perdamos el tiempo en algo que no era necesario. Esto nos ha pasado (¿pasa?) a todos:
 
@@ -19,13 +21,13 @@ Una de las primeras fases de la optimización es la medición: optimizar algo si
 
 Medir. ¿Cómo? Un herramienta de _profiling_ suele ser una de las mejores alternativas, ya que presenta información agrupada y ordenada sobre el rendimiento de las funciones críticias. Pero otras veces simplemente nos interesa medir un pequeño puñado de funciones en específico, o medirlas en cliente, donde no hay herramientas de _profiling_ disponibles.
 
-### TicToc
+## TicToc
 
 Este artículo presenta una pequeña clase, `TicToc` (¿se nota que he usado [Matlab](https://www.mathworks.com/help/matlab/ref/tic.html)?), para medir el tiempo de ejecución de una función de forma automática y sencilla. Dicha clase usa una de las máximas de C++ (y una de mis favoritas, [RAII](https://es.wikipedia.org/wiki/RAII)), para automatizar la medición y la impresión de la duración por consola.
 
 Y aunque ya sé que el uso de macros debe limitarse, ésta es una de esas situaciones en las cuales resultan útiles: automatizar acciones. La macro `TICTOC()` genera automáticamente un punto de medición que se mostrará al finalizar el contexto en el que se use.
 
-#### Código
+### Código
 
 ```cpp
 #include <string>
@@ -81,7 +83,7 @@ int main() {
 ::run@33 = 154.2 ms
 ```
 
-### Boost (actualización)
+## Boost (actualización)
 
 Si nuestra aplicación depende de Boost, una posible mejora sería usar `boost::timer::auto_cpu_timer`, similar al comando `time` de Linux. Esta clase, similar al `TicToc` presentado, muestra el tiempo de ejecución entre la declaración del objeto y su destrucción:
 
@@ -123,7 +125,7 @@ private:
 };
 ```
 
-### Otras posibles mejoras
+## Otras posibles mejoras
 
 - Usar relojes de mayor resolución / precisión.
 - Añadir un interruptor para deshabilitar la medición por completo, o a niveles, de forma que no es necesario suprimir el código en producción.

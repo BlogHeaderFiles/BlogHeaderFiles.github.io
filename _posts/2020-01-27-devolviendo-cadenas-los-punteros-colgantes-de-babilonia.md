@@ -7,6 +7,8 @@ permalink: /2020/01/27/devolviendo-cadenas-los-punteros-colgantes-de-babilonia/
 excerpt: 'En mis clases de Sistemas Operativos suelo dedicar un apartado a problemas de gestión de memoria, especialmente en el lado del programador: pérdidas de memoria (memory leaks), accesos fuera de límites (out-of-bound access), punteros colgantes (dangling pointers), entre otros. De los dos primeros ya hablaremos en otra ocasión, esta entrada versará sobre el último, los dangling pointers.'
 categories: c++ pointers memory
 ---
+## Introducción
+
 En mis clases de Sistemas Operativos suelo dedicar un apartado a problemas de gestión de memoria, especialmente en el lado del programador: pérdidas de memoria (_memory leaks_), accesos fuera de límites (_out-of-bound access_), punteros colgantes (_dangling pointers_), entre otros. De los dos primeros ya hablaremos en otra ocasión, esta entrada versará sobre el último, los _dangling pointers_.
 
 Un puntero colgante es, básicamente, un puntero que contiene una dirección de memoria inválida (cuando digo puntero me refiero también, si aplica, a referencias a objetos). Una dirección inválida puede ser:
@@ -22,7 +24,7 @@ Sin entrar en detalle, podemos enumerar algunas soluciones o ayudas a estos prob
 - inicializar todas las variables (particularmente me gusta la [nueva sintaxis de C++11](https://en.cppreference.com/w/cpp/language/data_members#Member_initialization) para variables miembro, ya que se ve cuáles no han sido inicializados, además de simplificar los constructores),
 - no usar referencias por defecto en las captura de los lambdas, entre otros.
 
-### Devolviendo cadenas como punteros a `char`
+## Devolviendo cadenas como punteros a `char`
 
 En este artículo me gustaría comentar un caso un poco oculto de _dangling pointer_. Consideremos que tenemos una biblioteca que debe proveer una API usando únicamente PODs ([_plain old data_](https://stackoverflow.com/q/146452/1485885)) (ver al final del artículo un posible escenario para necesitar esta solución):
 
@@ -70,7 +72,7 @@ public:
 
 En este caso, `Dict::toJSON` está devolviendo un puntero inválido, ya que el objeto local `json` es destruido al finalizar la ejecución de la función, y por lo tanto su memoria es liberada.
 
-### Primera aproximación
+## Primera aproximación
 
 Una posible solución sería usar una variable estática o miembro, que no es destruida al terminar la función:
 
@@ -96,7 +98,7 @@ public:
 
 En este caso ya no tendríamos el puntero inválido, pero sí una posible condición de carrera en caso de que el método fuese invocado de forma concurrente (lo mismo podría pasar si la cadena fuese miembro del objeto). Y no cambia mucho el escenario si protegiésemos el objeto para solucionar la condición de carrera, ya que sólo sería válido el último puntero devuelto.
 
-### Solución usando un buffer por hilo
+## Solución usando un buffer por hilo
 
 La siguiente función resuelve el problema por completo, creando una pequeña lista circular _por hilo_ en la que se almacena una copia de la cadena y devolviendo un puntero a dicha copia.
 
@@ -128,7 +130,7 @@ Lo interesante de esta función es el uso de [`thread_local`](https://en.cpprefe
 
 Como nota final, el número de elementos normalmente no debería ser muy elevado, ya que la misión de esta función es la de servir de puente, no de almacenamiento a largo plazo.
 
-### Ejemplo completo
+## Ejemplo completo
 
 Se puede ejecutar online en [Coliru](https://coliru.stacked-crooked.com/a/8621b4e3a77e14ac).
 
@@ -217,7 +219,7 @@ int main()
 }
 ```
 
-### Actualización
+## Actualización
 
 Un comentario que ha surgido a raíz del artículo es sobre por qué complicarse la vida devolviendo el puntero en lugar del `std::string` directamente y usar luego el método `std::string::c_str` en local. Aunque pueden haber distintos escenarios, el que motiva este artículo es la integración de módulos que usan [_runtimes_](https://en.wikibooks.org/wiki/C_Programming/Standard_libraries#Common_support_libraries) distintos (normalmente uno estático y otro dinámico).
 

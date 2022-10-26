@@ -8,13 +8,15 @@ image: /assets/images/featured/monitors_correspondence.jpg
 excerpt: 'En esta entrada explicamos la relación entre los monitores reportados por Qt y los listados por Windows.'
 categories: c++ qt windows
 ---
+## Introducción
+
 Hace poco modifiqué el módulo de _splash screens_ (en Qt) para mostrar la imagen en el mismo monitor en el que se mostraría la aplicación. Esto implica conocer en qué monitor se va a mostrar la aplicación, calcular el tamaño del escritorio, escalar la imagen, entre otras.
 
 Qt ofrece una forma muy amigable de solicitar información sobre las pantallas disponibles mediante [`QApplication::screens()`](https://doc.qt.io/qt-5/qguiapplication.html#screens), la cual devuelve una lista de [`QScreens`](https://doc.qt.io/qt-5/qscreen.html) desde donde podemos consultar datos como la resolución y el factor de escala, por lo que los requisitos de dimensionado estaban cubiertos: sólo quedaba por conocer el monitor en el que se iba a mostrar la aplicación.
 
 Nótese que este módulo se usa tanto en aplicaciones creadas en Qt como en aplicaciones más antiguas desarrolladas usando, en su mayor parte, MFC.
 
-### Aplicaciones Qt
+## Aplicaciones Qt
 
 En el primer caso (Qt) el problema se resolvió guardando la geometría de la ventana al cerrar la aplicación. Al arrancar se crea un widget falso con dicha geometría y se calcula en qué monitor saldrá:
 
@@ -33,7 +35,7 @@ int getMonitorToShowSplashScreen()
 }
 ```
 
-### Aplicaciones MFC
+## Aplicaciones MFC
 
 En el caso de MFC se hace uso del guardado automático de geometría de todas las ventanas. Esta geometría se guarda en el registro de Windows bajo `HKCU\Software\<Company>\<Application>\Workspace\WindowPlacement`, aunque con MFC podemos obtener el _handle_ mediante `AfxGetApp()->GetSectionKey("Workspace\\WindowPlacement")`. Cada valor de posición y tamaño se almacena en el registroy como un volcado directo de memoria de la estructura `RECT` de la geometría de la ventana en cuestión (se pueden consultar más detalles en [esta entrada de Stack Overflow](https://stackoverflow.com/q/54327046/1485885)).
 
@@ -91,7 +93,7 @@ BOOL CALLBACK getMonitorByHandle(HMONITOR hMonitor, HDC, LPRECT, LPARAM dwData)
 }
 ```
 
-### Correspondencia Qt / Windows (MFC)
+## Correspondencia Qt / Windows (MFC)
 
 Como expliqué al principio, se usaría `QApplication::screens` para acceder a los datos del monitor en el que arrancaría nuestra aplicación. La sorpresa, o mejor dicho, el problema de verdad surgió cuando usamos el índice de monitor de las aplicaciones MFC para ubicar nuestro _widget_ Qt: no siempre había correspondencia. El módulo se probó en diversas configuraciones de ordenadores de 1, 2 y 3 pantallas y no siempre se comportaba correctamente.
 

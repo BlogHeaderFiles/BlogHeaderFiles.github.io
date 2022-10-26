@@ -7,6 +7,8 @@ permalink: /2019/03/23/introduccion-a-los-qproxystyle/
 excerpt: Los QProxyStyle son un gran aliado a la hora de personalizar la apariencia de nuestra aplicación, sin tener que reimplementar por completo un estilo nuevo.
 categories: c++ qt gui style
 ---
+## Introducción
+
 Son muchos los momentos en los que es necesario cambiar detalles específicos de nuestra interfaz gráfica en Qt (usualmente la apariencia de un control). Qt ofrece muchas opciones al respecto:
 
 - Usar las propiedades del widget. Desafortunadamente no siempre están expuestas todos los parámetros de renderizado del control.
@@ -20,7 +22,7 @@ Como mencioné antes, soy muy amigo de las hojas de estilo, pero hay momentos en
 
 Un clase que herede [`QProxyStyle`](https://doc.qt.io/qt-5/qproxystyle.html) simplemente tiene que indicar un estilo base y reimplementar los métodos que necesite, y el proxy se encargará de redirigir todos los demás al estilo padre. Si bien es necesario saber qué parte del estilo reimplementar, no es difícil conseguir esa información desde la documentación de los estilos ([estos ejemplos](https://doc.qt.io/qt-5/qtwidgets-widgets-styles-example.html) están muy bien para empezar) o incluso examinando el código fuente ([https://code.qt.io/cgit/qt/]) para casos más extremos.
 
-### Ejemplo: `QMessageBox` con icono personalizado
+## Ejemplo: `QMessageBox` con icono personalizado
 
 El siguiente código muestra un caso de uso: cambiar el icono de los `QMessageBox` (usaremos los _warning_ para simplificar el ejemplo). Así luce un _message box_ con el estilo por defecto (en Windows 10) y con el estilo _fusion_:
 
@@ -74,7 +76,7 @@ int main(int argc, char* argv[]) {
 
 El proyecto completo (VS) de este ejemplo está disponible en [GitHub](https://github.com/BlogHeaderFiles/SourceCode/tree/master/QProxyStyles_example).
 
-### Otro ejemplo: quitar el cuadro de foco de todos los controles
+## Otro ejemplo: quitar el cuadro de foco de todos los controles
 
 Para esto necesitaremos reimplementar `QProxyStyle::drawPrimitive` y evitar el dibujado de los elementos `PE_FrameFocusRect`:
 
@@ -90,7 +92,7 @@ void MyProxyStyle::drawPrimitive(PrimitiveElement element, const QStyleOption* o
 
 Como se ve, los proxy de estilo son técnicas sencillas de extender la forma en la que se renderiza el interfaz gráfico en Qt.
 
-### Entradas relacionadas
+## Enlaces relacionados
 
 - [Remove arrow from disabled QComboBox while respecting style (SO)](https://stackoverflow.com/q/53504309/1485885)
 - [Where does QMessageBox get its styleguide, font-size, … from? (SO)](https://stackoverflow.com/q/26098337/1485885)

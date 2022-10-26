@@ -7,7 +7,6 @@ permalink: /2021/06/08/m1-productividad
 image: /assets/images/featured/m1_productivity.jpg
 excerpt: ¿Cómo se relacionan los chips M1 con la productividad de un equipo?
 ---
-
 Ayer comienzó la WWDC 2021, la conferencia de desarrolladores de Apple y, como no, también tuvo lugar la tan esperada _keynote_ en la que se anunciaron las siguientes versiones de sus principales sistemas operativos (aún estoy digiriendo todo lo presentado).
 
 En la WWDC 2020 Apple también anunció que dejaría de usar los procesadores de Intel para migrar a sus propios chips (los que luego se llamarían M1), basados en su experiencia con el desarrollo de procesadores para iPhone, iPad, Apple Watch, etc. Estos procesadores cuentan con un diseño tipo SoC (_system on a chip_), es decir, que integran en un única bloque gran cantidad de componentes como puede ser la CPU, GPU, controlador de memoria, controlador de disco, etc. Además, en lo que concierne a la CPU, consta de cuatro núcleos de alto rendimiento (llamados _Firestorm_ 🔥), y cuatro de alta eficiencia energética (_Icestorm_ 🧊); los primeros son mucho más potentes pero consumen 10 veces más energía (13,8 W vs 1,3 W).

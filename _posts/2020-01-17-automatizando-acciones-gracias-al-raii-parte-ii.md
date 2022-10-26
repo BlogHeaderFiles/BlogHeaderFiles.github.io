@@ -7,11 +7,13 @@ permalink: /2020/01/17/automatizando-acciones-gracias-al-raii-parte-ii/
 excerpt: 'En la entrada anterior estudiamos lo que es el RAII, cómo es una de las técnicas bases de C++11 y algunos ejemplos. En esta segunda parte comentaremos otros usos del RAII y cómo podemos hacer pequeños apaños mediante wrappers cuando el RAII no está disponible por la razón que sea.'
 categories: c++ raii
 ---
+## Introducción
+
 En la [entrada anterior]({{url}}/2020/01/13/automatizando-acciones-gracias-al-raii-parte-i/) estudiamos lo que es el [RAII](https://es.wikipedia.org/wiki/RAII), cómo es una de las técnicas bases de C++11 y algunos ejemplos.
 
 En esta segunda parte comentaremos otros usos del RAII y cómo podemos hacer pequeños apaños mediante _wrappers_ cuando el RAII no está disponible por la razón que sea.
 
-### Inicializaciones complejas
+## Inicializaciones complejas
 
 Supongamos el siguiente código:
 
@@ -65,7 +67,7 @@ public:
 
 Nos queda un código más limpio, directo, expresivo. Este método ya lo vimos en la entrada anterior aunque aplicado al caso de que necesitásemos devolver un objeto. Recordad que un `std::unique_ptr<T>` libera la memoria automáticamente al destruirse. El método [`swap`](https://es.cppreference.com/w/cpp/memory/unique_ptr/swap) intercambia los objetos de cada `unique_ptr`.
 
-### RAII donde no hay RAII
+## RAII donde no hay RAII
 
 Algunas (¿muchas?) veces tenemos que trabajar con bibliotecas que tienen una API que no provee RAII de forma nativa. Una en particular pudiese ser la API de Windows y sus _handles_. Tomemos el caso de los mutex (documentación oficial [acá](https://docs.microsoft.com/en-us/windows/win32/sync/using-mutex-objects)), donde no existe el equivalente al [`std::lock_guard`](https://en.cppreference.com/w/cpp/thread/lock_guard) (RAII):
 

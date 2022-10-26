@@ -8,7 +8,11 @@ image: /assets/images/featured/opencv_max_resolution.jpg
 excerpt: 'En este artículo nos ocuparemos de un aspecto en específico: las resoluciones soportadas, o mejor dicho, la máxima resolución que una webcam puede soportar y cómo obtenerla usando OpenCV.'
 categories: c++ opencv webcam
 ---
+## Introducción
+
 Desde que comencé a usar ordenadores allá por 1992 (😱), siempre me pareció que el lado más oscuro e incomprensible de la informática se llamaba _impresoras_. Esta opinión cambió ligeramente desde que añadimos soporte para webcams en nuestras aplicaciones; ¡ahora hay un segundo lado oscuro e incomprensible! Cada webcam es, como se dice coloquialmente, de su padre y de su madre, con ajustes y especificaciones propios y casi únicos. Para poner peor las cosas, OpenCV (la biblioteca por antonomasia para procesamiento de imágenes) es bastante básica, o mejor dicho, genérica, en cuanto a captura de vídeo se refiere. En este artículo nos ocuparemos de un aspecto en específico: las resoluciones soportadas, o mejor dicho, la máxima resolución que una webcam puede soportar y cómo obtenerla usando OpenCV.
+
+## Solución
 
 Para comenzar, OpenCV trata las cámaras y los vídeos como una fuente de imágenes genérica, bajo el objeto [`cv::VideoCapture`](https://docs.opencv.org/4.3.0/d8/dfe/classcv_1_1VideoCapture.html), y como un vídeo no tiene _resolución máxima_, solamente tiene _resolución_, de forma que no podemos saber la resolución máxima que permite nuestra cámara consultando una [propiedad](https://docs.opencv.org/4.3.0/d4/d15/group__videoio__flags__base.html#gaeb8dd9c89c10a5c63c139bf7c4f5704d) del vídeo.
 
@@ -35,5 +39,6 @@ std::tuple<int, int> query_maximum_resolution(cv::VideoCapture* camera)
 }
 ```
 
-_Créditos: la técnica la vi por primera vez en [Stack Overflow](https://stackoverflow.com/q/18458422/1485885).
-_
+## Créditos
+
+La técnica la vi por primera vez en [Stack Overflow](https://stackoverflow.com/q/18458422/1485885).

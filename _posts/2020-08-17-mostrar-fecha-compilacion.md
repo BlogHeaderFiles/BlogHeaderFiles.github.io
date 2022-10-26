@@ -8,7 +8,11 @@ image: /assets/images/featured/build_timestamp.jpg
 excerpt: 'Un dato importante cuando se está investigando un fallo o probando una nueva funcionalidad en un software es saber sobre qué versión del código estamos trabajando. Veamos un poco qué otra información nos puede ayudar.'
 categories: c++ build
 ---
+## Introducción
+
 Un dato importante cuando se está investigando un fallo o probando una nueva funcionalidad en un software es saber sobre qué versión del código estamos trabajando. Además del _número de versión_ (más adecuado para versiones públicas) o el número de compilación, una forma de identificar la versión actual del código es usando la fecha de compilación del mismo. Este dato tiene varias ventajas inherentes: no necesita de ningún contador que haya que incrementar, viene de _fábrica_, y es natural usarlo tanto en conversaciones (en la compilación de hace dos días...) como al buscar el _commit_ relacionado.
+
+## Posibles soluciones
 
 C y C++ proveen de tres macros relacionadas que son de utilidad:
 
@@ -67,6 +71,6 @@ std::cout << "Formatted: " << getFormattedBuildDatetime("%Y/%m/%d %H:%M:%S") << 
 
 Un ejemplo completo puede encontrarse en [GitHub](https://github.com/BlogHeaderFiles/SourceCode/tree/master/BuildDateTime).
 
-#### Créditos
+## Créditos
 
 La imagen del reloj de la cabecera es obra de [www.flaticon.es](https://www.flaticon.es/).
