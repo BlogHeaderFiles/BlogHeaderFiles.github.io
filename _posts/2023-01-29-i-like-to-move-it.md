@@ -121,7 +121,7 @@ void MoveVector() {
 
 ![copy-vs-move-vector](/assets/images/copy-vs-move-vector.png)
 
-Pero es que además hay algo aún mejor: todos los contenedores de C++11 han sido optimizados para disponer de constructores de movimiento, por lo que solamente con actualizar a C++ moderno y recompilar es suficiente para aprovecharse de esta nueva optimización allá donde sea posible.
+Pero es que además hay algo aún mejor: todos los contenedores de C++11 han sido optimizados para sacar partido de la semántica de movimiento, por lo que solamente con actualizar a C++ moderno y recompilar es suficiente para aprovecharse de esta nueva optimización allá donde sea posible.
 
 Para terminar esta sección, comentar de pasada que todo esto aplica además al operador de asignación, que desde C++11 tiene una nueva sobrecarga para aceptar referencias a rvalues:
 
