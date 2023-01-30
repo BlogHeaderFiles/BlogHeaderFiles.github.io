@@ -55,7 +55,7 @@ llamaría al constructor de movimiento en lugar del de copia, porque `foo()` se 
 
 Lo anterior parece una tontería, pero permite construir un objeto sacando partido de que sabemos que el argumento que recibmos es un temporal. Un ejemplo típico es el de los contenedores:
 
-Tomemos como ejempl un contenedor básico:
+Tomemos como ejemplo un contenedor básico:
 
 ```cpp
 template<class T>
@@ -101,7 +101,7 @@ public:
 };
 ```
 
-Nótese el uso de `std::swap`; esto es debido a que el objeto pasado como referencia a rvalue aún existe y debe ser destruido al finalizar su tiempo de vida, por lo que si simplemente copiamos el puntero en `o.m_data` nos quedaríamos con un _dangling pointer_ que llevaría a una violación de segmento al primer intento de acceso. No, debemos asegurarnos que el rvalue queda en un estado consistente y que su destrucción no afecte al objeto construido con él.
+Nótese el uso de [`std::swap`](https://es.cppreference.com/w/cpp/algorithm/swap); esto es debido a que el objeto pasado como referencia a rvalue aún existe y debe ser destruido al finalizar su tiempo de vida, por lo que si simplemente copiamos el puntero en `o.m_data` nos quedaríamos con un _dangling pointer_ que llevaría a una violación de segmento al primer intento de acceso. No, debemos asegurarnos que el rvalue queda en un estado consistente y que su destrucción no afecte al objeto construido con él.
 
 Como podemos imaginar de todo lo anterior, la diferencia de rendimiento es enorme, tal y como ejemplifica [este benchmarking](https://quick-bench.com/q/WJUP1kfcKItGffdDWtG9Ly31_40) donde se compara la copia y el movimiento de un `std::vector` de 100.000 enteros (adjunto el código resumido):
 
