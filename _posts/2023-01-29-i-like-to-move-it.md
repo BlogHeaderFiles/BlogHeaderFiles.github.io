@@ -37,7 +37,7 @@ Expresión|Tipo
 
 Antes de proseguir, es importante comentar el segundo caso, donde aunque `b` está a la "derecha" de la igualdad, no es un rvalue, ya que (digamos) no es un _temporal_.
 
-Con la función `std::move` podemos convertir una referencia a lvalue en una referencia a rvalue (si la referencia ya es a rvalue, no hay cambios). Nótese que esto no es más que una forma de forzar tipos de cara al compilador: `std::move` no tiene coste alguno a nivel de ejecución. De hecho, veremos, citando a Mayers, que `std::move` _no mueve nada_.
+Con la función [`std::move`](https://es.cppreference.com/w/cpp/utility/move) podemos convertir una referencia a lvalue en una referencia a rvalue (si la referencia ya es a rvalue, no hay cambios). Nótese que esto no es más que una forma de forzar tipos de cara al compilador: `std::move` no tiene coste alguno a nivel de ejecución. De hecho, veremos, citando a Mayers, que `std::move` _no mueve nada_.
 
 ## Constructores de movimiento
 
@@ -55,7 +55,7 @@ llamaría al constructor de movimiento en lugar del de copia, porque `foo()` se 
 
 Lo anterior parece una tontería, pero permite construir un objeto sacando partido de que sabemos que el argumento que recibmos es un temporal. Un ejemplo típico es el de los contenedores:
 
-Tomemos como ejemplo a `std::vector`. Un constructor de copia tradicional (C++03) debería reservar por lo menos la misma cantidad de memoria que el vector de origen, y posteriormente copiar todos los elementos. Puede verse que ésta es una operación que tiene un coste, y dependiendo del tamaño del contenedor, éste puede ser alto. Si a esto añadimos que el argumento es un objeto temporal, adicionalmente a lo anterior tenemos que sumar el destructor del objeto temporal y el hecho de que durante un tiempo hemos duplicado el consumo de memoria de esa función. Por ejemplo
+Tomemos como ejempl un contenedor básico:
 
 ```cpp
 template<class T>
@@ -85,7 +85,9 @@ public:
 };
 ```
 
-Un constructor de movimiento sabría que el objeto que recibe será destruido inmediatamente después, por lo que podría, en lugar de reservar un nuevo bloque de memoria y copiar los elementos, simplemente intercambiar el puntero del nuevo objeto con el del temporal. Esto convierte una operación de orden lineal a una de orden constante (el sueño de todo optimizador). Además, el destructor del temporal sería una operación muy simple, ya que llamaría a un `delete[] nullptr`, que como sabemos no hace nada (y es legal, para los que no lo supiesen). Nuestro ejemplo anterior podría lucir así después de añadir un constructor de movimiento trivial:
+El constructor de copia tradicional (C++03) debería reservar por lo menos la misma cantidad de memoria que el vector de origen, y posteriormente copiar todos los elementos. Puede verse que ésta es una operación que tiene un coste, y dependiendo del tamaño del contenedor, éste puede ser alto. Si a esto añadimos que el argumento es un objeto temporal, tenemos que contar entonces con el destructor del objeto temporal y el hecho de que durante un tiempo hemos duplicado el consumo de memoria de esa función.
+
+Un constructor de movimiento sabría que el objeto que recibe será destruido inmediatamente después (o por lo menos no se espera que siga siendo válido), por lo que podría, en lugar de reservar un nuevo bloque de memoria y copiar los elementos, simplemente intercambiar el puntero del nuevo objeto con el del temporal. Esto convierte una operación de orden lineal a una de orden constante (el sueño de todo optimizador). Además, el destructor del temporal sería una operación muy simple, ya que llamaría a un `delete[] nullptr`, que como sabemos no hace nada (y es legal, para los que no lo supiesen). Nuestro ejemplo anterior podría lucir así después de añadir un constructor de movimiento trivial:
 
 ```cpp
 template<class T>
@@ -131,7 +133,7 @@ T& T::operator=(T&& rhs) { ... }
 
 ## No es oro todo lo que reluce...
 
-...ni más rápido todo lo que pasa por `std::move`; y es que esta función realmente _no mueve nada_ (S. Mayers), solamente indica que se puede usar la semántica de movimiento, pero si dicha semántica no está implementada, o no puede sacar partido de las condiciones que rodean a ese rvalue, pues no obtendremos ventaja alguna.
+...ni más rápido todo lo que pasa por `std::move`; y es que esta función realmente _no mueve nada_ (S. Mayers). En cambio, solamente indica que se puede usar la semántica de movimiento, pero si dicha semántica no está implementada, o no puede sacar partido de las condiciones que rodean a ese rvalue, pues no obtendremos ventaja alguna.
 
 Vimos antes que uno de los grandes beneficiados de la semántica de movimiento es la inicialización (o asignación) de contenedores a partir de referencias a rvalues, ya que podían sustituir una nueva reserva de memoria y la consiguiente copia (lineal), por un simple intercambio de valores.
 
