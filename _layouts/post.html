@@ -3,13 +3,11 @@ layout: default
 ---
 {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
 <div class="post-container">
-  <div>
-    {% if page.image %}
-    <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" />
-    {% else %}
-    <img src="{{ "/assets/images/featured/default.jpg" | relative_url }}" alt="{{ page.title | escape }}" />
-    {% endif %}
-  </div>
+  {% if page.image %}
+  <img class="featured-image" src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" />
+  {% else %}
+  <img class="featured-image" src="{{ "/assets/images/featured/default.jpg" | relative_url }}" alt="{{ page.title | escape }}" />
+  {% endif %}
   <a class="post-link" href="{{ page.url | relative_url }}">
     <h1 class="post-title">{{ page.title | escape }}</h1>
   </a>
