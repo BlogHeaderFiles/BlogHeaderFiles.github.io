@@ -88,7 +88,7 @@ class LockGuard {
   HANDLE m_mutex;
 
 public:
-  explicit LockGuard(HANDLE mutex) : m_mutex(mutex) {
+  explicit LockGuard(HANDLE mutex) : m_mutex{mutex} {
     // Asumiendo siempre que queremos poner un timeout infinito
     WaitForSingleObject(mutex, INFINITE);
   }
@@ -99,13 +99,13 @@ public:
 }
 
 void foo() {
-  LockGuard guard(mutex);
+  LockGuard guard{mutex};
 
   // Sección crítica
 }
 ```
 
-De igual forma podemos hacer clases individuales para nuestras diferentes necesidades. En lo particular nunca me ha gustado eso de escribir _código similar que difiere en pocas cosas_, por lo que comparto una solución genérica que nos ahorrará el crear estas clases intermedias:
+De igual forma podemos hacer clases individuales basadas en RAII para nuestras diferentes necesidades. En lo particular nunca me ha gustado eso de escribir _código similar que difiere en pocas cosas_, por lo que comparto una solución genérica que nos ahorrará el crear estas clases intermedias:
 
 ```cpp
 #include <iostream>
@@ -113,13 +113,13 @@ De igual forma podemos hacer clases individuales para nuestras diferentes necesi
 
 class RAII_Helper {
 public:
-  explicit RAII_Helper(const std::function<void(void)>& on_finish)
-    : m_finish_handler(on_finish) {
+  explicit RAII_Helper(std::function<void(void)> on_finish)
+    : m_finish_handler{std::move(on_finish)} {
   }
 
-  explicit RAII_Helper(const std::function<void(void)>& on_start,
-                       const std::function<void(void)>& on_finish)
-    : m_finish_handler(on_finish) {
+  explicit RAII_Helper(std::function<void(void)> on_start,
+                       std::function<void(void)> on_finish)
+    : m_finish_handler{std::move(on_finish)} {
     if (on_start) on_start();
   }
 
@@ -136,8 +136,8 @@ private:
 
 int main()
 {
-  RAII_Helper saluda([](){ std::cout << "Hola\n"; },
-                     [](){ std::cout << "¡Adiós!\n"; });
+  RAII_Helper raii_saluda{[](){ std::cout << "Hola\n"; },
+                          [](){ std::cout << "¡Adiós!\n"; }};
   std::cout << "Esperando...\n";
 }
 ```
@@ -148,4 +148,4 @@ Esperando...
 ¡Adiós!
 ```
 
-Código disponible en [Coliru](https://coliru.stacked-crooked.com/a/c9afc8b64ce9b8d4).
+Código disponible en [Coliru](https://coliru.stacked-crooked.com/a/419f157c75cf09fc).

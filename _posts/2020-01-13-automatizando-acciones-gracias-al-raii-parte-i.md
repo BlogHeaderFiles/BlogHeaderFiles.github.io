@@ -9,7 +9,7 @@ categories: c++ raii
 ---
 ## Introducción
 
-Como mencioné en una entrada anterior, uno de los aspectos que más me gusta de C++ es el [RAII](https://es.wikipedia.org/wiki/RAII) (Resource Acquisition Is Initialization). Introducida por Bjarne Stroustrup (creador de C++), esta técnica hace uso de los constructores y destructores para la correcta gestión de recursos. Tiene como bases las siguientes premisas:
+Como mencioné en una entrada anterior, uno de los aspectos que más me gusta de C++ es el [RAII](https://es.wikipedia.org/wiki/RAII) (_Resource Acquisition Is Initialization_). Introducida por Bjarne Stroustrup (creador de C++), esta técnica hace uso de los constructores y destructores para la correcta gestión de recursos. El RAII tiene como bases las siguientes premisas:
 
 - Un constructor siempre se ejecuta antes de que el objeto pueda ser usado, por lo que es un lugar seguro para reservar, inicializar, preparar los recursos a ser utilizados posteriormente.
 - Los destructores son llamados implícitamente cuando el objeto, bueno, se destruye, y es lo último que hace el objeto antes de liberar su propia memoria. Es el momento adecuado de liberar otros recursos usados.
@@ -63,9 +63,10 @@ He acá los principales _defectos_ de este código:
 
 - El programador es el encargado de gestionar la memoria para cada punto de salida de la función `foo` (3 en este caso).
 - La función que llame a `foo` hereda esta responsabilidad.
+- El nuevo responsable de destruir `foo` no sabe si tiene que usar `delete` o `delete[]`.
 - Adicionalmente, es fácil perder el contexto y no saber cuántos elementos tiene `c`, teniendo que guardarlo para evitar errores de acceso fuera de límites.
 
-### Usando `std::vector<T>`
+### RAII con `std::vector<T>`
 
 ```cpp
 std::vector<C> foo(size_t n) {
@@ -170,9 +171,9 @@ public:
 
 Bajo un correcto contrato entre clases esto podría resolver el problema de la gestión de memoria siempre que no se necesita que las cámaras sean destruidas en mitad del proceso. Podríamos entonces agregar un método `destroy_camera` al gestor, pero ¿no estaríamos complicando el diseño demasiado ya?
 
-### Usando punteros inteligentes
+### RAII usando punteros inteligentes
 
-Desde C++11 el lenguaje ofrece varias soluciones a este problema. Aunque me centraré en el `std::unique_ptr<T>`, otra posible opción es [`std::shared_ptr<T>`](https://es.cppreference.com/w/cpp/memory/shared_ptr).
+Desde C++11 el lenguaje ofrece varias soluciones a este problema, siguiente la técnica del RAII. Aunque me centraré en el `std::unique_ptr<T>`, otra posible opción es [`std::shared_ptr<T>`](https://es.cppreference.com/w/cpp/memory/shared_ptr).
 
 Como su nombre indica, con [`std::unique_ptr<T>`](https://es.cppreference.com/w/cpp/memory/unique_ptr) sólo existe un dueño del recurso; cualquier otro puntero tiene un rol de usuario del mismo, no de dueño. Además, `std::unique_ptr<T>` se encarga automáticamente de liberar la memoria al destruirse.
 

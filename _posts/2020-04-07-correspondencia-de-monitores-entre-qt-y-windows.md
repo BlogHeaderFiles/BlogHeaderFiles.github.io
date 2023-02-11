@@ -10,7 +10,7 @@ categories: c++ qt windows
 ---
 ## Introducción
 
-Hace poco modifiqué el módulo de _splash screens_ (en Qt) para mostrar la imagen en el mismo monitor en el que se mostraría la aplicación. Esto implica conocer en qué monitor se va a mostrar la aplicación, calcular el tamaño del escritorio, escalar la imagen, entre otras.
+Hace poco modifiqué ub módulo de _splash screens_ hecho en Qt (bajo Windows), de forma que la imagen del _splash screen_ se mostrase  en el mismo monitor en el que sería mostrada la aplicación. Esto implicaba conocer en qué monitor se va a mostrar la aplicación, calcular el tamaño del escritorio, escalar la imagen, entre otras cosas.
 
 Qt ofrece una forma muy amigable de solicitar información sobre las pantallas disponibles mediante [`QApplication::screens()`](https://doc.qt.io/qt-5/qguiapplication.html#screens), la cual devuelve una lista de [`QScreens`](https://doc.qt.io/qt-5/qscreen.html) desde donde podemos consultar datos como la resolución y el factor de escala, por lo que los requisitos de dimensionado estaban cubiertos: sólo quedaba por conocer el monitor en el que se iba a mostrar la aplicación.
 
@@ -95,11 +95,11 @@ BOOL CALLBACK getMonitorByHandle(HMONITOR hMonitor, HDC, LPRECT, LPARAM dwData)
 
 ## Correspondencia Qt / Windows (MFC)
 
-Como expliqué al principio, se usaría `QApplication::screens` para acceder a los datos del monitor en el que arrancaría nuestra aplicación. La sorpresa, o mejor dicho, el problema de verdad surgió cuando usamos el índice de monitor de las aplicaciones MFC para ubicar nuestro _widget_ Qt: no siempre había correspondencia. El módulo se probó en diversas configuraciones de ordenadores de 1, 2 y 3 pantallas y no siempre se comportaba correctamente.
+Como expliqué al principio, se usaría `QApplication::screens` para acceder a los datos del monitor en el que arrancaría nuestra aplicación. La sorpresa, o mejor dicho, el problema de verdad surgió cuando usamos el índice de monitor de las aplicaciones MFC para ubicar nuestro _widget_ de Qt: no siempre había correspondencia. El módulo se probó en diversas configuraciones de ordenadores de 1, 2 y 3 pantallas y no siempre se comportaba correctamente.
 
 El estudio que hice está mejor detallado en [Stack Overflow](https://stackoverflow.com/q/54351270/1485885) pero el resumen es que Qt enumera los monitores igual que Windows salvando que la pantalla principal está siempre en la primera posición de la lista de monitores (`QApplication::screens()[0]`). Así, en un sistema con tres pantallas donde la segunda es la principal, su orden en la lista Qt sería: `2, 1, 3`, mientras que Windows siempre devuelve `1, 2, 3`.
 
-El siguiente código solventa ese problema creando una lista que relaciona índice de pantalla en Qt con número de pantalla en Windows. La lista se crea siguiendo los mismos pasos que Qt, es decir, enumera de forma normal las pantallas, pero si la pantalla es la principal ésta se pone al comienzo de la lista en lugar de añadirse al final.
+El siguiente código solventa ese problema creando una lista que relaciona índice de pantalla en Qt con su respectivo índice en Windows. La lista se crea siguiendo los mismos pasos que Qt, es decir, enumera de forma normal las pantallas, pero si la pantalla es la principal ésta se pone al comienzo de la lista en lugar de añadirse al final.
 
 ```cpp
 bool isPrimaryMonitor(HMONITOR hMonitor)

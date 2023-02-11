@@ -23,7 +23,7 @@ bool string2bool(const std::string &value)
 }
 ```
 
-Ahora, supongamos que, para facilitar la lectura del fichero y para ser más expresivos en su contenido, en lugar de `"true"` y `"false"`, elegimos `"yes"` / `"no"` para unos casos, `"show"` / `"hide"` para otros, `"enabled"` / `"disabled"` en unos cuantos, etc. Nuestras funciones se complican un poco:
+Ahora, supongamos que, para facilitar la lectura del fichero de datos, y para ser más expresivos en su contenido, en lugar de `"true"` y `"false"`, elegimos `"yes"` / `"no"`, `"show"` / `"hide"`, `"enabled"` / `"disabled"`, etc. Nuestras funciones se complican entonces un poco:
 
 ```cpp
 std::string bool2string(bool value, const std::string &true_str, const std::string &false_str)
