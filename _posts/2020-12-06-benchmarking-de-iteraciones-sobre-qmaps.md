@@ -10,7 +10,7 @@ categories: c++ qt maps benchmarking
 ---
 ## Introducción
 
-Como usuario asiduo de Qt, el rendimiento de sus diferentes componentes resulta crítico. Hoy me gustaría comentar brevemente una pequeña comparativa que hice recientemente sobre las diversas formas de iterar sobre un `QMap`. Esta entrada es básicamente un estudio de rendimiento de las opciones presentadas hace ya un tiempo en [esta otra]({{url}}/2020/04/26/iterando-sobre-qmaps/).
+Como usuario asiduo de Qt, el rendimiento de sus diferentes componentes resulta crítico. Hoy me gustaría comentar brevemente una pequeña comparativa que hice recientemente sobre las diversas formas de iterar sobre un `QMap`. Esta entrada es básicamente un estudio de rendimiento de las opciones presentadas hace ya un tiempo en [esta otra](/2020/04/26/iterando-sobre-qmaps/).
 
 ## Estudio
 

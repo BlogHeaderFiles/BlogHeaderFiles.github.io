@@ -9,7 +9,7 @@ categories: c++ raii
 ---
 ## Introducción
 
-En la [entrada anterior]({{url}}/2020/01/13/automatizando-acciones-gracias-al-raii-parte-i/) estudiamos lo que es el [RAII](https://es.wikipedia.org/wiki/RAII), cómo es una de las técnicas bases de C++11 y algunos ejemplos.
+En la [entrada anterior](/2020/01/13/automatizando-acciones-gracias-al-raii-parte-i/) estudiamos lo que es el [RAII](https://es.wikipedia.org/wiki/RAII), cómo es una de las técnicas bases de C++11 y algunos ejemplos.
 
 En esta segunda parte comentaremos otros usos del RAII y cómo podemos hacer pequeños apaños mediante _wrappers_ cuando el RAII no está disponible por la razón que sea.
 

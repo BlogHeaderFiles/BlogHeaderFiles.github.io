@@ -80,7 +80,7 @@ Como nota, el método `QString::contains` devuelve `true` si la cadena a buscar 
 
 ### Estilo visual
 
-Para terminar esta entrada, vamos a modificar el botón de borrar, que personalmente me parece bastante feo. Dicho icono está controlado por el estilo activo a través del icono estándar `SP_LineEditClearButton`. Usaremos un estilo _proxy_ para evitar diseñar nosotros un estilo desde cero y además añadiremos un par de retoques usando una hoja de estilo. (Para más información sobre los `QProxyStyle` se puede consultar [este otro artículo](introduccion-a-los-qproxystyle/)).
+Para terminar esta entrada, vamos a modificar el botón de borrar, que personalmente me parece bastante feo. Dicho icono está controlado por el estilo activo a través del icono estándar `SP_LineEditClearButton`. Usaremos un estilo _proxy_ para evitar diseñar nosotros un estilo desde cero y además añadiremos un par de retoques usando una hoja de estilo. (Para más información sobre los `QProxyStyle` se puede consultar [este otro artículo](/2019/03/23/introduccion-a-los-qproxystyle/)).
 
 ```cpp
 virtual QIcon standardIcon(StandardPixmap standard_icon, const QStyleOption* option,
