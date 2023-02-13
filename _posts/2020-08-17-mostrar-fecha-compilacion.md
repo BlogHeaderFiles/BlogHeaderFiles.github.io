@@ -30,7 +30,7 @@ std::cout << "Source timestamp: " << __TIMESTAMP__ << '\n';
 
 Ahora bien, para trazas más elaboradas, tales como mensajes al usuario que deban estar traducidos o simplemente para dejarlos en el formato estándar de fecha de nuestra empresa.
 
-La siguiente función extrae los componentes de fecha y hora y construye una nueva cadena de texto en base al formato presentado (los especificadores de formato son estándar y están listados [acá](http://www.cplusplus.com/reference/ctime/strftime/)). Dejo al lector la modificación del código para usar `__DATE__` y `__TIME__` en lugar de `__TIMESTAMP__`.
+La siguiente función extrae los componentes de fecha y hora y construye una nueva cadena de texto en base al formato presentado (los especificadores de formato son estándar y están listados [acá](https://en.cppreference.com/w/c/chrono/strftime)). Dejo al lector la modificación del código para usar `__DATE__` y `__TIME__` en lugar de `__TIMESTAMP__`.
 
 ```cpp
 std::string getFormattedBuildDatetime(const std::string &format)

@@ -107,7 +107,7 @@ std::unique_ptr<IShape> make_shape(std::string const& id)
 }
 ```
 
-Se puede probar un ejemplo [en Coliru](http://coliru.stacked-crooked.com/a/171f6f8c26de623a).
+Se puede probar un ejemplo [en Coliru](https://coliru.stacked-crooked.com/a/171f6f8c26de623a).
 
 ### Tercera mejora: factoría genérica
 
@@ -164,4 +164,4 @@ En este caso el método `register_class` devuelve un booleano indicado si la cla
 
 Dicho lo anterior, ahora se pueden crear tantos métodos _factory_ como se deseen con una mínima inversión: únicamente hay que especializar la clase `Factory` en el método factoría de cada interfaz.
 
-Como nota final, podéis consultar un ejemplo completo operativo de patrón _factory_ [en Coliru](http://coliru.stacked-crooked.com/a/6c5230717152c279).
+Como nota final, podéis consultar un ejemplo completo operativo de patrón _factory_ [en Coliru](https://coliru.stacked-crooked.com/a/6c5230717152c279).

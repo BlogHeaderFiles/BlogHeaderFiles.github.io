@@ -131,4 +131,4 @@ Para más información de este caso, otros usos y alternativas podéis consultar
 
 ## Conclusión
 
-Commo hemos visto, esta sintaxis permite limitar el alcance de una variable, limitándola al entorno _seguro_ que le hemos definido, evitando además que se use para varios propósitos. Su uso es recomendado en los [C++ Core Guidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es6-declare-names-in-for-statement-initializers-and-conditions-to-limit-scope) (lectura prácticamente obligatoria para mejorar en el lenguaje).
+Commo hemos visto, esta sintaxis permite limitar el alcance de una variable, limitándola al entorno _seguro_ que le hemos definido, evitando además que se use para varios propósitos. Su uso es recomendado en los [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es6-declare-names-in-for-statement-initializers-and-conditions-to-limit-scope) (lectura prácticamente obligatoria para mejorar en el lenguaje).

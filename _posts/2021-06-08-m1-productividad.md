@@ -29,5 +29,5 @@ Si dejamos que el equipo no esté al 100% será mucho más productivo, se sentir
 
 ¿Cómo planificamos la gestión de nuestros _núcleos_? ¿Los usamos todos _a tope_ para todo? ¿O dejamos que los _Icestorm_ del equipo y personales estén disponibles para, entonces sí, darlo todo 💪🏼?
 
-Para quien quiera profundizar en este tema os recomiendo la lectura de [Exigir el 100% de ocupación de las personas esta destruyendo la eficiencia de tu equipo y organización
+Para quien quiera profundizar en este tema os recomiendo la lectura de [Exigir el 100% de ocupación de las personas está destruyendo la eficiencia de tu equipo y organización
 ](http://www.lecciones-aprendidas.info/2020/12/de-coleccion-exigir-el-100-de-ocupacion.html).

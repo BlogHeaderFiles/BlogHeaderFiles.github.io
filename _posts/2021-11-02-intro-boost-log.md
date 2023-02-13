@@ -133,7 +133,7 @@ void formatter(logging::record_view const& rec, logging::formatting_ostream& str
 }
 ```
 
-Para el estilo visual en consola se han usado códigos [ANSI/VT100](http://domoticx.com/terminal-codes-ansivt100/).
+Para el estilo visual en consola se han usado códigos [ANSI/VT100](https://domoticx.com/terminal-codes-ansivt100/).
 
 Para el uso del _timestamp_ es necesario definir el atributo en algún punto global:
 

@@ -13,7 +13,7 @@ El primer huevo de Pascua informático que se conoce está en el arcade _Starshi
 
 El término _huevo de Pascua_ fue acuñado por Steve Wright, director de desarrollo de Atari. Warren Robinett, programador de Atari, introdujo una _función secreta_ en el videojuego _Adventure_ (1979). Al pasar el personaje sobre un punto específico de la pantalla y siguiendo una secuencia de pasos, aparecía un mensaje que decía "Creado por Warren Robinett" (en ese entonces no se incluían los nombres de los programadores en los créditos). Tiempo después se animó a los desarrolladores a introducir más características ocultas de este tipo, y se les llamó _huevos de Pascua_ porque estaban escondidos y los jugadores tenían que encontrarlos.
 
-![warren_robinett](http://oyster.ignimgs.com/wordpress/stg.ign.com/2018/03/clip-720x482.jpg)
+![warren_robinett](https://oyster.ignimgs.com/wordpress/stg.ign.com/2018/03/clip-720x482.jpg)
 
 Los huevos de Pascua no son exclusivos de los videojuegos. Por ejemplo (y aunque parezca que soy un dinosaurio) Microsoft Office 97 incluía [un pequeño simulador de vuelo en Excel](https://eeggs.com/items/718.html), y [un pinball en Word](https://eeggs.com/items/763.html), y hasta antes de Windows XP, el salvapantallas comenzaba a mostrar nombres de volcanes al escribir _volcano_.
 

@@ -94,7 +94,7 @@ Como comentario al diseñador, es importante saber que el icono ocupará todo el
 
 ![todo](/assets/images/qlineedit_clear_button_custom.png)
 
-Créditos: el icono de borrar fue diseñado por [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/).
+Créditos: el icono de borrar fue diseñado por [CC 3.0 BY](https://creativecommons.org/licenses/by/3.0/).
 
 ## Mejorando el motor de búsqueda
 
