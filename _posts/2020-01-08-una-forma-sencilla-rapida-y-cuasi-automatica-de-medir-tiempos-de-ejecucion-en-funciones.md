@@ -5,6 +5,7 @@ author: Carlos Buchart
 layout: post
 permalink: /2020/01/08/una-forma-sencilla-rapida-y-cuasi-automatica-de-medir-tiempos-de-ejecucion-en-funciones/
 categories: c++ benchmarking
+excerpt: Cómo medir tiempos de ejecución de una forma sencilla.
 ---
 ## Introducción
 
@@ -23,7 +24,7 @@ Medir. ¿Cómo? Un herramienta de _profiling_ suele ser una de las mejores alter
 
 ## TicToc
 
-Este artículo presenta una pequeña clase, `TicToc` (¿se nota que he usado [Matlab](https://www.mathworks.com/help/matlab/ref/tic.html)?), para medir el tiempo de ejecución de una función de forma automática y sencilla. Dicha clase usa una de las máximas de C++ (y una de mis favoritas, [RAII](https://es.wikipedia.org/wiki/RAII)), para automatizar la medición y la impresión de la duración por consola.
+Este artículo presenta una pequeña clase, `TicToc` (¿se nota que he usado [Matlab](https://www.mathworks.com/help/matlab/ref/tic.html)?), para medir el tiempo de ejecución de una función de forma automática y sencilla. Dicha clase usa una de las máximas de C++ (y una de mis favoritas, [RAII](/2020/01/13/automatizando-acciones-gracias-al-raii-parte-i/)), para automatizar la medición y la impresión de la duración por consola.
 
 Y aunque ya sé que el uso de macros debe limitarse, ésta es una de esas situaciones en las cuales resultan útiles: automatizar acciones. La macro `TICTOC()` genera automáticamente un punto de medición que se mostrará al finalizar el contexto en el que se use.
 
