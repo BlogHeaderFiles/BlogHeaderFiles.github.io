@@ -4,7 +4,7 @@ date: 2020-01-27T23:58:38+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/01/27/devolviendo-cadenas-los-punteros-colgantes-de-babilonia/
-excerpt: 'En mis clases de Sistemas Operativos suelo dedicar un apartado a problemas de gestión de memoria, especialmente en el lado del programador: pérdidas de memoria (memory leaks), accesos fuera de límites (out-of-bound access), punteros colgantes (dangling pointers), entre otros. De los dos primeros ya hablaremos en otra ocasión, esta entrada versará sobre el último, los dangling pointers.'
+excerpt: Comentamos los problemas de memoria que pueden surgir al devolver cadenas del estilo C.
 categories: c++ pointers memory
 ---
 ## Introducción

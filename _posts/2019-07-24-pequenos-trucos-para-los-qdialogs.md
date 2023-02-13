@@ -4,6 +4,7 @@ date: 2019-07-24T19:04:09+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2019/07/24/pequenos-trucos-para-los-qdialogs/
+excerpt: Detallamos diversos trucos para mejorar nuestros diálogos en Qt, tales como QMessageBox personalizados, flags y múltiples valores de retorno.
 categories: c++ qt dialogs
 ---
 ## Introducción
@@ -16,7 +17,7 @@ Resulta obvio que una ventana no-modal es mucho más compleja de diseñar que un
 
 Por otro lado, las ventanas modales son más sencillas, ya que dichos mecanismos de comunicación están mejor delimitados: ocurren antes de mostrarse la ventana, y después de cerrada; mientras la ventana está siendo mostrada ésta tiene su propio ciclo de vida (de eventos, en lenguaje GUI). Puede que ocasionalmente tengan el famoso botón "Aplicar", lo cual implica una comunicación hacia afuera, pero normalmente no se diferencia de lo que ocurre al "Aceptar", salvando que la ventana no se cierra.
 
-En Qt, el soporte para ventanas modales se proporciona mediante la clase [`QDialog`](https://doc.qt.io/qt-5/qdialog.html), que, simplificando, es un `QWidget` con soporte para distintas opciones de modalidad, donde la principal es el método [`QDialog::exec`](https://doc.qt.io/qt-5/qdialog.html#exec) el cual, además de mostrar el diálogo, ejecuta su propio bucle de eventos, bloqueando el bucle del padre, pudiendo además devolver un valor de retorno.
+En Qt, el soporte para ventanas modales se proporciona mediante la clase [`QDialog`](https://doc.qt.io/qt-5/qdialog.html) que, simplificando, es un `QWidget` con soporte para distintas opciones de modalidad, donde la principal es el método [`QDialog::exec`](https://doc.qt.io/qt-5/qdialog.html#exec) el cual además ejecuta su propio bucle de eventos (bloqueando el bucle del padre), devolviendo además un valor de retorno de cómo se cerró el diálogo.
 
 ## `QMessageBox`
 
@@ -57,7 +58,7 @@ if (msg_box.exec() == QMessageBox::Yes) {
 }
 ```
 
-![QDialog con etiquetas personalizadas](/assets/images/qdialog_tips_custom_labels.png)
+![QMessageBox con etiquetas personalizadas](/assets/images/qdialog_tips_custom_labels.png)
 
 ## `QDialog`
 
@@ -79,24 +80,24 @@ Este modo es especialmente útil cuando uno no quiere poblar el proyecto de micr
 
 bool basicDialog()
 {
-  QDialog dlg;
+    QDialog dlg;
 
-  auto layout = new QVBoxLayout();
-  layout->addWidget(new QLabel("This is a dialog."));
+    auto layout = new QVBoxLayout();
+    layout->addWidget(new QLabel("This is a dialog."));
 
-  auto h_layout = new QHBoxLayout();
-  h_layout->addStretch();
-  auto ok_button = new QPushButton("OK");
-  QObject::connect(ok_button, &QPushButton::clicked, &dlg, &QDialog::accept);
-  h_layout->addWidget(ok_button);
-  auto cancel_button = new QPushButton("Cancel");
-  QObject::connect(cancel_button, &QPushButton::clicked, &dlg, &QDialog::reject);
-  h_layout->addWidget(cancel_button);
-  layout->addLayout(h_layout);
+    auto h_layout = new QHBoxLayout();
+    h_layout->addStretch();
+    auto ok_button = new QPushButton("OK");
+    QObject::connect(ok_button, &QPushButton::clicked, &dlg, &QDialog::accept);
+    h_layout->addWidget(ok_button);
+    auto cancel_button = new QPushButton("Cancel");
+    QObject::connect(cancel_button, &QPushButton::clicked, &dlg, &QDialog::reject);
+    h_layout->addWidget(cancel_button);
+    layout->addLayout(h_layout);
 
-  dlg.setLayout(layout);
+    dlg.setLayout(layout);
 
-  return dlg.exec() == QDialog::Accepted;
+    return dlg.exec() == QDialog::Accepted;
 }
 ```
 
@@ -108,15 +109,15 @@ Para solucionar esto debemos cambiar las bandera de ventana (un amplio ejemplo s
 
 - Quitar botón de ayuda:
 
-  ```cpp
-  dlg.setWindowFlag(Qt::WindowContextHelpButtonHint, false);
-  ```
+    ```cpp
+    dlg.setWindowFlag(Qt::WindowContextHelpButtonHint, false);
+    ```
 
 - Deshabilitar redimensionado:
 
-  ```cpp
-  dlg.setWindowFlag(Qt::MSWindowsFixedSizeDialogHint, true);
-  ```
+    ```cpp
+    dlg.setWindowFlag(Qt::MSWindowsFixedSizeDialogHint, true);
+    ```
 
 ![Flags en QDialog](/assets/images/qdialog_tips_dialog_2.png)
 

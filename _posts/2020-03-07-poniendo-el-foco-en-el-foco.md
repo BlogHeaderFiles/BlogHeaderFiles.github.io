@@ -4,7 +4,8 @@ date: 2020-03-07T10:00:27+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/03/07/poniendo-el-foco-en-el-foco/
-categories: c++ qt gui
+excerpt: Formas de alterar el comportamiento de nuestros controles cuando reciben el foco.
+categories: c++ qt gui focus
 ---
 ## Introducción
 

@@ -4,7 +4,7 @@ date: 2019-04-26T08:03:17+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2019/04/26/signals-y-slots-en-qt-parte-i/
-excerpt: 'Al hablar de Qt vienen inmediatamente a la cabeza dos palabras: signals y slots. Y es que Qt usa ampliamente este mecanismo de comunicación, muy similar al patrón observador, especialmente en lo referente a interfaces gráficas. La documentación de Qt es muy extensa en el uso de este mecanismo, pero me ha parecido interesante resaltar algunos aspectos básicos y otros un poco menos obvios.'
+excerpt: Al hablar de Qt vienen inmediatamente a la cabeza dos palabras: signals y slots, un mecanismo de comunicación muy similar al patrón observador, especialmente en lo referente a interfaces gráficas.
 categories: c++ qt signal-slot
 ---
 ## Introducción

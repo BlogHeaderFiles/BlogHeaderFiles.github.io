@@ -5,7 +5,7 @@ author: Carlos Buchart
 layout: post
 permalink: /2020/08/17/mostrar-fecha-compilacion/
 image: /assets/images/featured/build_timestamp.jpg
-excerpt: 'Un dato importante cuando se está investigando un fallo o probando una nueva funcionalidad en un software es saber sobre qué versión del código estamos trabajando. Veamos un poco qué otra información nos puede ayudar.'
+excerpt: Cómo mostrar la fecha de compilación de nuestro código y cómo nos ayuda.
 categories: c++ build
 ---
 ## Introducción

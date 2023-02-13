@@ -4,7 +4,7 @@ date: 2020-01-17T18:22:21+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/01/17/automatizando-acciones-gracias-al-raii-parte-ii/
-excerpt: 'En la entrada anterior estudiamos lo que es el RAII, cómo es una de las técnicas bases de C++11 y algunos ejemplos. En esta segunda parte comentaremos otros usos del RAII y cómo podemos hacer pequeños apaños mediante wrappers cuando el RAII no está disponible por la razón que sea.'
+excerpt: En la entrada anterior estudiamos lo que es el RAII, cómo es una de las técnicas bases de C++11 y algunos ejemplos. En esta segunda parte comentaremos otros usos del RAII y cómo podemos hacer pequeños apaños mediante wrappers cuando el RAII no está disponible por la razón que sea.
 categories: c++ raii
 ---
 ## Introducción

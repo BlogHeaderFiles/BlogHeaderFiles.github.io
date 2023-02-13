@@ -5,8 +5,8 @@ author: Carlos Buchart
 layout: post
 permalink: /2019/04/07/un-breve-tratado-sobre-la-coexistencia-de-multiples-qapplication/
 image: /assets/images/featured/multiple_qapplications.jpg
-excerpt: 'Hace un par de años me tocó embeber el editor de interfaces de Qt (Qt Designer) dentro de otra aplicación. Si bien el cómo lo hice no tiene demasiada importancia ahora mismo, resulta que me enfrenté al siguiente problema: Qt Designer crea su propia instancia de QApplication, pero es que ¡la nueva aplicación contenedora también! Así que ante la clara pregunta ¿tendré problemas?, decidí estudiar el tema un poco más a fondo.'
-categories: c++ qt
+excerpt: Estudiamos las consecuencias de instanciar QApplication múltiples veces y las consideraciones a tener en cuenta.
+categories: c++ qt qapplication
 ---
 ## Breve historia de este post
 
@@ -16,20 +16,20 @@ Hace un par de años me tocó embeber el editor de interfaces de Qt (Qt Designer
 
 Un gran número de funcionalidades de Qt requieren de la existencia de un objeto especial, _la aplicación_: ésta gestiona los bucles de eventos, un gran número de variables _globales_ (como el idioma actual), etc.
 
-Dependiendo del modo de la aplicación, este objeto puede ser de tipo `QCoreApplication` para aplicaciones de consola, o `QApplication` para aplicaciones con interfaz gráfica (existe el `QGuiApplication` también, pero es más común usar el `QApplication`). Ejemplo:
+Dependiendo del modo de la aplicación, este objeto puede ser de tipo `QCoreApplication` para aplicaciones de consola, o `QApplication` para aplicaciones con interfaz gráfica (existe el `QGuiApplication` también, pero es más común usar el `QApplication` directamente). Ejemplo:
 
 ```cpp
 #include <qapplication.h>
 
 int main(int argc, char* argv[])
 {
-  QApplication a(argc, argv);
+    QApplication a(argc, argv);
 
-  // Fijando algunas propiedades globales de la aplicación
-  qApp->setApplicationName("Multiple QApplication");
-  qApp->setOrganizationName("Header Files");
+    // Fijando algunas propiedades globales de la aplicación
+    qApp->setApplicationName("Multiple QApplication");
+    qApp->setOrganizationName("Header Files");
 
-  return a->exec(); // bucle de eventos
+    return a->exec(); // bucle de eventos
 }
 ```
 
