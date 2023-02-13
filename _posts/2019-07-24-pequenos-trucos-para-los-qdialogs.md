@@ -30,7 +30,7 @@ if (QMessageBox::question(nullptr, "Title", "Yes or no?",
 }
 ```
 
-![todo](/assets/images/qdialog_tips_question.png)
+![QDialog de pregunta](/assets/images/qdialog_tips_question.png)
 
 Existen en total cuatro cajas de mensaje posibles:
 
@@ -57,7 +57,7 @@ if (msg_box.exec() == QMessageBox::Yes) {
 }
 ```
 
-![todo](/assets/images/qdialog_tips_custom_labels.png)
+![QDialog con etiquetas personalizadas](/assets/images/qdialog_tips_custom_labels.png)
 
 ## `QDialog`
 
@@ -100,7 +100,7 @@ bool basicDialog()
 }
 ```
 
-![todo](/assets/images/qdialog_tips_dialog_1.png)
+![QDialog con botones personalizados](/assets/images/qdialog_tips_dialog_1.png)
 
 Este diálogo básico está muy bien, salvo por dos detalles: ese botón `?` en la barra de título (que supuestamente se usa para mostrar ayuda sobre los controles, pero que ni el propio Windows usa, y cuando lo usa lo hace bastante mal), y el hecho de que el diálogo se puede redimensionar libremente. De esto segundo depende del diseño; normalmente un diálogo tipo mensaje es de tamaño fijo, mientras que los paneles de opciones o de resultados suelen ser redimensionables.
 
@@ -118,7 +118,7 @@ Para solucionar esto debemos cambiar las bandera de ventana (un amplio ejemplo s
   dlg.setWindowFlag(Qt::MSWindowsFixedSizeDialogHint, true);
   ```
 
-![todo](/assets/images/qdialog_tips_dialog_2.png)
+![Flags en QDialog](/assets/images/qdialog_tips_dialog_2.png)
 
 _Nota:_ en caso de usar estas líneas en un diálogo diseñado en Qt Designer, hay que asegurarse de ponerlas _después_ de la llamada al `setupUi`, ya que si no se corre el riesgo de que se vean sobrescritas por los valores del diseño visual.
 

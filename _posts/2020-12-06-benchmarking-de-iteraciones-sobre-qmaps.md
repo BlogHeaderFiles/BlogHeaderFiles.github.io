@@ -44,7 +44,7 @@ Las distintas formas de iteración valoradas han sido las siguientes:
 
 La siguiente gráfica muestra los resultados de las pruebas:
 
-![todo](/assets/images/benchmark_qmap_wrapper.jpg)
+![Benchmark QMap wrapper](/assets/images/benchmark_qmap_wrapper.jpg)
 
 Como era de esperarse, las opciones más ineficientes (y con diferencia) son las que iteran individualmente sobre las claves y luego realizan la consulta. Algo mejor se comporta la copia a un `std::map`, donde se nota que se recurre al iterador base del `QMap`, aunque claramente hay una penalización por copia y doble acceso.
 

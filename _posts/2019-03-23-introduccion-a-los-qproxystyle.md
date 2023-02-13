@@ -26,9 +26,9 @@ Un clase que herede [`QProxyStyle`](https://doc.qt.io/qt-5/qproxystyle.html) sim
 
 El siguiente código muestra un caso de uso: cambiar el icono de los `QMessageBox` (usaremos los _warning_ para simplificar el ejemplo). Así luce un _message box_ con el estilo por defecto (en Windows 10) y con el estilo _fusion_:
 
-![todo](/assets/images/Screenshot-2019-03-23-12.18.08-e1553340296606.png)
+![QMessageBox](/assets/images/Screenshot-2019-03-23-12.18.08-e1553340296606.png)
 
-![todo](/assets/images/Screenshot-2019-03-23-12.21.17-e1553340277115.png)
+![QMessageBox](/assets/images/Screenshot-2019-03-23-12.21.17-e1553340277115.png)
 
 Comencemos con la definición del proxy:
 
@@ -72,7 +72,7 @@ int main(int argc, char* argv[]) {
 
 ¡Listo! A partir de este momento todos los `QMessageBox::warning(...)` mostrarán nuestro icono en lugar del por defecto.
 
-![todo](/assets/images/Screenshot-2019-03-23-12.22.41-e1553340253450.png)
+![QMessageBox](/assets/images/Screenshot-2019-03-23-12.22.41-e1553340253450.png)
 
 El proyecto completo (VS) de este ejemplo está disponible en [GitHub](https://github.com/BlogHeaderFiles/SourceCode/tree/master/QProxyStyles_example).
 

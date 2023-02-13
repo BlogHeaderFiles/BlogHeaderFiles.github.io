@@ -74,7 +74,7 @@ Ambos objetos, el emisor y el receptor deben heredar de `QObject` y deben coinci
 
 En caso de que el _slot_ o la señal no exista, el _runtime_ de Qt reportará un error por consola en tiempo de ejecución a la hora de realizar la conexión. Como por lo general las aplicaciones con interfaz gráfica no tienen una consola asociada, tengo como norma crearla en al menos una configuración del proyecto, normalmente la _Debug_ y, en los proyectos que lo ameriten, la _ReleaseWithDebug_. Como he dicho, la configuración de producción (_Release_) rara vez tiene consola.
 
-![todo](/assets/images/signal_slots_dont_exist.png)
+![Qt Signal Slots no existen](/assets/images/signal_slots_dont_exist.png)
 
 Como nota: muchas veces es necesario mantener actualizado el estado entre diferentes componentes de la interfaz. La forma tradicional de hacerlo en Qt es conectando recíprocamente las señales de un objeto con los _slots_ del otro. Esto puede hacer por código o bien desde el Qt Designer, aunque no soy muy amigo de esta última forma ya que prefiero tener a la vista en el código las conexiones que se realizan, y dentro del fichero UI quedan escondidas y no es sencillo dar con ellas al realizar búsquedas.
 

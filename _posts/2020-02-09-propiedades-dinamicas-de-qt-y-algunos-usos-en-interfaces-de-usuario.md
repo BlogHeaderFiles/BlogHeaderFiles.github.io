@@ -106,7 +106,7 @@ QLineEdit[valid="no"] {
 
 En este ejemplo podemos automatizar la conexión entre el interfaz y el modelo de datos subyacente guardando en una propiedad el nombre del campo al que se debe asociar (se puede hacer desde el [Qt Designer](https://doc.qt.io/qt-5/designer-widget-mode.html#the-property-editor)), y usar [`QObject::findChildren`](https://doc.qt.io/qt-5/qobject.html#findChildren) para recorrer todos los controles de una ventana y leer / escribir los datos:
 
-![todo](/assets/images/dynamic_property_in_qt_designer.jpg)
+![Propiedades dinámicas en Qt Designer](/assets/images/dynamic_property_in_qt_designer.jpg)
 
 ```cpp
 void FormWidget::updateUIFromModel()

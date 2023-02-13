@@ -39,7 +39,7 @@ Para el filtrado usaremos un [`QLineEdit`](https://doc.qt.io/qt-5/qlineedit.html
 ui->txtSearch->setPlaceholderText("Search...");
 ```
 
-![todo](/assets/images/search_ui.png)
+![Búsqueda](/assets/images/search_ui.png)
 
 ## Buscando
 
@@ -72,7 +72,7 @@ _Advertencia: el método de búsqueda en sí no es el más eficiente, simplement
 
 Es bastante común ofrecer al usuario una forma rápida de eliminar el filtro creado, de _borrar_ el criterio de búsqueda. `QLineEdit` ofrece una propiedad, [`QLineEdit::clearButtonEnabled`](https://doc.qt.io/qt-5/qlineedit.html#clearButtonEnabled-prop) que, cuando está activada, muestra un pequeño botón de _borrar_ en un extremo del control.
 
-![todo](/assets/images/qlineedit_clear_button.png)
+![QLineEdit con botón de borrar](/assets/images/qlineedit_clear_button.png)
 
 Al presionarse el botón de borrar se llama automáticamente a `QLineEdit::clear`, que borra el texto del cajetín. Puede ya verse el porqué nos conectamos con la señal `QLineEdit::textChanged` y no con `QLineEdit::textEdited`: de haberlo hecho, al presionar el botón se borraría el texto pero no se mostrarían las entradas ocultas.
 
@@ -92,7 +92,7 @@ virtual QIcon standardIcon(StandardPixmap standard_icon, const QStyleOption* opt
 
 Como comentario al diseñador, es importante saber que el icono ocupará todo el alto del `QLineEdit`, por lo que deben agregarse unos márgenes adecuados si no se quiere que se vea de borde a borde.
 
-![todo](/assets/images/qlineedit_clear_button_custom.png)
+![QLineEdit con botón de borrar personalizado](/assets/images/qlineedit_clear_button_custom.png)
 
 Créditos: el icono de borrar fue diseñado por [CC 3.0 BY](https://creativecommons.org/licenses/by/3.0/).
 

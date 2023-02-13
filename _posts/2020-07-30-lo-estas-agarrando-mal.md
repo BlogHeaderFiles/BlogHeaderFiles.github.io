@@ -39,7 +39,7 @@ Desgraciadamente los desarrolladores estamos tan metidos en el proceso de desarr
 
 ## Sí es posible
 
-![todo](/assets/images/bricks.jpg)
+![Comparativa bricks de leche](/assets/images/bricks.jpg)
 
 Me gustaría cerrar el artículo mostrando dos envases de leche de los que compramos en casa. El de la derecha es el típico _brick_ tetraédrico con la boquilla en una esquina (y su consiguiente turbulencia y derrame). El de la izquierda es de otra marca donde han querido evitar ese problema con un diseño mejorado: la forma en pico de la parte superior hace que la boquilla quede por encima del líquido durante el vertido, facilitando la entrada del aire y eliminando la turbulencia. Para evitar que la pérdida de resistencia colapse el envase al apilarlos, se agregó un tabique de cartón en el medio de los empaques de 6 unidades para absorber parte del peso. En términos de coste no sé cómo afectará, pero no es el producto más caro de su género y creo que han llegado a una solución más que buena.
 

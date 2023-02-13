@@ -19,4 +19,4 @@ Recordad que estos ficheros _moc'eados_ los genera Qt para ficheros con extensi�
 
 Es posible solucionar este problema fácilmente entrando en la configuración de los ficheros de cabecera y forzar la inclusión del fichero de cabecera precompilado:
 
-![todo](/assets/images/qt-moc-pch.jpg)
+![Qt moc PCH](/assets/images/qt-moc-pch.jpg)
