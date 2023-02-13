@@ -7,6 +7,8 @@ permalink: /2020/08/17/mostrar-fecha-compilacion/
 image: /assets/images/featured/build_timestamp.jpg
 excerpt: Cómo mostrar la fecha de compilación de nuestro código y cómo nos ayuda.
 categories: c++ build
+sitemap:
+    priority: 0.7
 ---
 ## Introducción
 

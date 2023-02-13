@@ -6,6 +6,8 @@ layout: post
 permalink: /2020/12/25/feliz-navidad/
 image: /assets/images/featured/merry_christmas.jpg
 hide_excerpt: true
+sitemap:
+    priority: 0.2
 ---
 En este 031 de diciembre, deseo a todos los lectores de _HeaderFiles_ una muy feliz y santa Navidad. Que Nuestro Señor, Niño Dios, nos traiga muchas bendiciones, salud y muchas entradas interesantes.
 
