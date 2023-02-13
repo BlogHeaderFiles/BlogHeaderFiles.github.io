@@ -12,6 +12,10 @@ categories: c++ boost log
 
 Un sistema de log es de una gran utilidad a la hora de localizar errores en nuestras aplicaciones de una forma rápida. Esto es especialmente cierto en código en producción, en donde normalmente no tenemos acceso a las herramientas habituales de depuración, o donde ni siquiera tenemos acceso al sistema en cuestión sino que dependemos de que el usuario nos diga o mande _cosas_.
 
+En este artículo describimos tanto [un log muy sencillo](#soluciones-básicas) (de esos de andar por casa), así como una introducción a [Boost.Log](#boostlog). Primero detallemos algunos requerimientos que deberíamos tener en cuenta.
+
+## Requerimientos básicos
+
 El objetivo de un log es el de proporcionarnos información persistente sobre el estado del sistema en un punto dado, así como el flujo de ejecución que llevó hasta dicho punto. Adicionalmente, suele ser interesante poder contar con datos adicionales de diagnóstico como la configuración de la aplicación, características del ordenador, etc.
 
 Cada entrada (o mensaje) del log suele contar con una marca de tiempo (_timestamp_), lo que nos permitie asociar sucesos entre módulos, además de poder saber con más certeza cuáles mensajes pertenecen a una misma acción y cuáles a otras.
