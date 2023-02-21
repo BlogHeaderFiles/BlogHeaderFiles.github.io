@@ -5,7 +5,7 @@ author: Carlos Buchart
 layout: post
 permalink: /2023/02/21/how-to-change-a-light-bulb
 image: /assets/images/featured/light_bulb.jpg
-excerpt: ¿Qué hecho en falta en muchos cursos de programación y no cambia nada incluso con los últimos progresos de la IA?
+excerpt: ¿Qué echo en falta en muchos cursos de programación y no cambia nada incluso con los últimos progresos de la IA?
 categories: algorithm education opinion
 ---
 ## Introducción
