@@ -10,7 +10,7 @@ categories: algorithm education opinion
 ---
 ## Introducción
 
-Llevo más de 20 año desarrollando software y durante muchos otros he impartido o colaborado en diversas asignaturas relacionadas con la programación: Informática I (en diversas modalidades, pero siempre como ayudante), Diseño de Sistemas Operativos (tanto en Venezuela como en España), y Seguridad de Redes.
+Llevo más de 20 años desarrollando software y durante muchos otros he impartido o colaborado en diversas asignaturas relacionadas con la programación: Informática I (en diversas modalidades, pero siempre como ayudante), Diseño de Sistemas Operativos (tanto en Venezuela como en España), y Seguridad de Redes.
 
 En todas ellas he visto el mismo patrón: la mayoría de los estudiantes (incluso algunos de los _brillantes_) les costaba pasar de un simple _caletreo_ en lo que a programación se refería: aprendían muy bien los conceptos teóricos de las instrucciones de control de flujo, sabían lo que estaban haciendo los programas que veíamos en clase y muchas veces salían de los atolladeros de errores de compilación de C++ por cuenta propia. Pero cuando tocaba realizar un programa desde cero o incluso modificar (sustancialmente) un programa dado, no hacían más que comenzar a poner bucles "for" acá y allá sin razón, o a preguntar si debían usar un "if" o una función. Parecía que todo lo demás hubiese sido una farsa. Con el tiempo he llegado a ver ese comportamiento no sólo en alumnos, sino en "profesionales" del sector.
 
