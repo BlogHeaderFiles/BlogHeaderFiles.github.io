@@ -3,6 +3,7 @@ title: Créditos
 date: 2020-04-27T09:17:53+02:00
 author: Carlos Buchart
 layout: page
+permalink: /creditos
 ---
 ### Créditos
 

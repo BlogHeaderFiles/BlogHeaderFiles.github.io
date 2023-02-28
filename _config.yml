@@ -32,7 +32,7 @@ plainwhite:
     - title: Código
       url: https://github.com/BlogHeaderFiles/SourceCode
     - title: Créditos
-      url: "/pages/creditos"
+      url: "/creditos"
   social_links:
     github: cbuchart
     linkedIn: in/cbuchart

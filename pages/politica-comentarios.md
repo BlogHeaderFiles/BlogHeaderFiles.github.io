@@ -3,6 +3,7 @@ title: Política de comentarios
 date: 2022-07-26T13:25:00+02:00
 author: Carlos Buchart
 layout: page
+permalink: /politica-comentarios
 ---
 ### Créditos
 
