@@ -8,8 +8,6 @@ image: /assets/images/featured/expressive_args.jpg
 excerpt: Una de las tareas a las que más me enfrento cuando leo código heredado, o mi propio código antiguo, es saber qué es cada parámetro de una función. En esta entrada estudiaremos dos técnicas que nos ayudarán a tener un código expresivo.
 categories: c++ clean-code strong-types expressiveness
 ---
-## Introducción
-
 Una de las tareas a las que más me enfrento cuando leo código heredado, o mi propio código antiguo (donde antiguo puede ser de hace un par de semanas), es saber qué es cada parámetro de una función: en `Rectangle::computeArea(4.5, 3.1)` ¿qué representa 4.5 y qué 3.1? ¿área y altura, o al revés? O en `car.setSpeed(50)`, ¿son kilómetros por hora, millas por hora, metros por segundo?
 
 Para el segundo caso, C++11 viene en nuestra ayuda con literales definidos por el usuario, al que otro día igual dedicamos un tiempo. Mientras tanto os recomiendo [esta presentación de Bjarne Stroustrup](https://youtu.be/0iWb_qi2-uI?t=1130) al respecto (aunque luego habla de más cosas interesantes, como el extenso uso del RAII en C++ moderno).

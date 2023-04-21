@@ -7,8 +7,6 @@ permalink: /2019/03/12/traducciones-en-qt/
 excerpt: El sistema de traducciones de Qt es muy simple, usar el método QObject::tr() para definir los textos a traducir, crear un fichero .ts para cada idioma, ejecutar el comando lupdate para actualizar esos ficheros con las nuevas frases del proyecto, traducirlas y ejecutar lrelease para generar el fichero que usa Qt con las traducciones.
 categories: c++ qt translations
 ---
-## Introducción
-
 El sistema de traducciones de Qt es muy simple: usar el método `QObject::tr()` para definir los textos a traducir, crear un fichero .ts para cada idioma, ejecutar el comando `lupdate` para actualizar esos ficheros con las nuevas frases del proyecto, traducirlas y ejecutar `lrelease` para generar el fichero que usa Qt con las traducciones. El sistema es muy potente, por ejemplo, no hace falta nada especial para cambiar a idiomas orientales, simplemente funciona, además de proveer ayudas a la traducción como libros de frases para tener traducciones "pre-hechas", o detectar incoherencias en parámetros o signos de puntuación distintos entre traducciones los muestra.
 
 Como siempre, no quiero dar un curso, sólo recopilar algunos _tips_ nacidos del día a día.

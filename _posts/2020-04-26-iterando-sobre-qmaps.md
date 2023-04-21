@@ -8,8 +8,6 @@ image: /assets/images/featured/iterating_qmaps.jpg
 excerpt: Un pequeño análisis de distintas formas de recorrer los elementos de un QMap, y cómo se comparan dichos bucles con los del contenedor estándar de C++.
 categories: c++ qt maps
 ---
-## Introducción
-
 Los que trabajáis normalmente con Qt me entenderéis la siguiente expresión: en lo que respecta a contenedores de datos (bueno, y en muchos otros también), Qt es casi un lenguaje propio, sigue su propia filosofía y adapta C++ a ella. Por ejemplo:
 
 - Uso extensivo del COW ([_Copy-On-Write_](https://es.wikipedia.org/wiki/Copy-on-write)) para reducir la carga asociada a la copia de objetos.

@@ -8,8 +8,6 @@ image: /assets/images/featured/monitors_correspondence.jpg
 excerpt: En esta entrada explicamos la relación entre los monitores reportados por Qt y los listados por Windows.
 categories: c++ qt windows
 ---
-## Introducción
-
 Hace poco modifiqué ub módulo de _splash screens_ hecho en Qt (bajo Windows), de forma que la imagen del _splash screen_ se mostrase  en el mismo monitor en el que sería mostrada la aplicación. Esto implicaba conocer en qué monitor se va a mostrar la aplicación, calcular el tamaño del escritorio, escalar la imagen, entre otras cosas.
 
 Qt ofrece una forma muy amigable de solicitar información sobre las pantallas disponibles mediante [`QApplication::screens()`](https://doc.qt.io/qt-5/qguiapplication.html#screens), la cual devuelve una lista de [`QScreens`](https://doc.qt.io/qt-5/qscreen.html) desde donde podemos consultar datos como la resolución y el factor de escala, por lo que los requisitos de dimensionado estaban cubiertos: sólo quedaba por conocer el monitor en el que se iba a mostrar la aplicación.

@@ -7,8 +7,6 @@ permalink: /2020/01/08/una-forma-sencilla-rapida-y-cuasi-automatica-de-medir-tie
 categories: c++ benchmarking
 excerpt: Cómo medir tiempos de ejecución de una forma sencilla.
 ---
-## Introducción
-
 Una tarea típica del programador es la de saber si una función es eficiente o no, tanto desde el punto de vista algorítmico como de tiempo de ejecución real. Creo necesario matizar que ambos valores son importantes, ya que el primero nos dirá el comportamiento del algoritmo a medida que el conjunto de datos crezca, y el segundo un valor más _palpable_, _cercano_ a lo que el usuario final percibirá.
 
 Por otro lado, no es necesario partirse el cerebro optimizando nuestro código a diestra y siniestra, ya que la mayoría de las veces el tiempo real de ejecución es bueno para el grueso de nuestro código, y el cuello de botella se encuentra en pequeñas porciones de código: búsquedas sobre conjuntos enormes de datos no-ordenados, repeticiones innecesarias, funciones que se llaman decenas de miles de veces por segundo, accesos a disco, fallos de caché... Esto se resume en la famosa regla del 90-10 (el 90% del tiempo de ejecución se gasta en el 10% del código, más información [acá](https://softwareengineering.stackexchange.com/q/334528/266565)).

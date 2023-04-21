@@ -8,8 +8,6 @@ image: /assets/images/featured/bash_autocomplete.jpg
 excerpt: Explicamos cómo extender la función de autocompletado de Bash para soportar nuestras propias aplicaciones.
 categories: bash
 ---
-## Introducción
-
 Personalmente creo que hay cuatro acciones de teclado que consumen el 70% de mi tiempo en una terminal: <kbd>Enter</kbd>, <kbd>Control-C</kbd>, <kbd>Arriba</kbd> y <kbd>Tab</kbd>. Las dos primeras para iniciar y parar comandos, y las dos últimas para agilizar la escritura, bien sea buscando en el historial o bien completando el nombre del comando actual.
 
 Respecto al autocompletado, algunas _shell_, como Bash, permiten además hacer un autocompletado contextual, es decir, que una vez introducido el nombre del comando que se quiere ejecutar el motor de autocompletado ofrecerá las opciones pertinentes en base a dicho comando y a las opciones previamente seleccionadas. Esto no sólo ahorra tiempo de escritura, sino que además sirve de complemento a la ayuda del propio comando.

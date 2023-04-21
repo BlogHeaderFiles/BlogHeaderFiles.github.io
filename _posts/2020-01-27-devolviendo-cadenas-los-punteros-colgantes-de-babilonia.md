@@ -7,8 +7,6 @@ permalink: /2020/01/27/devolviendo-cadenas-los-punteros-colgantes-de-babilonia/
 excerpt: Comentamos los problemas de memoria que pueden surgir al devolver cadenas del estilo C.
 categories: c++ pointers memory
 ---
-## Introducción
-
 En mis clases de Sistemas Operativos suelo dedicar un apartado a problemas de gestión de memoria, especialmente en el lado del programador: pérdidas de memoria (_memory leaks_), accesos fuera de límites (_out-of-bound access_), punteros colgantes (_dangling pointers_), entre otros. De los dos primeros ya hablaremos en otra ocasión, esta entrada versará sobre el último, los _dangling pointers_.
 
 Un puntero colgante es, básicamente, un puntero que contiene una dirección de memoria inválida (cuando digo puntero me refiero también, si aplica, a referencias a objetos). Una dirección inválida puede ser:

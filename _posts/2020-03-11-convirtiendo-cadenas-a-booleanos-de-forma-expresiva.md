@@ -7,8 +7,6 @@ permalink: /2020/03/11/convirtiendo-cadenas-a-booleanos-de-forma-expresiva/
 excerpt: Detallamos algunas posibles mejoras en la expresividad del código al transformar cadenas de texto a booleanos.
 categories: c++ expressiveness
 ---
-## Introducción
-
 Al almacenar y recuperar valores desde un JSON, XML o cualquier otra notación de datos, es frecuente encontrarnos con la necesidad de convertir booleanos a cadenas y viceversa. En términos generales no es una operación complicada, y seguramente nos hagamos un par de funciones de ayuda similares a la siguientes:
 
 ```cpp

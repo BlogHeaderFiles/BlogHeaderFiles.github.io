@@ -7,8 +7,6 @@ permalink: /2019/06/13/cuadro-de-busqueda/
 categories: c++ qt search
 excerpt: Presentamos una implementación rápida y sencilla de un cuadro de búsqueda genñerico en Qt.
 ---
-## Introducción
-
 Un caso de uso recurrente en muchas aplicaciones es la de tener un conjunto de entradas, posiblemente visualizadas en una tabla, y tener que realizar una búsqueda sobre dichos datos. Si la búsqueda ha de soportar diversas opciones tales como filtrar por fecha, rangos de valores, escoger tipo de envío, campos en los que se buscará (entre otros), pues seguramente haya que diseñar una ventana específica que cumpla dichos requerimientos. Pero muchas otras veces bastará con un pequeño cajetín de texto donde el usuario escriba lo que desea y el listado de entradas se actualice acorde (y preferiblemente en caliente, conforme se va escribiendo). ¡Vamos a ello!
 
 El código completo de este ejemplo está disponible en [GitHub](https://github.com/BlogHeaderFiles/SourceCode/tree/master/Basic_search_box). Esta vez el ejemplo ha sido programado usando Qt Creator, por dar algo de variedad 😉

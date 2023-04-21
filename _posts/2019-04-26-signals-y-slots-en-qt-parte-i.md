@@ -7,8 +7,6 @@ permalink: /2019/04/26/signals-y-slots-en-qt-parte-i/
 excerpt: Al hablar de Qt vienen inmediatamente a la cabeza dos palabras, signals y slots, un mecanismo de comunicación muy similar al patrón observador, especialmente en lo referente a interfaces gráficas.
 categories: c++ qt signal-slot
 ---
-## Introducción
-
 Es normal que, para muchos, al hablar de Qt vengan a la cabeza dos palabras: _signals_ y _slots_. Y es que Qt usa ampliamente este [mecanismo de comunicación](https://en.wikipedia.org/wiki/Signals_and_slots), muy similar al [patrón observador](https://es.wikipedia.org/wiki/Observer_(patr%C3%B3n_de_dise%C3%B1o)), especialmente en lo referente a interfaces gráficas.
 
 La [documentación de Qt](https://doc.qt.io/qt-5/signalsandslots.html) es muy extensa en el uso de este mecanismo, pero me ha parecido interesante resaltar algunos aspectos básicos y otros un poco menos obvios. Por su extensión, dividiré este artículo en dos entregas. En esta primera parte introduciré el uso más común y _tradicional_ (el usado hasta Qt 4, aunque sea dentro del contexto de Qt 5), y en la [segunda entrega](/2019/05/14/signals-y-slots-en-qt-parte-ii/) pasaré a explicar las novedades introducidas en Qt 5, una comparativa entre ambas versiones, y algunos tópicos más avanzados o al menos no tan frecuentes.

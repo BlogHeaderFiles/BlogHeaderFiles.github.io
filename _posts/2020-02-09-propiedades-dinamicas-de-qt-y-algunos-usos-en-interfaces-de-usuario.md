@@ -7,8 +7,6 @@ permalink: /2020/02/09/propiedades-dinamicas-de-qt-y-algunos-usos-en-interfaces-
 excerpt: ¿Cómo podemos añadir propiedades nuevas a los objetos de Qt y qué beneficios nos trae?
 categories: c++ qt properties
 ---
-## Introducción
-
 Qt ha implementado, como parte de la la estructura de meta-objetos, un [sistema de propiedades](https://doc.qt.io/qt-5/properties.html) bastante completo y potente. Como resumen rápido, y dejando muchas cosas en el tintero, se trata de una forma de guardar datos a nivel de objeto sin tener que modificar su implementación, es decir, de forma dinámica:
 
 - Podemos darle un valor mediante `objeto->setProperty("nombre", valor)`, donde `valor` es un [`QVariant`](https://doc.qt.io/qt-5/qvariant.html).

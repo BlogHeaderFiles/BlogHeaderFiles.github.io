@@ -8,8 +8,6 @@ image: /assets/images/featured/document.jpg
 excerpt: Algunas reflexiones sobre la documentación de código.
 categories: clean-code documentation
 ---
-## Introducción
-
 Mis primeras experiencias programando se podrían catalogar formalmente de _garabatos_: un montón de código que a duras penas hacía lo que yo quería que hiciese (el hecho de que fuese en BASIC no ayudaba mucho, todo hay que decirlo). En ese entonces tampoco disponía de conexión a Internet, y aunque la tuviese, tampoco habría encontrado gran cosa en él (aún).
 
 Al poco tiempo aprendí la importancia de dejar, usando palabras en cristiano, una explicación de aquellas líneas. Y así se inició ese viaje en lograr que el código lo entendiese no sólo el ordenador, sino también otro ser humano (que, como pasa inequívocamente, casi siempre era yo mismo poco tiempo después).

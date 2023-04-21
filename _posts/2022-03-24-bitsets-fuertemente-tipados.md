@@ -8,8 +8,6 @@ image: /assets/images/featured/strong_flags.jpg
 excerpt: Exponemos una alternativa fuertemente tipada a las colecciones de banderas.
 categories: c++ strong-types flags
 ---
-## Introducción
-
 En muchos sistemas es frecuente tener que saber si determinada característica, opción, componente, etc. está habilitado o no. Para ello se suelen usar _flags_ (banderas), definidas como constantes o enumeraciones, y vectores de booleanos o `std::bitset`.
 
 ```cpp

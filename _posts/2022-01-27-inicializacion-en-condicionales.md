@@ -8,8 +8,6 @@ image: /assets/images/featured/init_statement.jpg
 excerpt: Estudiamos el uso de inicializaciones en condicionales y las ventajas que ello supone.
 categories: c++
 ---
-## Introducción
-
 De toda la vida hemos oído que debemos evitar las asignaciones en expresiones booleanas, ya que pueden ser fácilmente confundidas con comparaciones, queda la duda de la intención real del programador y se presta a errores. ¿Qué significado tiene cada una de las siguientes sentencias?
 
 ```cpp

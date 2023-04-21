@@ -7,8 +7,6 @@ permalink: /2019/03/23/introduccion-a-los-qproxystyle/
 excerpt: Los QProxyStyle son un gran aliado a la hora de personalizar la apariencia de nuestra aplicación, sin tener que reimplementar por completo un estilo nuevo.
 categories: c++ qt gui style
 ---
-## Introducción
-
 Son muchos los momentos en los que es necesario cambiar detalles específicos de nuestra interfaz gráfica en Qt (usualmente la apariencia de un control). Qt ofrece muchas opciones al respecto:
 
 - Usar las propiedades del widget. Desafortunadamente no siempre están expuestas todos los parámetros de renderizado del control.

@@ -7,8 +7,6 @@ permalink: /2019/03/12/intuicion-y-openssl-exportando-claves-rsa/
 excerpt: Pocas cosas hay menos intuitivas en este mundo que el exportar las claves RSA privada y pública en OpenSSL. Veamos cómo hacerlo correctamente.
 categories: c openssl
 ---
-## Introducción
-
 Pocas cosas hay menos intuitivas en este mundo que el exportar las claves RSA privada y pública en OpenSSL.
 
 De entrada uno piensa que las funciones a utilizar son `PEM_write_bio_RSAPrivateKey` y `PEM_write_bio_RSAPublicKey`. Todo compila, las salidas son coherentes y parece que todo va bien, pero pronto uno descubre no hay manera de hacer que el programa no falle al usar la clave pública.

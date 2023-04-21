@@ -8,8 +8,6 @@ image: /assets/images/featured/maybe_unused.jpg
 excerpt: maybe_unused es un atributo introducido en C++17, que indica al compilador que no genere warnings de no-uso para el identificador asociado. Este artículo explica su uso y situaciones donde es de ayuda.
 categories: c++ c++17 attributes
 ---
-## Introducción
-
 En algunos ejemplos mostrados en entradas anteriores ha aparecido el uso del atributo `[[maybe_unused]]` que igual no os suena aún. Los _atributos_ son una característica del C++ moderno (C++11 en adelante) que permiten indicar al compilar información acerca del código, con el fin de optimizar determinados fragmentos, introducir restricciones, evitar _warnings_ o generar el código de una forma específica. Los atributos vienen a unificar alternativas ya existentes pero que eran propias de cada compilador, lo que generaba código no portable u obligaba a usar macros y detección del compilador. Una lista completa de los atributos de C++ puede encontrarse en [cppreference.com](https://en.cppreference.com/w/cpp/language/attributes).
 
 En nuestro caso, [`[[maybe_unused]]`](https://es.cppreference.com/w/cpp/language/attributes/maybe_unused) es un atributo introducido en C++17, que indica al compilador que no genere _warnings_ de no-uso para el identificador asociado. Esto es especialmente útil si se ha indicado al compilador que convierta los _warnings_ en errores de compilación (`/WX` para el compilador 'cl' de Visual Studio, `-Werror` en gcc) pero el código en sí es correcto (al final de la entrada hablo un poco más sobre la utilidad de este _warning_).

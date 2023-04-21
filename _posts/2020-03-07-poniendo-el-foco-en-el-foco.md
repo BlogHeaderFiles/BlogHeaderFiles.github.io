@@ -7,8 +7,6 @@ permalink: /2020/03/07/poniendo-el-foco-en-el-foco/
 excerpt: Formas de alterar el comportamiento de nuestros controles cuando reciben el foco.
 categories: c++ qt gui focus
 ---
-## Introducción
-
 Hoy hablaremos de tres casos particulares en los que es conveniente alterar el comportamiento por defecto que tienen algunos controles de Qt al recibir el foco.
 
 ## Breve introducción

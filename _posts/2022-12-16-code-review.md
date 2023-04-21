@@ -8,8 +8,6 @@ image: /assets/images/featured/code_review.jpg
 excerpt: Reflexiones sobre los procesos de revisión de código y su impacto en la calidad del software y del equipo.
 categories: code-review good-practices
 ---
-## Introducción
-
 En los últimos años he tenido la oportunidad de trabajar con grandes profesionales del desarrollo de software, y de todos ellos he aprendido muchísimo. Asímismo, en las empresas donde he trabajado he podido comprobar cómo ese conocimiento se transfiere de forma natural de un miembro del equipo a otro, día a día, logrando una verdadera simbiosis.
 
 Esta transferencia tiene lugar de muchas formas, desde charlas formales sobre un tema dado y discusiones acerca de un proyecto o problema puntual, hasta anécdotas contadas durante un café o una cerveza. Además, muchas veeces ocurría de forma indirecta, o inclusivo podríamos decir que _pasiva_, durante los procesos de revisión de código.

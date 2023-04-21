@@ -8,8 +8,6 @@ image: /assets/images/featured/boost_log.jpg
 excerpt: Un pequeño tutorial acerca del módulo Boost.Log, del que se deriva el proyecto yalog.
 categories: c++ boost log
 ---
-## Introducción
-
 Un sistema de log es de una gran utilidad a la hora de localizar errores en nuestras aplicaciones de una forma rápida. Esto es especialmente cierto en código en producción, en donde normalmente no tenemos acceso a las herramientas habituales de depuración, o donde ni siquiera tenemos acceso al sistema en cuestión sino que dependemos de que el usuario nos diga o mande _cosas_.
 
 En este artículo describimos tanto [un log muy sencillo](#soluciones-básicas) (de esos de andar por casa), así como una introducción a [Boost.Log](#boostlog). Primero detallemos algunos requerimientos que deberíamos tener en cuenta.

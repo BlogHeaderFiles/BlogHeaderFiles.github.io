@@ -8,8 +8,6 @@ image: /assets/images/featured/resize_image_qlabel.jpg
 excerpt: Estudiamos cómo auto-escalar una imagen dentro de un QLabel.
 categories: c++ qt graphics
 ---
-## Introducción
-
 El control para mostrar etiquetas de texto en Qt se llama `QLabel`. Además de texto, puede mostrar una imagen mediante el método `QLabel::setPixmap`, aunque de una forma bastante limitada. Me explico: la imagen se mostrará con una relación 1:1, por lo que estará recortada si es mayor que el widget, mostrándose más o menos dependiendo del tamaño del mismo.
 
 `QLabel` cuenta con una propiedad para _paliar_ el problema descrito arriba (aunque yo creo que lo que logra es confundir más aún): `scaledContents`. Al usar `QLabel::setScaledContents(true)` el pixmap se redimensiona dinámicamente al tamaño de la etiqueta, pero sin respetar la relación de aspecto (adquiere la relación de aspecto del widget).

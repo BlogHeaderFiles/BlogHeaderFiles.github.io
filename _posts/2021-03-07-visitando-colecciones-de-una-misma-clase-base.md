@@ -8,8 +8,6 @@ image: /assets/images/featured/filtered_visitor.jpg
 excerpt: En esta entrada estudiamos una variante del tradicional patrón visitor, aplicado a colecciones de objetos pertenecientes a la misma jerarquía de clases.
 categories: c++ patterns visitor
 ---
-## Introducción
-
 Se dice que uno de los grandes _defectos_ de los programadores es que somos _perezosos_, ya que no nos gusta tener que hacer las cosas más de una vez: cuando eso ocurre creamos un _script_, separamos en una función, hacemos una aplicación. Como extensión, no nos gusta reinventar la rueda: ¿por qué lo voy a hacer una vez si ya alguien lo ha hecho antes? Esto se llama reutilización de código, y puede venir en forma de bibliotecas de funciones, bibliotecas, _frameworks_ (o entradas de blogs que nos expliquen las cosas 😉). Existen además muchos problemas recurrentes en los que la solución no es un código específico sino la manera de abordar el problema, donde todas las soluciones tienen la misma forma, el mismo _patrón de diseño_. Existen multitud de patrones de diseño, pero hoy nos centraremos en una variante del patrón [_visitor_](https://es.wikipedia.org/wiki/Visitor_(patr%C3%B3n_de_dise%C3%B1o)) (para más información sobre otros patrones recomiendo [la lectura de un clásico](https://www.amazon.es/Design-Patterns-Object-Oriented-professional-computing/dp/0201633612)).
 
 De forma resumida, el patrón _visitor_ aplica, a unos o más objetos de clases heterogéneas, una función que es específica para ese objeto (aunque la función no necesariamente pertenezca al objeto).

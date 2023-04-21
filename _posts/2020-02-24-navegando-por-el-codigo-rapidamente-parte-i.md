@@ -8,8 +8,6 @@ excerpt: En esta serie de dos entregas comentaré cómo navego por el código co
 sitemap:
     priority: 0.7
 ---
-## Introducción
-
 Como dicen muchos autores, escribir código no es lo único que hace un programador, un programador _lee_ mucho código. Además, la mayor parte de ese código (casi la totalidad) **no** la hemos escrito nosotros. No, ni siquiera en esos proyectos en los que somos el único desarrollador. ¿Cuántos os acordáis de todo el código, con sus más íntimos recovecos, explicaciones y casos borde, que habéis escrito en los últimos... 6 meses? ¿4 semanas? ¿5 días? ¿el viernes? Lo normal es solucionar problemas, refactorizar código, hacerlo mejor, agregar nuevas funcionalidades, documentarlas... y lo normal es no acordarnos de todo. No digo olvidarlo todo, pero sí que es normal que nos olvidemos de cosas, del nombre exacto de una función o clase, de un error descubierto y solucionado sobre la marcha, de un efecto colateral...
 
 Por otro lado, cuando escribimos código muchas veces escribimos mucho código casi de forma simultánea: un _bug_ que conlleva cambiar una buena tajada de métodos, una nueva característica que obliga a rediseñar unas cuantas clases, o un _refactoring_ en el que hay que cambiar la forma en que se usaba una clase en medio proyecto.

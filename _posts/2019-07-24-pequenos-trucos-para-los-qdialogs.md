@@ -7,8 +7,6 @@ permalink: /2019/07/24/pequenos-trucos-para-los-qdialogs/
 excerpt: Detallamos diversos trucos para mejorar nuestros diálogos en Qt, tales como QMessageBox personalizados, flags y múltiples valores de retorno.
 categories: c++ qt dialogs
 ---
-## Introducción
-
 Es habitual que nuestras aplicaciones no se restrinjan a una única ventana, sino que se sucedan diversas ventanas de opciones, mensajes, informes, selección de datos, visualización de resultados, etc.
 
 Una de las grandes decisiones que hay que tomar cuando se diseñan estas ventanas es su [modalidad](https://es.wikipedia.org/wiki/Ventana_(inform%C3%A1tica)#Modalidad) que, en lenguaje llano, dice si se puede seguir usando el resto de la aplicación (no modal) o no (modal) mientras esa ventana esté abierta.

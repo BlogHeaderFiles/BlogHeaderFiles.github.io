@@ -8,8 +8,6 @@ image: /assets/images/featured/boost_program_options.jpg
 excerpt: Un pequeño tutorial acerca del módulo program_options de Boost para gestionar argumentos por línea de comandos.
 categories: c++ boost cli
 ---
-## Introducción
-
 Toda aplicación de C++ (y C) tienen una función que sirve de _punto de entrada_, es decir, es la función que el sistema operativo llama cuando ha terminado de preparar al proceso y va a comenzar la ejecución del código propiamente dicho (puede que ocurran algunas cosas antes, pero no entraremos en eso). Esta función es la tradicionalmente conocida como _main_, y tiene la siguiente sintaxis base:
 
 ```cpp

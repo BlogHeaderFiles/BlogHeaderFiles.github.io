@@ -8,8 +8,6 @@ image: /assets/images/featured/move.jpg
 excerpt: Abordamos la semántica de movimiento introducida en C++11, los beneficios que aporta a nuestro código, y destruimos algunos mitos y malentendidos.
 categories: c++ c++11 move-semantics
 ---
-## Introducción
-
 Cuando se presentó C++11 hace más de 12 años, los amantes de C++ vimos cómo comenzaba una nueva era para el lenguaje, una _modernización_ del mismo, y nos hizo tener que volver a estudiarlo (si es que alguien deja de hacerlo con C++), con ahora clásicos como el ["Effective Modern C++" (Scott Meyers)](https://www.oreilly.com/library/view/effective-modern-c/9781491908419/).
 
 C++11 introdujo un montón de nuevas características, tales como _templates variádicos_, _range-for_, inicializadores de listas, inferencias de tipos (`auto`), constante nula real (`nullptr`), enumeraciones de tipo estricto (`enum class`), nuevos literales, multitarea (hilos, mutex), `static_assert`, `constexpr`, r-values, semántica de movimiento, funciones lambda, herencia de constructores, punteros inteligentes, especificadores de herencia `override` y `final`, expresiones regulares, tipos de enteros de tamaño fijo (`int32_t`, `uint8_t`, ...), generadores de números aleatorios extensibles y _type traits_, entre tantos otros.

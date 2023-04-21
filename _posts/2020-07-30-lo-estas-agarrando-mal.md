@@ -8,8 +8,6 @@ image: /assets/images/featured/doing_wrong.jpg
 excerpt: El usuario es tonto, no lee el manual, no sabe de informática... Frases que hemos oído y dicho mil veces pero, ¿son siempre verdad?
 categories: ux
 ---
-## Introducción
-
 Muchos recordarán el _antennagate_, cuando el diseño de antena exterior del iPhone 4 mostró un _pequeño_ fallo: el usuario era capaz de cortocircuitar las antenas con su mano al sujetarlo de determinada forma (una forma no precisamente extraña), degradando la recepción hasta el punto de no tener señal en algunas ocasiones. El problema era gordo, aunque también es cierto que tampoco era para empezar la tercera guerra mundial como muchos quisieron hacer. Yo mismo tuve el iPhone 4 y el fallo se convertía en problema básicamente en zonas de baja recepción; no quito peso al fallo, pero si a la publicidad que se le hizo.
 
 Pero vayamos a lo que interesa, lo que dijo Steve Jobs al respecto: "Lo estás agarrando mal". El meollo del asunto no fue que hubiera un error en el diseño, sino la gestión que se hizo del problema desde la empresa: sencillamente espantoso, sacar balones fuera y no querer asumir el error.
