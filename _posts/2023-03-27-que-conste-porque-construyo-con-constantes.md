@@ -8,8 +8,6 @@ image: /assets/images/featured/const.jpg
 excerpt: Enumeramos y razonamos los motivos que me llevan a usar el modificador 'const' en cada momento que puedo
 categories: clean-code good-practices c++
 ---
-## Introducción
-
 Esta semana un colega me preguntó cuáles eran las razones por las que, a la primera oportunidad, declaraba como constantes todas las variables posibles. Ello derivó en una interesante conversación que ha servido de inspiración para este artículo.
 
 ## Constantes
