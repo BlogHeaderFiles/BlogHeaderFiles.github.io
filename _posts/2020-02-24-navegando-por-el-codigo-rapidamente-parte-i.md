@@ -5,6 +5,7 @@ author: Carlos Buchart
 layout: post
 permalink: /2020/02/24/navegando-por-el-codigo-rapidamente-parte-i/
 excerpt: En esta serie de dos entregas comentaré cómo navego por el código con el que trabajo. Se trata de un conjunto de herramientas, pasos, técnicas que me ayudan a leer el código, a inspeccionarlo, a tenerlo a la mano, a no perderme en los cambios que hago. No son métodos para escribir mejor código (ni temas de formato, ni organización, ni nomenclatura). Son ayudas para leer y navegar por código ya existente.
+categories: ide
 sitemap:
     priority: 0.7
 ---

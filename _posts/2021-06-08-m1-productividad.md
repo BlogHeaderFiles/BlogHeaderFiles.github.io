@@ -6,6 +6,7 @@ layout: post
 permalink: /2021/06/08/m1-productividad
 image: /assets/images/featured/m1_productivity.jpg
 excerpt: ¿Cómo se relacionan los chips M1 con la productividad de un equipo?
+categories: apple productivity team
 ---
 Ayer comienzó la WWDC 2021, la conferencia de desarrolladores de Apple y, como no, también tuvo lugar la tan esperada _keynote_ en la que se anunciaron las siguientes versiones de sus principales sistemas operativos (aún estoy digiriendo todo lo presentado).
 

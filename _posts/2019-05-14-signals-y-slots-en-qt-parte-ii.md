@@ -4,8 +4,8 @@ date: 2019-05-14T22:05:03+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2019/05/14/signals-y-slots-en-qt-parte-ii/
-categories: c++ qt signal-slot
 excerpt: Presentamos la nueva sintaxis de Qt 5 y sus ventajas, y resolvemos los principales problemas que nos podemos encontrar.
+categories: c++ qt signal-slot
 ---
 En esta segunda entrega de _Signals y Slots_, estudiaremos la nueva sintaxis introducida en Qt 5, así como una comparativa respecto a la forma antigua, y cómo resolver los principales problemas que puedan surgir.
 

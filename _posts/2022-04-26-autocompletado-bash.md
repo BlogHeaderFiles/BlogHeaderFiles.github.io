@@ -6,7 +6,7 @@ layout: post
 permalink: /2022/04/26/autocompletado-bash
 image: /assets/images/featured/bash_autocomplete.jpg
 excerpt: Explicamos cómo extender la función de autocompletado de Bash para soportar nuestras propias aplicaciones.
-categories: bash
+categories: bash cli
 ---
 Personalmente creo que hay cuatro acciones de teclado que consumen el 70% de mi tiempo en una terminal: <kbd>Enter</kbd>, <kbd>Control-C</kbd>, <kbd>Arriba</kbd> y <kbd>Tab</kbd>. Las dos primeras para iniciar y parar comandos, y las dos últimas para agilizar la escritura, bien sea buscando en el historial o bien completando el nombre del comando actual.
 

@@ -6,7 +6,7 @@ layout: post
 permalink: /2022/01/11/patron-factory
 image: /assets/images/featured/factory.jpg
 excerpt: Explicamos una implementación del patrón factory basada en templates.
-categories: c++ patterns
+categories: c++ patterns templates
 ---
 El [patrón _factory_](https://es.wikipedia.org/wiki/Factory_Method_(patr%C3%B3n_de_dise%C3%B1o)) nos permite la creación de objetos de un subtipo concreto. Entre las diversas ventajas de este patrón, resaltaré dos:
 

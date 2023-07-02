@@ -6,19 +6,19 @@ layout: post
 permalink: /2020/07/30/lo-estas-agarrando-mal/
 image: /assets/images/featured/doing_wrong.jpg
 excerpt: El usuario es tonto, no lee el manual, no sabe de informática... Frases que hemos oído y dicho mil veces pero, ¿son siempre verdad?
-categories: ux
+categories: ux opinion
 ---
 Muchos recordarán el _antennagate_, cuando el diseño de antena exterior del iPhone 4 mostró un _pequeño_ fallo: el usuario era capaz de cortocircuitar las antenas con su mano al sujetarlo de determinada forma (una forma no precisamente extraña), degradando la recepción hasta el punto de no tener señal en algunas ocasiones. El problema era gordo, aunque también es cierto que tampoco era para empezar la tercera guerra mundial como muchos quisieron hacer. Yo mismo tuve el iPhone 4 y el fallo se convertía en problema básicamente en zonas de baja recepción; no quito peso al fallo, pero si a la publicidad que se le hizo.
 
 Pero vayamos a lo que interesa, lo que dijo Steve Jobs al respecto: "Lo estás agarrando mal". El meollo del asunto no fue que hubiera un error en el diseño, sino la gestión que se hizo del problema desde la empresa: sencillamente espantoso, sacar balones fuera y no querer asumir el error.
 
-Hace un par de años se hicieron virales vídeos del tipo "Cosas que estás haciendo mal". Estos vídeos son realmente una recopilación de _hackings_ (trucos caseros, la gran mayoría muy útiles por cierto). Puse el ejemplo del iPhone 4 antes porque uno de esos "trucos" básicamente dice lo mismo: estás agarrando mal el _brick_ de leche o zumo. A todos nos ha pasado que salpicamos todo cuando se vierte líquido desde un _brick_. Esto se debe a la turbulencia creada cuando el aire que entra en el envase se encuentra de frente con el líquido que sale:
+Hace un par de años se hicieron virales vídeos del tipo "Cosas que estás haciendo mal". Estos vídeos son realmente una recopilación de _hackings_ (trucos caseros, la gran mayoría muy útiles por cierto). Puse el ejemplo del iPhone 4 antes porque uno de esos "trucos" básicamente dice lo mismo: estás agarrando mal el _brick_ de leche o zumo. A todos nos ha pasado que salpicamos por doquier cuando se vierte líquido desde un _brick_. Esto se debe a la turbulencia creada cuando el aire que entra en el envase se encuentra de frente con el líquido que sale.
 
 <p style="text-align: center;"><iframe src="https://www.youtube-nocookie.com/embed/Hr4r0smKFTQ?start=135&end=143" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
 
 En resumen, se propone girar el envase de forma que el agujero de salida quede arriba en lugar de abajo, permitiendo que el aire entre libremente sin crear turbulencia.
 
-El problema está que esas salpicaduras no ocurren por un fallo de uso de parte del consumidor, que lógicamente y con todo el sentido común pone la boca del envase lo más cerca posible del recipiente para maximizar la puntería (con la boca puesta como en el truco se hace más difícil acertar). El problema está en el diseño del envase que prioriza otros factores como volumen y almacenamiento frente a su uso, dejando como única salida el poner la boquilla en un lugar tan poco apto. No es que "lo estés agarrando mal", es que está mal diseñado. No es culpa del consumidor sino del fabricante. Y el vídeo no hace sino acentuar esa percepción de inutilidad del usuario al decir que "estabas haciéndolo mal" en lugar de decir que se trata de un simple truco para compensar el fallo de diseño (lo que se conoce comúnmente como un _workaround_).
+El problema está que esas salpicaduras no ocurren por un fallo de uso de parte del consumidor que, lógicamente y con todo el sentido común, pone la boca del envase lo más cerca posible del recipiente para maximizar la puntería (con la boca puesta como en el truco se hace más difícil acertar). El problema está en el diseño del envase que prioriza otros factores como volumen y almacenamiento frente a su uso, dejando como única salida el poner la boquilla en un lugar tan poco apto. No es que "lo estés agarrando mal", es que está mal diseñado. No es culpa del consumidor sino del fabricante. Y el vídeo no hace sino acentuar esa percepción de inutilidad del usuario al decir que "estabas haciéndolo mal" en lugar de decir que se trata de un simple truco para compensar el fallo de diseño (lo que se conoce comúnmente como un _workaround_).
 
 ## "Estás usando mal el software"
 
