@@ -1,5 +1,5 @@
 ---
-title: Patrón Factory
+title: Patrón factory basado en templates
 date: 2022-01-11T01:10:00+01:00
 author: Carlos Buchart
 layout: post

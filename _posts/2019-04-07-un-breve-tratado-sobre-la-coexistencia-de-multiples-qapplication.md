@@ -1,5 +1,5 @@
 ---
-title: 'Un breve tratado sobre la coexistencia de múltiples Q*Application'
+title: 'Coexistencia de múltiples Q*Application'
 date: 2019-04-07T08:52:12+02:00
 author: Carlos Buchart
 layout: post

@@ -1,5 +1,5 @@
 ---
-title: Strict casting
+title: Resolviendo warnings con strict casting
 date: 2022-09-18T00:22:00+02:00
 author: Carlos Buchart
 layout: post

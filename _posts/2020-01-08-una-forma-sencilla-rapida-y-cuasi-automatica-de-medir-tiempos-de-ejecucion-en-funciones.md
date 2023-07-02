@@ -1,5 +1,5 @@
 ---
-title: Una forma sencilla, rápida y cuasi-automática de medir tiempos de ejecución en funciones
+title: Benchmarking sencillo y cuasi-automático de funciones
 date: 2020-01-08T12:20:59+01:00
 author: Carlos Buchart
 layout: post
