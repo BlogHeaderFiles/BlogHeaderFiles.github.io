@@ -158,6 +158,6 @@ void Form::reject()
 
 Dado que las propiedades almacenan `QVariant`s, podemos extender esta técnica sin mucho esfuerzo a otros controles tales como `QDateEdit`, `QSpinBox`, `QComboBox`, etc.
 
-## Conclusión
+## Conclusiones
 
 Las propiedades dinámicas de Qt abren un mundo de posibilidades a la hora de solucionar problemas típicos de interfaces gráficas. ¿Qué otros escenarios se os ocurren? Envíamelos a <a href="https://twitter.com/intent/tweet?screen_name=carlosbuchart&ref_src=twsrc%5Etfw" data-show-count="false">@carlosbuchart</a>

@@ -230,7 +230,7 @@ Puede notarse que he tenido que añadir un `strict_cast<uint16_t>` para el núme
 
 En el caso de que dispongamos de control de la API conflictiva (`get_speed` o `write_register`), podríamos mejorar la solución aún más sin necesidades de los operadores presentados, mediante el uso de tipos fuertemente tipados (para más información se pueden consultar los artículos sobre [booleanos fuertemente tipados](https://headerfiles.com/2021/02/07/expressive-args/) y [argumentos fuertemente tipados](https://headerfiles.com/2021/07/06/expressive-args-2/)).
 
-## Conclusión
+## Conclusiones
 
 Hemos comentado la importancia de prestar atención a los _warnings_ de compilación y de los problemas que nos puede atraer el silenciarlos. Para resolverlo hemos presentado dos operadores: `strict_cast` para asegurarnos que el tipo del dato origen coincide con el que esperamos, y `strict_args` para comprobar si los tipos de datos de los argumentos han cambiado.
 

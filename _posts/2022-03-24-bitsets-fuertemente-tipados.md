@@ -131,7 +131,7 @@ auto const is_debug = compilation_flags.is_enabled<Debug>();
 
 El ejemplo completo puede conseguirse [acá](https://coliru.stacked-crooked.com/a/f4f911e69df90423).
 
-## Conclusión
+## Conclusiones
 
 Como se ha podido ver, el uso de tipos fuertemente tipados aumenta la expresividad del código, permiten soluciones máx flexibles y robustaz, y da una mayor cercanía entre la sintaxis y la semántica.
 

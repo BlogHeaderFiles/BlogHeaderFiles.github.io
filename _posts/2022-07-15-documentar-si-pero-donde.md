@@ -94,7 +94,7 @@ Como es evidente, dichos diagramas y demás documentos son útiles sólo si se c
 
 Dicho esto, lo más natural es versionar esta documentación a la par que el código, posiblemente como parte del mismo repositorio; o generar parte de ella a partir del código (por ejemplo los diagramas de clases o de colaboración).
 
-## Conclusión
+## Conclusiones
 
 Hemos comentado a lo largo de este artículo la importancia de documentar qué hace nuestro código, cómo lo hace, cómo se comunica, de dejar constancia de la experiencia adquirida. Asimismo hemos presentado una propuesta de distribución de la documentación que la pone cercana a los actores interesados así y que permite mantenerla útil a lo largo del tiempo.
 

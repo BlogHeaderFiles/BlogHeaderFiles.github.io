@@ -127,6 +127,6 @@ for (size_t i = 0; auto value : container) {
 
 Para más información de este caso, otros usos y alternativas podéis consultar [esta entrada en Stack Overflow](https://stackoverflow.com/a/60209974/1485885).
 
-## Conclusión
+## Conclusiones
 
 Commo hemos visto, esta sintaxis permite limitar el alcance de una variable, limitándola al entorno _seguro_ que le hemos definido, evitando además que se use para varios propósitos. Su uso es recomendado en los [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es6-declare-names-in-for-statement-initializers-and-conditions-to-limit-scope) (lectura prácticamente obligatoria para mejorar en el lenguaje).

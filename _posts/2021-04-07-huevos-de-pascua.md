@@ -33,7 +33,7 @@ Google por su parte es muy dado a los huevos de Pascua, siendo mi favorito el co
 
 ![mario_karts](https://cdn.andro4all.com/files/2018/03/Google-Maps-Mario-Kart-Easter-Egg.jpg?width=600)
 
-Para cerrar, me gustaría añadir uno que introduje en las aplicaciones que desarrollo en STT ([2DMA](https://www.stt-systems.com/motion-analysis/2d-optical-motion-capture/), [3DMA](https://www.stt-systems.com/motion-analysis/3d-optical-motion-capture/) y [iSen](https://www.stt-systems.com/motion-analysis/inertial-motion-capture/)), y que ya algún usuario ha descubierto por su cuenta 😄. En la ficha de cliente de la BBDD se cambia el icono del cliente por una tarta si se abre la ficha del mismo el día de su cumpleaños.
+Para cerrar, me gustaría añadir uno que introduje en las aplicaciones que desarrollé en STT ([2DMA](https://www.stt-systems.com/motion-analysis/2d-optical-motion-capture/), [3DMA](https://www.stt-systems.com/motion-analysis/3d-optical-motion-capture/) y [iSen](https://www.stt-systems.com/motion-analysis/inertial-motion-capture/)), y que ya algún usuario ha descubierto por su cuenta 😄. En la ficha de cliente de la BBDD se cambia el icono del cliente por una tarta si se abre la ficha del mismo el día de su cumpleaños.
 
 ![2dma](/assets/images/2dma_easter_egg.gif)
 

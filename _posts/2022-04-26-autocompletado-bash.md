@@ -139,6 +139,6 @@ Para activarlo bash con que carguemos el _script_: `source /path/to/script.bash`
 
 Si nuestro proyecto incluye un comando de instalación o un paquete, deberemos añadir el _script_ en el mismo e instalarlo en `/usr/share/bash-completion/completions/`.
 
-## Conclusión
+## Conclusiones
 
 Hemos estudiado cómo extender el autocompletado de Bash con algunas de las opciones más frecuentes. Otras combinaciones más complicadas pueden resolverse con una extensión de éstas (por ejemplo, el caso de que la lista de subvalores de una opción deba ser extraída de un fichero o comando). Para más información podemos consultar [la documentación oficial](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Programmable-Completion).

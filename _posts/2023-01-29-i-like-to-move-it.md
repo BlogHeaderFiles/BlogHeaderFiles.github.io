@@ -167,7 +167,7 @@ Es una optimización muy usada y, de hecho, es la única que viola la regla de _
 
 Existen otras variantes, el RVO (_Return Value Optimization_) y NRVO (_Named Return Value Optimization_). La primera está garantizada (si se dan las condiicones el compilador no la puede obviar) desde C++17. Para más información sugiero consultar [cppreference](https://en.cppreference.com/w/cpp/language/copy_elision) y [algún hilo en Stack Overflow](https://stackoverflow.com/q/12953127/1485885).
 
-## Conclusión
+## Conclusiones
 
 La introducción de las referencias a rvalues es una de las principales mejoras introducidas en C++11 ya que asienta las bases para un nuevo tipo de optimizaciones de gran calado, así como la introducción de tipos de datos no-copiables fundamentales.
 
