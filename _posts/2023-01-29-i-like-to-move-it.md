@@ -104,7 +104,7 @@ Nótese el uso de [`std::swap`](https://es.cppreference.com/w/cpp/algorithm/swap
 Como podemos imaginar de todo lo anterior, la diferencia de rendimiento es enorme, tal y como ejemplifica [este benchmarking](https://quick-bench.com/q/WJUP1kfcKItGffdDWtG9Ly31_40) donde se compara la copia y el movimiento de un `std::vector` de 100.000 enteros (adjunto el código resumido):
 
 ```cpp
-constexpr size_t N{100000};
+constexpr size_t N{100'000};
 
 void CopyVector() {
     std::vector<int> v(N);
@@ -163,9 +163,9 @@ T bar = T{T{T{foo()}}};
 
 sólo se llamaría una vez al constructor por defecto, y directamente sobre la dirección de memoria de `bar`, en lugar de la cadena de constructores de copia (o movimiento) y destructores.
 
-Es una optimización muy usada y, de hecho, es la única que viola la regla de _as-if_ (se aplicar la optimización aunque el constructor de copia o movimiento que se omiten tiene efectos secundarios).
+Es una optimización muy usada y, de hecho, es la única que viola la regla de _as-if_ (se aplica la optimización aunque el constructor de copia o movimiento que se omiten tiene efectos secundarios).
 
-Existen otras variantes, el RVO (_Return Value Optimization_) y NRVO (_Named Return Value Optimization_). La primera está garantizada (si se dan las condiicones el compilador no la puede obviar) desde C++17. Para más información sugiero consultar [cppreference](https://en.cppreference.com/w/cpp/language/copy_elision) y [algún hilo en Stack Overflow](https://stackoverflow.com/q/12953127/1485885).
+Existen otras variantes, el RVO (_Return Value Optimization_) y NRVO (_Named Return Value Optimization_). La primera está garantizada (si se dan las condiciones el compilador no la puede obviar) desde C++17. Para más información sugiero consultar [cppreference](https://en.cppreference.com/w/cpp/language/copy_elision) y [algún hilo en Stack Overflow](https://stackoverflow.com/q/12953127/1485885).
 
 ## Conclusiones
 
