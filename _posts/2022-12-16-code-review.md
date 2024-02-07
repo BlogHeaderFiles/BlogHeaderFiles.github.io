@@ -66,7 +66,7 @@ Es un buen momento además, aprovechando la dedicación de tiempo, para realizar
 
 Puede verse que este nivel requiere de una dedicación mayor que el nivel 1 y un mejor entendimiento tanto de los cambios como del código en general. Si bien todavía podríamos decir que cualquiera puede hacerlas, estas revisiones suelen ser realizadas más por miembros _senior_ del equipo así como afines a la tarea.
 
-### Nivel 3: revisón en profundidad
+### Nivel 3: revisión en profundidad
 
 Este último nivel suele estar reservado a personas afines a la tarea y a arquitectos de software, ya que requiere un fuerte conocimiento tanto del trabajo que ha de realizarse como del producto en general. En este nivel es más difícil definir una lista de comentarios posibles, ya que dependen de cada tarea, pero sí podemos resumir los objetivos que persiguen:
 
