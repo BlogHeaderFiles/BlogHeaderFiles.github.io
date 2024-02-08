@@ -23,17 +23,25 @@ public:
   bool init(const std::string& url) {
     m_connection = new Connection(url);
 
+    if (!m_connection) {
+        return false;
+    }
+
     if (!m_connection->connect()) {
       delete m_connection;
       m_connection = nullptr;
+
+      return false;
     }
 
     if (!m_connection->login()) {
       delete m_connection;
       m_connection = nullptr;
+
+      return false;
     }
 
-    return m_connection != nullptr;
+    return true;
   }
 };
 ```
@@ -52,6 +60,7 @@ public:
   bool init(const std::string& url) {
     auto connection = std::make_unique<Connection>(url);
 
+    if (!connection) { return false; }
     if (!connection->connect()) { return false; }
     if (!connection->login()) { return false; }
 
