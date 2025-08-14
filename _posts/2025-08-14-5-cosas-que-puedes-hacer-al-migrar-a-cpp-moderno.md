@@ -97,7 +97,7 @@ La única _pega_ (que por otra parte tiene su lado positivo), es que el nombre d
 
 ## Pythoniza tu código
 
-El que diga que C++ moderno no <del>ha copiado</del> se ha inspirando en aspectos de otros lenguajes más jóvenes (especialmente Python), pues simplemente está negando lo obvio. Las nuevas sintaxis introducidas no sólo ayudan a hacer un código más compacto, sino que además permiten mejorar la expresividad del código y elevar el nivel de abstracción.
+El que diga que C++ moderno no ~~ha copiado~~ se ha inspirando en aspectos de otros lenguajes más jóvenes (especialmente Python), pues simplemente está negando lo obvio. Las nuevas sintaxis introducidas no sólo ayudan a hacer un código más compacto, sino que además permiten mejorar la expresividad del código y elevar el nivel de abstracción.
 
 - _Range-for_: seguramente la más conocida de estas _pythonizaciones_, permite recorrer una colección de elementos, sin necesidad de preocuparse del tipo exacto de contenedor. C++ ya disponía de un par de formas de hacerlo (un `for` desde `begin` hasta `end`, y el `std::for_each`), pero el _range-for_ es más natural en muchos casos donde solamente queremos _recorrer los elementos_ (pero no modificar el contenedor, por ejemplo).
 
@@ -212,7 +212,7 @@ Un ejemplo común para `unique_ptr` son las clases _manager_, que centralizan el
 
 Un código de C++ moderno no debería usar punteros _raw_ para almacenar objetos. A la hora de pasar un objeto `unique_ptr` podemos o bien usar una referencia (que además obliga a no pasar un `nullptr`); si el objeto puede no estar inicializado podríamos pasar un `std::optional<Objeto&>` (C++17), pero en este caso no hay una ventaja muy clara respecto a pasar un puntero _raw_ ya que se puede usar mal en ambos casos. El acceso a punteros nulos sigue siendo responsabilidad del programador. Así que cuidado en este caso.
 
-Ambos tipos de _punteros inteligentes_ se basan en un principio muy conocido de C++ y del que ya he hablado en otras ocasiones: el RAII (ver [RAII 1](/2020/01/13/_posts/2020-01-13-automatizando-acciones-gracias-al-raii-parte-i) y [RAII 2](/2020/01/17/2020-01-17-automatizando-acciones-gracias-al-raii-parte-ii)). No me extenderé acá en este tema y refiero a dichas páginas para más información
+Ambos tipos de _punteros inteligentes_ se basan en un principio muy conocido de C++ y del que ya he hablado en otras ocasiones: el RAII (ver [RAII 1](/2020/01/13/automatizando-acciones-gracias-al-raii-parte-i/) y [RAII 2](/2020/01/17/automatizando-acciones-gracias-al-raii-parte-ii/)). No me extenderé acá en este tema y refiero a dichas páginas para más información
 
 ## Bonos
 
