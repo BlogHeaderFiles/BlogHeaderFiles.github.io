@@ -4,7 +4,7 @@ date: 2025-08-14T07:00:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2025/08/14/5-cosas-que-puedes-hacer-al-migrar-a-cpp-moderno
-image: /assets/images/featured/c++-moderno.jpg
+image: /assets/images/featured/modern-cpp.jpg
 excerpt: Descubre cómo migrar a C++ moderno puede triplicar el rendimiento de tu código y mejorar su legibilidad sin apenas esfuerzo. Desde optimizaciones automáticas hasta nuevas sintaxis y funciones.
 categories: c++ c++11 c++14 c++17 c++20
 ---
