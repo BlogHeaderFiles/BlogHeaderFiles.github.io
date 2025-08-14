@@ -97,7 +97,7 @@ La única _pega_ (que por otra parte tiene su lado positivo), es que el nombre d
 
 ## Pythoniza tu código
 
-El que diga que C++ moderno no ~ha copiado~ se ha inspirando en aspectos de otros lenguajes más jóvenes (especialmente Python), pues simplemente está negando lo obvio. Las nuevas sintaxis introducidas no sólo ayudan a hacer un código más compacto, sino que además permiten mejorar la expresividad del código y elevar el nivel de abstracción.
+El que diga que C++ moderno no <del>ha copiado</del> se ha inspirando en aspectos de otros lenguajes más jóvenes (especialmente Python), pues simplemente está negando lo obvio. Las nuevas sintaxis introducidas no sólo ayudan a hacer un código más compacto, sino que además permiten mejorar la expresividad del código y elevar el nivel de abstracción.
 
 - _Range-for_: seguramente la más conocida de estas _pythonizaciones_, permite recorrer una colección de elementos, sin necesidad de preocuparse del tipo exacto de contenedor. C++ ya disponía de un par de formas de hacerlo (un `for` desde `begin` hasta `end`, y el `std::for_each`), pero el _range-for_ es más natural en muchos casos donde solamente queremos _recorrer los elementos_ (pero no modificar el contenedor, por ejemplo).
 
