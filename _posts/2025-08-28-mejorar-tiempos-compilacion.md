@@ -16,6 +16,8 @@ Una de las primeras formas de reducir el tiempo de compilación usadas fue la de
 
 Aún así, esto no suele ser suficiente, siendo frecuente tener que esperar entre 30 segundos y 5 minutos hasta que la compilación termine. Si sumamos el hecho de que tenemos que compilar multitud de veces cada día, en total supone un montón de tiempo dedicado a ver pasar líneas frente a nuestros ojos. Un día normal para mí conlleva entre 30 y 50 compilaciones, con una duración media de 30s, lo que nos da entre 15 y 25 minutos por jornada.
 
+![Créditos: https://xkcd.com/303/](/assets/images/compiling.png)
+
 Casi todos aprovechamos estos micro-descansos durante las compilaciones para hacer _algo en paralelo_. Dos minutos apenas da tiempo para ir al baño, en 4 podemos hacernos un café (contando el tiempo de ir a la cocina, calentar la leche, etc.). Podemos aprovechar para responder un email o mirar el estado del equipo, etc. Pero, salvo contadas ocasiones, la experiencia dicta que es mejor _no hacer nada_, no sólo porque lo que creíamos que era cosa de 1 minuto se extienda, sino porque además hacer muchas cosas al mismo tiempo significa perder el enfoque: el _cambio de contexto_ penaliza la tarea principal. Lo mejor que podemos hacer es tratar de minimizar ese tiempo muerto (obviamente estoy asumiendo que compilamos cuando lo necesitamos y no como tic nervioso).
 
 En este artículo comentaremos algunas estrategias de optimización (todas centradas en reducir la cantidad de código a compilar, ya veremos por qué), cómo aplicarlas eficientemente, y aspectos a tener en cuenta para que no nos salga el tiro por la culata.
@@ -46,13 +48,13 @@ Personalmente uso una combinación de ambas: con el _script_ obtengo una clasifi
 
 La siguiente imagen muestra las trazas para la compilación de un fichero .cpp modesto, de 2K líneas y 68KB de peso (es un ejemplo real, por lo que he ocultado algunos datos). Los resultados se muestran como un _flame graph_: el eje horizontal es el tiempo desde el inicio del procesado del fichero, donde cada bloque es una fase de la compilación y su ancho es el tiempo invertido en dicha fase; el eje vertical es el _call stack_.
 
-![Vista general de un timetrace](time-trace-overview.png)
+![Vista general de un timetrace](/assets/images/time-trace-overview.png)
 
 En este artículo nos centraremos en los bloques _verdes_, que representan la lectura, preprocesado y _parseo_ (análisis sintáctico). Los bloques más grandes son nuestros principales cuellos de botella: ficheros que tardan mucho en ser analizados. Estos ficheros son los que tenemos que optimizar.
 
 Ahora bien, debemos saber si, dado un bloque grande, el fichero asociado es pesado en sí mismo o porque otros (ficheros incluidos por el primero) lo _engordan_. Podemos obtener esta información en dos formas (complementarias entre sí): la primera es observar el eje vertical y el impacto de las dependencias (véase el bloque central: el primer fichero consume mucho, pero es obvio que es culpa de dos dependencias). La otra es observando los detalles de cada bloque (basta con seleccionar el bloque y ver el pánel inferior):
 
-![Detalle de un timetrace](time-trace-details.png)
+![Detalle de un timetrace](/assets/images/time-trace-details.png)
 
 Acá podemos ver que si bien el procesado del fichero toma 325ms (_wall duration_), el fichero como tal solo toma 2ms (_self time_).
 
