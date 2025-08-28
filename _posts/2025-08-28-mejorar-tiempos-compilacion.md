@@ -1,6 +1,6 @@
 ---
 title: Mejorando los tiempos de compilación
-date: 2025-08-28T12:00:00+01:00
+date: 2025-08-28T10:00:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2025/08/28/mejorar-tiempos-compilacion
