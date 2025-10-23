@@ -4,7 +4,6 @@ date: 2021-03-07T17:20:39+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2021/03/07/visitando-colecciones-de-una-misma-clase-base
-image: /assets/images/featured/filtered_visitor.jpg
 excerpt: En esta entrada estudiamos una variante del tradicional patrón visitor, aplicado a colecciones de objetos pertenecientes a la misma jerarquía de clases.
 categories: c++ patterns visitor
 ---

@@ -4,7 +4,6 @@ date: 2022-09-18T00:22:00+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2022/09/18/strict-cast
-image: /assets/images/featured/strict_cast.jpg
 excerpt: Alternativas expresivas al type casting y con detección de cambios de API.
 categories: c++ casting expressiveness
 ---

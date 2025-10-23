@@ -4,7 +4,6 @@ date: 2021-07-06T11:30:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2021/07/06/expressive-args-2/
-image: /assets/images/featured/expressive_args.jpg
 excerpt: En esta segunda entre generalizamos para más tipos de datos la solución propuesta anteriormente.
 categories: c++ clean-code strong-types expressiveness
 ---

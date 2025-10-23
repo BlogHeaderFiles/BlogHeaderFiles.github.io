@@ -4,7 +4,6 @@ date: 2021-02-07T00:00:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2021/02/07/expressive-args/
-image: /assets/images/featured/expressive_args.jpg
 excerpt: Una de las tareas a las que más me enfrento cuando leo código heredado, o mi propio código antiguo, es saber qué es cada parámetro de una función. En esta entrada estudiaremos dos técnicas que nos ayudarán a tener un código expresivo.
 categories: c++ clean-code strong-types expressiveness
 ---

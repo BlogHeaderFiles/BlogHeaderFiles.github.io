@@ -4,7 +4,6 @@ date: 2020-04-07T00:55:51+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/04/07/correspondencia-de-monitores-entre-qt-y-windows/
-image: /assets/images/featured/monitors_correspondence.jpg
 excerpt: En esta entrada explicamos la relación entre los monitores reportados por Qt y los listados por Windows.
 categories: c++ qt windows
 ---

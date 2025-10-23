@@ -4,7 +4,6 @@ date: 2022-04-26T07:45:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2022/04/26/autocompletado-bash
-image: /assets/images/featured/bash_autocomplete.jpg
 excerpt: Explicamos cómo extender la función de autocompletado de Bash para soportar nuestras propias aplicaciones.
 categories: bash cli
 ---

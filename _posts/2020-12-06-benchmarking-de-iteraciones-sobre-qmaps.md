@@ -4,7 +4,6 @@ date: 2020-12-06T17:31:07+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/12/06/benchmarking-de-iteraciones-sobre-qmaps/
-image: /assets/images/featured/iterating_qmaps.jpg
 excerpt: Comparamos el rendimiento entre los contenedores QMap y std::map.
 categories: c++ qt maps benchmarking
 ---

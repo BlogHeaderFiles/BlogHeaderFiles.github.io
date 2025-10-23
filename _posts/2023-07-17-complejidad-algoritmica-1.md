@@ -4,7 +4,6 @@ date: 2023-07-17T08:00:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2023/07/17/complejidad-algoritmica-1
-image: /assets/images/featured/algorithm_complexity.jpg
 excerpt: Introducción al concepto de complejidad algorítmica, su impacto en el desarrollo y algunas consideraciones iniciales
 categories: algorithm performance
 ---

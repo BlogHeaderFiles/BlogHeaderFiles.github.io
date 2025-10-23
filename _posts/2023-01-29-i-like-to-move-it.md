@@ -4,7 +4,6 @@ date: 2023-01-29T22:00:00:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2023/01/29/i-like-to-move-it
-image: /assets/images/featured/move.jpg
 excerpt: Abordamos la semántica de movimiento introducida en C++11, los beneficios que aporta a nuestro código, y destruimos algunos mitos y malentendidos.
 categories: c++ c++11 move-semantics
 ---

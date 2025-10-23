@@ -4,7 +4,6 @@ date: 2021-06-08T11:00:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2021/06/08/m1-productividad
-image: /assets/images/featured/m1_productivity.jpg
 excerpt: ¿Cómo se relacionan los chips M1 con la productividad de un equipo?
 categories: apple productivity team
 ---

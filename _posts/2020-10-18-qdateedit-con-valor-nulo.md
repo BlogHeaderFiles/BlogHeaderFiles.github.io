@@ -4,7 +4,6 @@ date: 2020-10-18T00:07:28+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/10/18/qdateedit-con-valor-nulo/
-image: /assets/images/featured/nullable_qdateedit.jpg
 excerpt: En este artículo presento una variante del widget QDateEdit para trabajar con fechas nulas.
 categories: c++ qt
 ---

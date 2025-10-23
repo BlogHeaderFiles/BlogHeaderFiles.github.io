@@ -4,7 +4,6 @@ date: 2020-06-08T23:54:21+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/06/08/maxima-resolucion-de-webcam-en-opencv/
-image: /assets/images/featured/opencv_max_resolution.jpg
 excerpt: En este artículo nos ocuparemos de un aspecto en específico, las resoluciones soportadas, o mejor dicho, la máxima resolución que una webcam puede soportar y cómo obtenerla usando OpenCV.
 categories: c++ opencv webcam
 ---

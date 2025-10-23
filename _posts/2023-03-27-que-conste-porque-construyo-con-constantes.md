@@ -4,7 +4,6 @@ date: 2023-03-27T08:00:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2023/03/27/que-conste-porque-construyo-con-constantes
-image: /assets/images/featured/const.jpg
 excerpt: Enumeramos y razonamos los motivos que me llevan a usar el modificador 'const' en cada momento que puedo
 categories: clean-code good-practices c++
 ---

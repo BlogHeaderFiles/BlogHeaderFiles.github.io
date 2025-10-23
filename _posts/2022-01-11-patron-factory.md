@@ -4,7 +4,6 @@ date: 2022-01-11T01:10:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2022/01/11/patron-factory
-image: /assets/images/featured/factory.jpg
 excerpt: Explicamos una implementación del patrón factory basada en templates.
 categories: c++ patterns templates
 ---

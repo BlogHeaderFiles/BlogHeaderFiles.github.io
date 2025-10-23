@@ -4,7 +4,6 @@ date: 2022-07-15T00:45:00+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2022/07/15/documentar-si-pero-donde
-image: /assets/images/featured/document.jpg
 excerpt: Algunas reflexiones sobre la documentación de código.
 categories: clean-code documentation
 ---

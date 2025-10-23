@@ -4,7 +4,6 @@ date: 2021-04-07T16:16:16+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2021/04/07/huevos-de-pascua
-image: /assets/images/featured/easter_eggs.jpg
 excerpt: Un muy breve comentario sobre los huevos de Pascua, aunque no precisamente los de chocolate.
 sitemap:
     priority: 0.7

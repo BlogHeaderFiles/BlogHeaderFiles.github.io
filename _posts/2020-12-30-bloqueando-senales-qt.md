@@ -4,7 +4,6 @@ date: 2020-12-30T00:52:40+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/12/30/bloqueando-senales-qt/
-image: /assets/images/featured/blocksignals.jpg
 excerpt: Hay casos en los que no deseamos que el slot de un objeto sea llamado al emitirse una señal. Esta entrada explica una forma simple de solucionarlo.
 categories: c++ qt signal-slot
 ---

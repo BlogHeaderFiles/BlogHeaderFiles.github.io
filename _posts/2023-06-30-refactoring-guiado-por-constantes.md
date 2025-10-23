@@ -4,7 +4,6 @@ date: 2023-06-30T16:00:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2023/06/30/refactoring-guiado-por-constantes
-image: /assets/images/featured/const.jpg
 excerpt: Continuamos estudiando el uso de constantes y explicamos un refactoring muy sencillo que podemos detectar gracias a ellas
 categories: clean-code good-practices c++
 ---

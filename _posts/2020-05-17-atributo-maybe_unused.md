@@ -4,7 +4,6 @@ date: 2020-05-17T10:48:14+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/05/17/atributo-maybe_unused/
-image: /assets/images/featured/maybe_unused.jpg
 excerpt: maybe_unused es un atributo introducido en C++17, que indica al compilador que no genere warnings de no-uso para el identificador asociado. Este artículo explica su uso y situaciones donde es de ayuda.
 categories: c++ c++17 attributes
 ---

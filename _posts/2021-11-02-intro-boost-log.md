@@ -4,7 +4,6 @@ date: 2021-11-02T19:19:19+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2021/11/02/intro-boost-log
-image: /assets/images/featured/boost_log.jpg
 excerpt: Un pequeño tutorial acerca del módulo Boost.Log, del que se deriva el proyecto yalog.
 categories: c++ boost log
 ---

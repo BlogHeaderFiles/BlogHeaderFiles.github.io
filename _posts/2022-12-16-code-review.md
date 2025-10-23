@@ -4,7 +4,6 @@ date: 2022-12-16T16:00:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2022/12/16/code-review
-image: /assets/images/featured/code_review.jpg
 excerpt: Reflexiones sobre los procesos de revisión de código y su impacto en la calidad del software y del equipo.
 categories: code-review good-practices
 ---

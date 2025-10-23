@@ -4,7 +4,6 @@ date: 2020-03-29T09:06:21+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/03/29/como-montar-carpeta-local-como-unidad-en-windows/
-image: /assets/images/featured/map_network_drive.jpg
 excerpt: Un pequeño cambio que agilizará tu conexión a unidades remotas.
 categories: windows
 ---

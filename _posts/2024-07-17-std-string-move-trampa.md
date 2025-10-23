@@ -4,7 +4,6 @@ date: 2024-07-17T00:00:00+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2024/07/17/std-string-move-trampa
-image: /assets/images/featured/move.jpg
 excerpt: Estudiamos la eficiencia de la semántica de movimiento en std::string y exploramos algunas consideraciones.
 categories: c++ c++11 move-semantics string
 ---

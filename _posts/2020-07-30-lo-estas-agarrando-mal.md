@@ -4,7 +4,6 @@ date: 2020-07-30T11:04:11+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2020/07/30/lo-estas-agarrando-mal/
-image: /assets/images/featured/doing_wrong.jpg
 excerpt: El usuario es tonto, no lee el manual, no sabe de informática... Frases que hemos oído y dicho mil veces pero, ¿son siempre verdad?
 categories: ux opinion
 ---

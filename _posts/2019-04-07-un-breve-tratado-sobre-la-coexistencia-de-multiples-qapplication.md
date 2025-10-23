@@ -4,7 +4,6 @@ date: 2019-04-07T08:52:12+02:00
 author: Carlos Buchart
 layout: post
 permalink: /2019/04/07/un-breve-tratado-sobre-la-coexistencia-de-multiples-qapplication/
-image: /assets/images/featured/multiple_qapplications.jpg
 excerpt: Estudiamos las consecuencias de instanciar QApplication múltiples veces y las consideraciones a tener en cuenta.
 categories: c++ qt qapplication
 ---

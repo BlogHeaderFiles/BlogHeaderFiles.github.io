@@ -4,7 +4,6 @@ date: 2023-10-13T09:00:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2023/10/23/ejecutar-una-vez
-image: /assets/images/featured/execute_once.jpg
 excerpt: Estudiamos varias técnicas para restringir, de forma elegante, la ejecución de una función a una única vez.
 categories: c++ initialization
 ---

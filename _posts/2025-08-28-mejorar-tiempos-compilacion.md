@@ -4,7 +4,6 @@ date: 2025-08-28T10:00:00+01:00
 author: Carlos Buchart
 layout: post
 permalink: /2025/08/28/mejorar-tiempos-compilacion
-image: /assets/images/featured/build_time.jpg
 excerpt: Mencionamos algunas estrategias para la reducción de tiempos de compilación en grandes proyectos.
 categories: c++ build compilation
 ---
