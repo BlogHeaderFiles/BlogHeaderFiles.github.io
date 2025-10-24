@@ -281,6 +281,7 @@ main {
 .post-related {
   font-size: 16px;
   text-align: right;
+  padding-top: 10px; /* center with post-title margin-bottom */
 }
 
 #disqus_thread {
