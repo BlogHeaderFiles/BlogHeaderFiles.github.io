@@ -98,7 +98,7 @@ Aun así, el rendimiento real depende de la función hash y de la distribución 
 
 ## Benchmarks
 
-Sin entrar en grandes comparativas, a continuación mostramos una comparativa entre los tres contenedores mencionados en este artículo. En este experimento creamos N elementos aleatorios (la clave puede repetirse), buscamos N valores aleatorios, y luego destruimos el conteneor. Usamos 3 casos, N = 10K, N = 100K, N = 1M.
+Sin entrar en grandes comparativas, a continuación mostramos una comparativa entre los tres contenedores mencionados en este artículo. En este experimento creamos N elementos aleatorios (la clave puede repetirse), buscamos N valores aleatorios, y luego destruimos el contenedor. Usamos 3 casos (de arriba a abajo): N = 10K, N = 100K, N = 1M.
 
 ![Comparando std::map, std::unordered_map y std::vector ordenado, 10K](/assets/images/map_unordered_sorted_vector_10K.png)
 
@@ -112,7 +112,7 @@ Podemos como el `std::vector` ordenado es más eficiente que los dos contenedore
 
 Como mencionamos al principio, todo lo anterior es directamente aplicable a `std::set` y `std::unordered_set`. El razonamiento, las optimizaciones y los trade-offs son idénticos; simplemente sin el componente "valor".
 
-## Reflexión final
+## Conclusiones
 
 La elección del contenedor clave-valor adecuado requiere entender más allá de la complejidad asintótica. Los detalles de memoria, caché y ciclo de vida del objeto son relevantes. En muchos casos, una solución "ingenua" resulta más eficiente que la opción obvia porque juega mejor con las características del hardware moderno.
 
